@@ -6,6 +6,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import HomeContent from "./HomeContent";
 import Search from "./Search";
+import Container from "react-bootstrap/Container";
 
 export function Home() {
   <Heading title="Home" />;
@@ -19,7 +20,6 @@ export function Home() {
       .then((response) => response.json())
       .then((json) => {
         result(json.results);
-        console.log(json.results);
         setFilteredItems(json.results);
       })
       .catch((error) => console.log(error))
@@ -34,6 +34,12 @@ export function Home() {
       if (lowerCaseName.startsWith(searchValue)) {
         return true;
       }
+      //fix this bby
+      if (searchValue.length > 0) {
+        console.log("greater than 0");
+      } else if (searchValue !== null) {
+        console.log("error");
+      }
       return false;
     });
 
@@ -45,7 +51,7 @@ export function Home() {
   }
 
   return (
-    <>
+    <Container className="home__content">
       <Search handleSearch={filterCards} />
       <Row>
         {filteredItems.map((item) => {
@@ -64,7 +70,7 @@ export function Home() {
           );
         })}
       </Row>
-    </>
+    </Container>
   );
 }
 

@@ -1,11 +1,17 @@
 .navbar__logo {
-  width: 35%;
+  width: 20%;
 }
 .navbar {
-  background-color: #293338;
-}
-.navbar__header {
   width: 100%;
-  margin: 0;
-  padding: 0;
+  background-color: $linear__white;
+}
+.navbar__link {
+  color: $color__grey;
+  text-transform: uppercase;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+}
+.navbar__link:hover {
+  color: $color__grey;
+  opacity: 0.7;
 }

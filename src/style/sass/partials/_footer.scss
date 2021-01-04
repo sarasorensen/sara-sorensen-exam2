@@ -1,0 +1,16 @@
+.footer__content {
+  background-color: $color__grey;
+  color: $color__beige;
+  padding-top: 1em;
+  margin-top: 1em;
+}
+//fix nesting?
+.footer__content a {
+  color: $color__beige;
+}
+
+.footer__sub {
+  background-color: $color__main;
+  color: $color__grey;
+  padding: 0.5em;
+}

@@ -13,10 +13,12 @@ import Hotels from "./hotels/Hotels";
 import Contact from "./contact/Contact";
 import Logo from "../../images/logo-y.png";
 import Header from "../../images/header.jpg";
+import Footer from "./Footer";
 
 function Layout() {
   return (
     <Router>
+      <div></div>
       <Navbar expand="lg">
         <NavLink to="/" exact>
           <Navbar.Brand>
@@ -25,20 +27,22 @@ function Layout() {
         </NavLink>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto">
-            <NavLink to="/" exact className="nav-link  text-right">
+          <Nav className="navbar-nav ml-auto">
+            <NavLink to="/" exact className="navbar__link">
               Home
             </NavLink>
-            <NavLink to="/hotels" className="nav-link  text-right">
+            <NavLink to="/hotels" className="navbar__link">
               Hotels
             </NavLink>
-            <NavLink to="/contact" className="nav-link  text-right">
+            <NavLink to="/contact" className="navbar__link">
               Contact
             </NavLink>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
-      <img src={Header} className="navbar__header" alt="company header " />
+      <div className="image-blurred-edge">
+        <img src={Header} className="navbar__header" alt="company header " />
+      </div>
       <Container>
         <Switch>
           <Route path="/" exact component={Home} />
@@ -46,6 +50,7 @@ function Layout() {
           <Route path="/hotels" component={Hotels} />
         </Switch>
       </Container>
+      <Footer />
     </Router>
   );
 }

@@ -1,14 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap");
+h1 {
+  font-family: "Fjalla One", sans-serif;
+  color: #ffffff;
+  text-align: center;
+  letter-spacing: 0.1em;
+}
+
 .navbar__logo {
-  width: 35%;
+  width: 20%;
 }
 
 .navbar {
+  width: 100%;
+  background-color: linear-gradient(to bottom, #ffffff, #f4f5f4);
+}
+
+.navbar__link {
+  color: #293338;
+  text-transform: uppercase;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+.navbar__link:hover {
+  color: #293338;
+  opacity: 0.7;
+}
+
+.footer__content {
   background-color: #293338;
+  color: #f4f5f4;
+  padding-top: 1em;
+  margin-top: 1em;
+}
+
+.footer__content a {
+  color: #f4f5f4;
+}
+
+.footer__sub {
+  background-color: #f1aa1e;
+  color: #293338;
+  padding: 0.5em;
 }
 
 .navbar__header {
   width: 100%;
-  margin: 0;
-  padding: 0;
+  height: 100vh;
+  background-color: #293338;
+  background-image: url(../../../images/header.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  z-index: 1;
+  position: relative;
+  text-align: center;
+  -webkit-box-shadow: 0 0 8px 8px white inset;
+          box-shadow: 0 0 8px 8px white inset;
+  -webkit-box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+}
+
+.navbar__header text {
+  text-align: center;
+  margin-top: 0;
+}
+
+.home__content {
+  z-index: 1;
+  position: absolute;
+  top: 30%;
+  bottom: 50%;
+  left: 50%;
+  right: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.search {
+  padding: 0.5rem;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.search__icon {
+  color: #f4f5f4;
+}
+
+.search__icon--box {
+  background-color: #f1aa1e;
+  padding: 0.3em;
 }
 /*# sourceMappingURL=styles.css.map */

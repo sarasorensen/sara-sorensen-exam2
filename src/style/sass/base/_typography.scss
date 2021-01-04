@@ -1,0 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap");
+
+//Font variables
+$main-heading: "Fjalla One", sans-serif;
+$fallback-font: "arial", sans-serif;
+
+h1 {
+  font-family: $main-heading;
+  color: $color__white;
+  text-align: center;
+  letter-spacing: 0.1em;
+}
