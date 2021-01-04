@@ -1,0 +1,14 @@
+.navbar__logo {
+  width: 35%;
+}
+
+.navbar {
+  background-color: #293338;
+}
+
+.navbar__header {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+/*# sourceMappingURL=styles.css.map */

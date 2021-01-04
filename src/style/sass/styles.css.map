@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "ACAA,AAAA,aAAa,CAAC;EACZ,KAAK,EAAE,GAAG;CACX;;AACD,AAAA,OAAO,CAAC;EACN,gBAAgB,EAAE,OAAO;CAC1B;;AACD,AAAA,eAAe,CAAC;EACd,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,CAAC;EACT,OAAO,EAAE,CAAC;CACX",
+    "sources": [
+        "styles.scss",
+        "partials/_navigation.scss"
+    ],
+    "names": [],
+    "file": "styles.css"
+}
