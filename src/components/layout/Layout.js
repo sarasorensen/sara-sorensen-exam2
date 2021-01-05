@@ -11,8 +11,8 @@ import Container from "react-bootstrap/Container";
 import Home from "./home/Home";
 import Hotels from "./hotels/Hotels";
 import Contact from "./contact/Contact";
+import Success from "../layout/admin/success";
 import Logo from "../../images/logo-y.png";
-import Header from "../../images/header.jpg";
 import Footer from "./Footer";
 
 function Layout() {
@@ -40,14 +40,13 @@ function Layout() {
           </Nav>
         </Navbar.Collapse>
       </Navbar>
-      <div className="image-blurred-edge">
-        <img src={Header} className="navbar__header" alt="company header " />
-      </div>
+
       <Container>
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/contact" component={Contact} />
           <Route path="/hotels" component={Hotels} />
+          <Route path="/success" component={Success} />
         </Switch>
       </Container>
       <Footer />

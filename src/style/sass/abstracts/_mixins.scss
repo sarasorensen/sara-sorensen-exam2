@@ -1,0 +1,21 @@
+@mixin main__link {
+  color: $color__main;
+  font-family: Arial, Helvetica, sans-serif;
+  &:hover {
+    color: $color__main;
+    opacity: 0.7;
+    text-decoration: underline;
+  }
+}
+
+@mixin secondary__link {
+  background-color: $color__main;
+  color: $color__white;
+  padding: 0.5em;
+  text-transform: uppercase;
+  &:hover {
+    color: $color__white;
+    opacity: 0.9;
+    text-decoration: none;
+  }
+}

@@ -6,7 +6,7 @@ import Form from "react-bootstrap/Form";
 export default function Search({ handleSearch }) {
   return (
     <Form>
-      <h1>Find a hotel in Bergen</h1>
+      <h1>Find your dream hotel in Bergen</h1>
       <InputGroup className="form-group md-form">
         <div className="search__icon--box">
           <svg

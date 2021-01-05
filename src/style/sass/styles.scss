@@ -1,8 +1,11 @@
 @import "abstracts/variables";
+@import "abstracts/mixins";
 
 @import "base/typography";
 
+@import "partials/grid";
 @import "partials/navigation";
 @import "partials/footer";
 
 @import "pages/home";
+@import "pages/contact";

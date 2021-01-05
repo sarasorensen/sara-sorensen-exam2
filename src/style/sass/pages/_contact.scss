@@ -1,0 +1,32 @@
+.form__container {
+  width: 100%;
+  background-color: $color__main;
+  margin-top: 5%;
+}
+.form__input {
+  width: 100%;
+}
+.form__error {
+  color: $error;
+}
+.form__label {
+  width: 100%;
+}
+.form__control {
+  width: 100%;
+}
+.form__col--1 {
+  background-color: $color__grey;
+  padding: 1em;
+  text-align: center;
+}
+.form__icon {
+  width: 50%;
+  color: $color__white;
+  margin-bottom: 5%;
+  margin-top: 5%;
+}
+.form__info {
+  font-size: 1.2em;
+  color: $color__white;
+}

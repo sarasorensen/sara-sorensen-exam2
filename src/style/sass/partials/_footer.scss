@@ -1,8 +1,10 @@
 .footer__content {
+  bottom: 0;
+  width: 100%;
   background-color: $color__grey;
   color: $color__beige;
   padding-top: 1em;
-  margin-top: 1em;
+  margin-top: 5%;
 }
 //fix nesting?
 .footer__content a {

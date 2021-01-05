@@ -4,7 +4,7 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 
-const HomeContent = ({ id, name, image, rating, released }) => {
+const HomeCard = ({ id, name, image, rating, released }) => {
   return (
     <Card>
       <Card.Img variant="top" src={image} />
@@ -20,7 +20,7 @@ const HomeContent = ({ id, name, image, rating, released }) => {
   );
 };
 
-HomeContent.propTypes = {
+HomeCard.propTypes = {
   id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
@@ -28,4 +28,4 @@ HomeContent.propTypes = {
   released: PropTypes.string.isRequired,
 };
 
-export default HomeContent;
+export default HomeCard;

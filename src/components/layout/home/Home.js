@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import Heading from "../Heading";
+import Header from "../../../images/header2.jpg";
 import Spinner from "react-bootstrap/Spinner";
 import { BASE_URL } from "../../constants/api";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import HomeContent from "./HomeContent";
+//import Row from "react-bootstrap/Row";
+//import Col from "react-bootstrap/Col";
+//import HomeCard from "./HomeCard";
 import Search from "./Search";
-import Container from "react-bootstrap/Container";
+import InfoBoxes from "./InfoBoxes";
+import OfferSection from "./OfferSection";
 
 export function Home() {
   <Heading title="Home" />;
@@ -31,15 +33,11 @@ export function Home() {
     const filteredArray = items.filter(function (i) {
       const lowerCaseName = i.name.toLowerCase();
 
-      if (lowerCaseName.startsWith(searchValue)) {
+      if (lowerCaseName.includes(searchValue)) {
+        console.log(filteredItems);
         return true;
       }
-      //fix this bby
-      if (searchValue.length > 0) {
-        console.log("greater than 0");
-      } else if (searchValue !== null) {
-        console.log("error");
-      }
+
       return false;
     });
 
@@ -51,26 +49,15 @@ export function Home() {
   }
 
   return (
-    <Container className="home__content">
-      <Search handleSearch={filterCards} />
-      <Row>
-        {filteredItems.map((item) => {
-          const { id, name, background_image, rating, released } = item;
+    <div className="home">
+      <img src={Header} className="navbar__header" alt="company header " />
 
-          return (
-            <Col sm={6} md={3} key={id}>
-              <HomeContent
-                id={id}
-                name={name}
-                image={background_image}
-                rating={rating}
-                released={released}
-              ></HomeContent>
-            </Col>
-          );
-        })}
-      </Row>
-    </Container>
+      <div className="home__content">
+        <Search handleSearch={filterCards} />
+        <InfoBoxes />
+      </div>
+      <OfferSection />
+    </div>
   );
 }
 
