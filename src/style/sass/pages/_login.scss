@@ -1,0 +1,13 @@
+.login {
+  margin: 32px auto 37px;
+  max-width: 530px;
+  background: $color__grey;
+  color: $color__beige;
+  padding: 1em;
+  border-radius: "10px";
+  box-shadow: $box__shadow;
+}
+.btn__main {
+  @include secondary__link;
+  margin-left: auto;
+}

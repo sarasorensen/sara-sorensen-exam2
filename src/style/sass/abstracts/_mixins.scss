@@ -13,6 +13,8 @@
   color: $color__white;
   padding: 0.5em;
   text-transform: uppercase;
+  border: none;
+  outline: none;
   &:hover {
     color: $color__white;
     opacity: 0.9;

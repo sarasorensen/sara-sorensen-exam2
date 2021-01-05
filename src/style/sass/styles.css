@@ -1,9 +1,23 @@
-@import url("https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Proza+Libre&display=swap");
 h1 {
-  font-family: "Fjalla One", sans-serif;
+  font-family: "Proza Libre";
   color: #ffffff;
   text-align: center;
-  letter-spacing: 0.1em;
+  font-weight: 900;
+  margin-bottom: 1em;
+}
+
+h2 {
+  font-family: "Proza Libre";
+  font-weight: 900;
+  color: #f4f5f4;
+  text-align: center;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  background-color: #f4f5f4;
 }
 
 .navbar__logo {
@@ -27,11 +41,17 @@ h1 {
   opacity: 0.7;
 }
 
+.navigation__icon {
+  width: 1.3em;
+}
+
 .footer__content {
+  bottom: 0;
+  width: 100%;
   background-color: #293338;
   color: #f4f5f4;
   padding-top: 1em;
-  margin-top: 1em;
+  margin-top: 5%;
 }
 
 .footer__content a {
@@ -46,32 +66,23 @@ h1 {
 
 .navbar__header {
   width: 100%;
-  height: 100vh;
-  background-color: #293338;
+  height: 85vh;
   background-image: url(../../../images/header.jpg);
-  background-size: cover;
   background-attachment: fixed;
+  background-position: center;
   background-repeat: no-repeat;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  z-index: 1;
-  position: relative;
+  background-size: cover;
   text-align: center;
-  -webkit-box-shadow: 0 0 8px 8px white inset;
-          box-shadow: 0 0 8px 8px white inset;
-  -webkit-box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
-          box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.256);
+          box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.256);
 }
 
-.navbar__header text {
-  text-align: center;
-  margin-top: 0;
+.home {
+  width: 100%;
 }
 
 .home__content {
+  width: 80%;
   z-index: 1;
   position: absolute;
   top: 30%;
@@ -101,5 +112,151 @@ h1 {
 .search__icon--box {
   background-color: #f1aa1e;
   padding: 0.3em;
+}
+
+.home__row {
+  margin-top: 15%;
+}
+
+.InfoBoxes {
+  min-width: 18rem;
+  text-align: center;
+  -webkit-box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.256);
+          box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.256);
+  margin: 0.5em;
+}
+
+.InfoBoxes__img {
+  width: 100%;
+  max-height: 100%;
+}
+
+.InfoBoxes__link {
+  color: #f1aa1e;
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+}
+
+.InfoBoxes__link:hover {
+  color: #f1aa1e;
+  opacity: 0.7;
+  text-decoration: underline;
+}
+
+.InfoBoxes__icon {
+  color: #f1aa1e;
+  width: 2em;
+}
+
+.infoSection__container {
+  min-width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: #293338;
+  color: #f4f5f4;
+  -webkit-box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.256);
+          box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.256);
+  border-radius: 5px;
+  margin-top: 20%;
+  margin-bottom: 5%;
+}
+
+.infoSection__col {
+  margin: 0;
+  padding: 0;
+}
+
+.infoSection__img {
+  width: 100%;
+  margin: 0;
+}
+
+.infoSection__link {
+  background-color: #f1aa1e;
+  color: #ffffff;
+  padding: 0.5em;
+  text-transform: uppercase;
+  border: none;
+  outline: none;
+}
+
+.infoSection__link:hover {
+  color: #ffffff;
+  opacity: 0.9;
+  text-decoration: none;
+}
+
+.form__container {
+  width: 100%;
+  background-color: #f1aa1e;
+  margin-top: 5%;
+}
+
+.form__input {
+  width: 100%;
+}
+
+.form__error {
+  color: #d8000c;
+}
+
+.form__label {
+  width: 100%;
+}
+
+.form__control {
+  width: 100%;
+}
+
+.form__col--1 {
+  background-color: #293338;
+  padding: 1em;
+  text-align: center;
+}
+
+.form__icon {
+  width: 50%;
+  color: #ffffff;
+  margin-bottom: 5%;
+  margin-top: 5%;
+}
+
+.form__info {
+  font-size: 1.2em;
+  color: #ffffff;
+}
+
+.login {
+  margin: 32px auto 37px;
+  max-width: 530px;
+  background: #293338;
+  color: #f4f5f4;
+  padding: 1em;
+  border-radius: "10px";
+  -webkit-box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.256);
+          box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.256);
+}
+
+.btn__main {
+  background-color: #f1aa1e;
+  color: #ffffff;
+  padding: 0.5em;
+  text-transform: uppercase;
+  border: none;
+  outline: none;
+  margin-left: auto;
+}
+
+.btn__main:hover {
+  color: #ffffff;
+  opacity: 0.9;
+  text-decoration: none;
 }
 /*# sourceMappingURL=styles.css.map */
