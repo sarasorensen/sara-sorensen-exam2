@@ -2,10 +2,8 @@ import React, { useState, useEffect } from "react";
 import Heading from "../Heading";
 import Spinner from "react-bootstrap/Spinner";
 import { BASE_URL } from "../../constants/api";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import HomeHeader from "./HomeHeader";
-import HomeCard from "./HomeCard";
+//import HomeCard from "./HomeCard";
 import Search from "./Search";
 import InfoBoxes from "./InfoBoxes";
 import OfferSection from "./OfferSection";
@@ -21,8 +19,9 @@ export function Home() {
     fetch(BASE_URL)
       .then((response) => response.json())
       .then((json) => {
-        result(json.results);
-        setFilteredItems(json.results);
+        //result(json.results);
+        console.log(json.results);
+        //setFilteredItems(json.results);
       })
       .catch((error) => console.log(error))
       .finally(() => setLoading(false));
@@ -57,23 +56,6 @@ export function Home() {
           <InfoBoxes />
 
           <OfferSection />
-
-          <Row>
-            {filteredItems.map((item) => {
-              const { id, name, background_image, rating, released } = item;
-              return (
-                <Col sm={6} md={3} key={id}>
-                  <HomeCard
-                    id={id}
-                    name={name}
-                    image={background_image}
-                    rating={rating}
-                    released={released}
-                  ></HomeCard>
-                </Col>
-              );
-            })}
-          </Row>
         </div>
       </div>
     </div>

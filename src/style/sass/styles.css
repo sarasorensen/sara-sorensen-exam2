@@ -153,7 +153,7 @@ body {
 
 .navbar {
   width: 100%;
-  background-color: transparent;
+  background-color: #f4f5f4;
 }
 
 .navbar__link {
@@ -175,7 +175,7 @@ body {
 
 .navbar__header {
   width: 100%;
-  height: 85vh;
+  height: 100vh;
   z-index: -1;
   position: absolute;
   top: 0;
@@ -335,8 +335,25 @@ body {
   text-decoration: none;
 }
 
+.hotels {
+  padding-bottom: 30%;
+}
+
 .img-details {
   width: 50%;
+}
+
+.hotel__card {
+  margin: 5%;
+}
+
+.hotel__card--img {
+  width: 100%;
+  height: 200px;
+}
+
+.card__price {
+  color: #f1aa1e;
 }
 
 .btn__main {

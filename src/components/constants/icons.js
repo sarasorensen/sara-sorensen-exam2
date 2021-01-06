@@ -34,9 +34,9 @@ const PersonFill = (props) => (
     viewBox="0 0 16 16"
   >
     <path d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z" />
-    <path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+    <path fillRule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
     <path
-      fill-rule="evenodd"
+      fillRule="evenodd"
       d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"
     />
   </svg>
@@ -89,7 +89,7 @@ const Lock = (props) => (
     width="16"
     height="16"
     fill="currentColor"
-    class="icon bi bi-lock-fill"
+    className="icon bi bi-lock-fill"
     viewBox="0 0 16 16"
   >
     <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z" />
@@ -104,7 +104,7 @@ const Email = (props) => (
     width="16"
     height="16"
     fill="currentColor"
-    class="icon bi bi-inbox-fill"
+    className="icon bi bi-inbox-fill"
     viewBox="0 0 16 16"
   >
     <path d="M4.98 4a.5.5 0 0 0-.39.188L1.54 8H6a.5.5 0 0 1 .5.5 1.5 1.5 0 1 0 3 0A.5.5 0 0 1 10 8h4.46l-3.05-3.812A.5.5 0 0 0 11.02 4H4.98zm-1.17-.437A1.5 1.5 0 0 1 4.98 3h6.04a1.5 1.5 0 0 1 1.17.563l3.7 4.625a.5.5 0 0 1 .106.374l-.39 3.124A1.5 1.5 0 0 1 14.117 13H1.883a1.5 1.5 0 0 1-1.489-1.314l-.39-3.124a.5.5 0 0 1 .106-.374l3.7-4.625z" />

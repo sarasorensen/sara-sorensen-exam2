@@ -52,7 +52,7 @@ function Layout() {
           <Route path="/contact" component={Contact} />
           <Route path="/hotels" component={Hotels} />
           <Route path="/login" component={Login} />
-          <Route path="/hotelSpecific" component={HotelSpecific} />
+          <Route path="/hotelSpecific/:id" component={HotelSpecific} />
           <Route path="/success" component={Success} />
         </Switch>
       </Container>

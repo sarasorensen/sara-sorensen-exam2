@@ -1,57 +1,36 @@
+import { Link } from "react-router-dom";
+import { hotelsJson } from "../../json/establishments";
+import { useParams } from "react-router-dom";
+import { Stock } from "../hotels/Stock";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import React, { useState, useEffect } from "react";
 import Heading from "../Heading";
 import Spinner from "react-bootstrap/Spinner";
-import { BASE_URL } from "../../constants/api";
-import { useParams } from "react-router-dom";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Image from "react-bootstrap/Image";
+import Container from "react-bootstrap/Container";
 
 export function HotelSpecific() {
-  <Heading title="Game Details" />;
-
-  const [detail, SetDetail] = useState(null);
-  const [loading, setLoading] = useState(true);
+  <Heading title="Hotel Details" />;
 
   let { id } = useParams();
 
-  const URL = BASE_URL + "/" + id;
+  const [hotelResult, setHotelResult] = useState(undefined);
 
   useEffect(() => {
-    fetch(URL)
-      .then((response) => response.json())
-      .then((json) => SetDetail(json))
-      .catch((error) => console.log(error))
-      .finally(() => setLoading(false));
-  });
-
-  if (loading) {
-    return <Spinner animation="border" className="spinner" />;
-  }
+    fetch(URL).then((result) => {
+      setHotelResult(result.data[id]);
+    });
+  }, [id]);
 
   return (
-    <Row>
-      <Col>
-        <Image
-          className="img-details"
-          src={detail.background_image}
-          alt=""
-        ></Image>
-        <ul className="list">
-          <li>
-            <h1>{detail.name}</h1>
-          </li>
-          <li>
-            <b>{"Description: "}</b>
-            {detail.description}
-          </li>
-          <li>
-            <b>{"Released: "}</b>
-            {detail.released}
-          </li>
-        </ul>
-      </Col>
-    </Row>
+    <Container>
+      <Row>
+        <h1 className="main__title">Specific</h1>
+        <Col sm={6} md={4} key={id}>
+          <p>{id}</p>
+        </Col>
+      </Row>
+    </Container>
   );
 }
 
