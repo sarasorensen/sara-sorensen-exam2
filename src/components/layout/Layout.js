@@ -12,14 +12,15 @@ import Home from "./home/Home";
 import Hotels from "./hotels/Hotels";
 import Contact from "./contact/Contact";
 import Login from "../layout/admin/login";
+import HotelSpecific from "./hotels/HotelSpecific";
+import Footer from "./Footer";
 import Success from "../layout/admin/success";
 import Logo from "../../images/logo-y.png";
-import Footer from "./Footer";
+import { Person } from "../constants/icons";
 
 function Layout() {
   return (
     <Router>
-      <div></div>
       <Navbar expand="lg">
         <NavLink to="/" exact>
           <Navbar.Brand>
@@ -39,14 +40,7 @@ function Layout() {
               Contact
             </NavLink>
             <NavLink to="/login" className="navbar__link">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                className="navigation__icon bi bi-person-fill"
-                viewBox="0 0 16 16"
-              >
-                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
-              </svg>
+              <Person />
             </NavLink>
           </Nav>
         </Navbar.Collapse>
@@ -58,6 +52,7 @@ function Layout() {
           <Route path="/contact" component={Contact} />
           <Route path="/hotels" component={Hotels} />
           <Route path="/login" component={Login} />
+          <Route path="/hotelSpecific" component={HotelSpecific} />
           <Route path="/success" component={Success} />
         </Switch>
       </Container>

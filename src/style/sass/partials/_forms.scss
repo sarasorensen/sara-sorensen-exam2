@@ -1,0 +1,56 @@
+.form__container {
+  width: 50em;
+  background-color: $color__white;
+  color: $color__black;
+  margin: 32px auto 37px;
+  margin-top: 5%;
+  box-shadow: $box__shadow;
+}
+.form__group {
+  margin-left: 5%;
+}
+.form__input {
+  width: 100%;
+}
+.form__error {
+  color: $error;
+}
+.form__label {
+  width: 90%;
+  color: $color__grey;
+  font-size: 13px;
+  @include transition;
+}
+.form__control {
+  width: 100%;
+  font-size: 13px;
+  height: 25px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 300px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid $color__grey;
+  opacity: 0.5;
+  @include transition;
+  &:focus {
+    outline: none;
+    opacity: 1;
+  }
+  &:hover {
+    border-bottom: 1px solid $color__main;
+  }
+}
+.form__col--1 {
+  background-color: $color__grey;
+  text-align: center;
+}
+.form__info {
+  font-size: 1em;
+  color: $color__white;
+}
+.form__btn {
+  margin-bottom: 0.5em;
+  float: right;
+  margin-right: 17%;
+}

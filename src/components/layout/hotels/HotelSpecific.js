@@ -7,7 +7,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
 
-export function GameDetails() {
+export function HotelSpecific() {
   <Heading title="Game Details" />;
 
   const [detail, SetDetail] = useState(null);
@@ -29,7 +29,30 @@ export function GameDetails() {
     return <Spinner animation="border" className="spinner" />;
   }
 
-  return <p>Test</p>;
+  return (
+    <Row>
+      <Col>
+        <Image
+          className="img-details"
+          src={detail.background_image}
+          alt=""
+        ></Image>
+        <ul className="list">
+          <li>
+            <h1>{detail.name}</h1>
+          </li>
+          <li>
+            <b>{"Description: "}</b>
+            {detail.description}
+          </li>
+          <li>
+            <b>{"Released: "}</b>
+            {detail.released}
+          </li>
+        </ul>
+      </Col>
+    </Row>
+  );
 }
 
-export default GameDetails;
+export default HotelSpecific;

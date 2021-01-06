@@ -7,7 +7,7 @@ export default function Search({ handleSearch }) {
   return (
     <Form>
       <h1>Find your dream hotel in Bergen</h1>
-      <InputGroup className="form-group md-form">
+      <InputGroup className="search form-group md-form">
         <div className="search__icon--box">
           <svg
             xmlns="http://www.w3.org/2000/svg"

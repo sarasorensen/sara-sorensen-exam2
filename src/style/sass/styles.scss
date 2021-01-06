@@ -3,10 +3,12 @@
 
 @import "base/typography";
 
-@import "partials/grid";
-@import "partials/navigation";
 @import "partials/footer";
+@import "partials/forms";
+@import "partials/grid";
+@import "partials/icons";
+@import "partials/navigation";
 
 @import "pages/home";
-@import "pages/contact";
+@import "pages/hotels";
 @import "pages/login";

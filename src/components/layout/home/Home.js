@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Heading from "../Heading";
-import Header from "../../../images/header2.jpg";
 import Spinner from "react-bootstrap/Spinner";
 import { BASE_URL } from "../../constants/api";
-//import Row from "react-bootstrap/Row";
-//import Col from "react-bootstrap/Col";
-//import HomeCard from "./HomeCard";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import HomeHeader from "./HomeHeader";
+import HomeCard from "./HomeCard";
 import Search from "./Search";
 import InfoBoxes from "./InfoBoxes";
 import OfferSection from "./OfferSection";
@@ -49,14 +49,33 @@ export function Home() {
   }
 
   return (
-    <div className="home">
-      <img src={Header} className="navbar__header" alt="company header " />
+    <div className="wrapper">
+      <HomeHeader />
+      <div className="home">
+        <div className="home__content">
+          <Search handleSearch={filterCards} />
+          <InfoBoxes />
 
-      <div className="home__content">
-        <Search handleSearch={filterCards} />
-        <InfoBoxes />
+          <OfferSection />
+
+          <Row>
+            {filteredItems.map((item) => {
+              const { id, name, background_image, rating, released } = item;
+              return (
+                <Col sm={6} md={3} key={id}>
+                  <HomeCard
+                    id={id}
+                    name={name}
+                    image={background_image}
+                    rating={rating}
+                    released={released}
+                  ></HomeCard>
+                </Col>
+              );
+            })}
+          </Row>
+        </div>
       </div>
-      <OfferSection />
     </div>
   );
 }

@@ -12,7 +12,7 @@ const HomeCard = ({ id, name, image, rating, released }) => {
         <Card.Title>{name}</Card.Title>
         <p>{rating}</p>
         <p>{released}</p>
-        <Link to={"gamedetails/" + id}>
+        <Link to={"hotelSpecific/" + id}>
           <Button>See more</Button>
         </Link>
       </Card.Body>

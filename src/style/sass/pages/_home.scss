@@ -1,13 +1,6 @@
-.navbar__header {
-  width: 100%;
-  height: 85vh;
-  background-image: url(../../../images/header.jpg);
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  text-align: center;
-  box-shadow: $box__shadow;
+.wrapper {
+  padding-bottom: 2.5rem;
+  min-height: 185vh;
 }
 .home {
   width: 100%;
@@ -16,7 +9,16 @@
   width: 80%;
   z-index: 1;
   position: absolute;
-  top: 30%;
+  top: 22%;
+  bottom: 50%;
+  left: 50%;
+  right: 50%;
+  transform: translate(-50%, -50%);
+}
+.spinner {
+  color: $color__white;
+  position: absolute;
+  top: 50%;
   bottom: 50%;
   left: 50%;
   right: 50%;
@@ -28,6 +30,7 @@
   display: flex;
   align-items: center;
   width: 100%;
+  margin-bottom: 15%;
 }
 .search__icon {
   color: $color__beige;
@@ -36,12 +39,11 @@
   background-color: $color__main;
   padding: 0.3em;
 }
-.home__row {
-  margin-top: 15%;
-}
 .InfoBoxes {
-  min-width: 18rem;
+  width: 18rem;
+  min-width: 15rem;
   text-align: center;
+  color: $color__main;
   box-shadow: $box__shadow;
   margin: 0.5em;
 }
@@ -53,10 +55,6 @@
   @include main__link;
   text-transform: uppercase;
 }
-.InfoBoxes__icon {
-  color: $color__main;
-  width: 2em;
-}
 .infoSection__container {
   min-width: 100%;
   display: flex;
@@ -66,7 +64,7 @@
   color: $color__beige;
   box-shadow: $box__shadow;
   border-radius: 5px;
-  margin-top: 20%;
+  margin-top: 5%;
   margin-bottom: 5%;
 }
 .infoSection__col {
@@ -79,4 +77,5 @@
 }
 .infoSection__link {
   @include secondary__link;
+  margin-top: 5%;
 }

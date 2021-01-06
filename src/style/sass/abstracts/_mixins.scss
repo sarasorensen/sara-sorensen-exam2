@@ -1,6 +1,7 @@
 @mixin main__link {
   color: $color__main;
   font-family: Arial, Helvetica, sans-serif;
+  @include transition;
   &:hover {
     color: $color__main;
     opacity: 0.7;
@@ -15,9 +16,16 @@
   text-transform: uppercase;
   border: none;
   outline: none;
+  @include transition;
   &:hover {
     color: $color__white;
     opacity: 0.9;
     text-decoration: none;
   }
+}
+
+@mixin transition {
+  transition: 0.3s ease all;
+  -moz-transition: 0.3s ease all;
+  -webkit-transition: 0.3s ease all;
 }
