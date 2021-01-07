@@ -1,33 +1,47 @@
-import { Link } from "react-router-dom";
-import { hotelsJson } from "../../json/establishments";
+import React, { useState, useEffect } from "react";
+import { BASE_URL, FETCH_OPTIONS } from "../../constants/api";
 import { useParams } from "react-router-dom";
-import { Stock } from "../hotels/Stock";
+import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import React, { useState, useEffect } from "react";
 import Heading from "../Heading";
 import Spinner from "react-bootstrap/Spinner";
-import Container from "react-bootstrap/Container";
 
 export function HotelSpecific() {
   <Heading title="Hotel Details" />;
 
-  let { id } = useParams();
+  const [detail, setDetail] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  const [hotelResult, setHotelResult] = useState(undefined);
+  const { id } = useParams();
+
+  const url = BASE_URL + "establishments/" + id;
 
   useEffect(() => {
-    fetch(URL).then((result) => {
-      setHotelResult(result.data[id]);
-    });
-  }, [id]);
+    fetch(url, FETCH_OPTIONS)
+      .then((response) => response.json())
+      .then((json) => setDetail(json))
+      .catch((error) => console.log(error))
+      .finally(() => setLoading(false));
+  });
+
+  if (loading) {
+    return <Spinner animation="border" className="spinner" />;
+  }
 
   return (
     <Container>
       <Row>
-        <h1 className="main__title">Specific</h1>
-        <Col sm={6} md={4} key={id}>
-          <p>{id}</p>
+        <h1 className="mail__title">Specific Hotel</h1>
+        <Col md={6} className="detail-image">
+          <h2>{detail.name}</h2>
+          <p>
+            <b>Id:</b> {detail.id}
+          </p>
+          <p>
+            <b>Name:</b> {detail.name}
+          </p>
+          <img src={detail.image} alt="hotels" />
         </Col>
       </Row>
     </Container>
