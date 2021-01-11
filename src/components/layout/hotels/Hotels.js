@@ -16,9 +16,8 @@ function Hotels() {
   const [filteredHotels, setFilteredHotels] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const url = BASE_URL + "establishments";
-
   useEffect(() => {
+    const url = BASE_URL + "establishments";
     fetch(url, FETCH_OPTIONS)
       .then((response) => response.json())
       .then((json) => {
@@ -27,7 +26,7 @@ function Hotels() {
       })
       .catch((error) => console.log(error))
       .finally(() => setLoading(false));
-  });
+  }, []);
 
   const filterHotels = function (e) {
     const searchValue = e.target.value.toLowerCase();

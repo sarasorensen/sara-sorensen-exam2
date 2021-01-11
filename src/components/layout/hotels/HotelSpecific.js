@@ -21,7 +21,7 @@ export function HotelSpecific() {
     fetch(url, FETCH_OPTIONS)
       .then((response) => response.json())
       .then((json) => setDetail(json))
-      .catch((error) => console.log(error))
+      .catch((error) => console.log("error hotel specific" + error))
       .finally(() => setLoading(false));
   });
 
