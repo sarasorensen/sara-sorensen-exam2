@@ -9,6 +9,14 @@
   }
 }
 
+@mixin hover {
+  @include transition;
+  &:hover {
+    opacity: 0.8;
+    text-decoration: none;
+  }
+}
+
 @mixin secondary__link {
   background-color: $color__main;
   color: $color__white;

@@ -1,20 +1,26 @@
 .hotels {
-  padding-bottom: 30%;
+  padding-bottom: 10%;
 }
 .img-details {
   width: 50%;
 }
 .hotel__card {
-  margin: 5%;
+  color: $color__black;
+  margin: 1em;
   width: 100%;
-  min-height: 450px;
-  max-height: 450px;
+  min-height: 350px;
+  max-height: 350px;
+  text-decoration: none;
+  & :hover {
+    @include hover;
+  }
+  & .home__card--img {
+    min-width: 25vh;
+    min-height: 25vh;
+    max-height: 25vh;
+  }
 }
-.hotel__card--img {
-  min-width: 100%;
-  min-height: 50%;
-  max-height: 50%;
-}
+
 .card__price {
   color: $color__main;
 }

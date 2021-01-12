@@ -1,4 +1,13 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans|Proza+Libre&display=swap");
+a {
+  color: #000000;
+}
+
+a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
 h1 {
   font-family: "Proza Libre";
   color: #ffffff;
@@ -12,11 +21,22 @@ h1 {
   margin-top: 1em;
 }
 
+.main__title--card {
+  font-size: 1.5em;
+  color: #f1aa1e;
+}
+
 h2 {
   font-family: "Proza Libre";
-  font-weight: 900;
   color: #f4f5f4;
+  font-weight: 900;
   text-align: center;
+}
+
+.sub__title {
+  color: #b1b1b1;
+  text-align: center;
+  margin-top: -2.5em;
 }
 
 .footer__content {
@@ -560,7 +580,7 @@ body {
 }
 
 .hotels {
-  padding-bottom: 30%;
+  padding-bottom: 10%;
 }
 
 .img-details {
@@ -568,20 +588,84 @@ body {
 }
 
 .hotel__card {
-  margin: 5%;
+  color: #000000;
+  margin: 1em;
   width: 100%;
-  min-height: 450px;
-  max-height: 450px;
+  min-height: 350px;
+  max-height: 350px;
+  text-decoration: none;
 }
 
-.hotel__card--img {
-  min-width: 100%;
-  min-height: 50%;
-  max-height: 50%;
+.hotel__card :hover {
+  transition: 0.3s ease all;
+  -moz-transition: 0.3s ease all;
+  -webkit-transition: 0.3s ease all;
+}
+
+.hotel__card :hover:hover {
+  opacity: 0.8;
+  text-decoration: none;
+}
+
+.hotel__card .home__card--img {
+  min-width: 25vh;
+  min-height: 25vh;
+  max-height: 25vh;
 }
 
 .card__price {
   color: #f1aa1e;
+}
+
+.specific__card {
+  max-width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  float: none;
+  margin-bottom: 10px;
+  background-color: #ffffff;
+  color: #000000;
+  text-align: center;
+  margin-bottom: 5%;
+  -webkit-box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.256);
+          box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.256);
+}
+
+.specific__card img {
+  width: 100%;
+}
+
+.specific__card.specific__card--details {
+  text-align: center;
+  width: 100%;
+  background-color: #ffffff;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.specific__card ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.specific__card li {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.specific__card li a {
+  color: #f1aa1e;
+  font-family: Arial, Helvetica, sans-serif;
+  transition: 0.3s ease all;
+  -moz-transition: 0.3s ease all;
+  -webkit-transition: 0.3s ease all;
+}
+
+.specific__card li a:hover {
+  color: #f1aa1e;
+  opacity: 0.7;
+  text-decoration: underline;
 }
 
 .btn__main {

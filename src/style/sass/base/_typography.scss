@@ -4,6 +4,14 @@
 $main-heading: "Proza Libre";
 $fallback-font: "arial", sans-serif;
 
+a {
+  color: $color__black;
+  &:hover {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
 h1 {
   font-family: $main-heading;
   color: $color__white;
@@ -15,9 +23,18 @@ h1 {
   color: $color__lightGrey;
   margin-top: 1em;
 }
+.main__title--card {
+  font-size: 1.5em;
+  color: $color__main;
+}
 h2 {
   font-family: $main-heading;
-  font-weight: 900;
   color: $color__beige;
+  font-weight: 900;
   text-align: center;
+}
+.sub__title {
+  color: $color__lightGrey;
+  text-align: center;
+  margin-top: -2.5em;
 }

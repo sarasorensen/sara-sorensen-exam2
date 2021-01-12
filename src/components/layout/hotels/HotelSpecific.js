@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { BASE_URL, FETCH_OPTIONS } from "../../constants/api";
-import { useParams } from "react-router-dom";
-import Container from "react-bootstrap/Container";
+import { useParams, Link } from "react-router-dom";
+import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import Heading from "../Heading";
 import Spinner from "react-bootstrap/Spinner";
 
@@ -30,21 +29,33 @@ export function HotelSpecific() {
   }
 
   return (
-    <Container>
+    <div className="specific">
       <Row>
-        <h1 className="mail__title">Specific Hotel</h1>
-        <Col md={6} className="detail-image">
-          <h2>{detail.name}</h2>
-          <p>
-            <b>Id:</b> {detail.id}
-          </p>
-          <p>
-            <b>Name:</b> {detail.name}
-          </p>
-          <img src={detail.image} alt="hotels" />
-        </Col>
+        <Card className="specific__card">
+          <Card.Img src={detail.image} variant="top" alt={detail.name} />
+          <Card.Body className="specific__card--details">
+            <h1 className="main__title--card">{detail.name}</h1>
+            <ul>
+              <li>Max {detail.maxGuests} guests</li>
+              <li>
+                Price per night is{" "}
+                <span className="card__price"> {detail.price}$</span>
+              </li>
+
+              <li> {detail.description}</li>
+              <li>
+                {" "}
+                If you have any questions, please contact:{" "}
+                <a href={"mailto:" + detail.email}>{detail.email}</a>
+              </li>
+            </ul>
+            <Link to={"/enquiry"}>
+              <button className="btn__main">Book Hotel</button>
+            </Link>
+          </Card.Body>
+        </Card>
       </Row>
-    </Container>
+    </div>
   );
 }
 

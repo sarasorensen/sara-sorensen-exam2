@@ -13,6 +13,7 @@ import Hotels from "./hotels/Hotels";
 import Contact from "./contact/Contact";
 import Login from "../layout/admin/login";
 import HotelSpecific from "./hotels/HotelSpecific";
+import Enquiry from "./admin/enquiry";
 import Footer from "./Footer";
 import Success from "../layout/admin/success";
 import Logo from "../../images/logo-y.png";
@@ -54,6 +55,7 @@ function Layout() {
           <Route path="/login" component={Login} />
           <Route path="/hotelSpecific/:id" component={HotelSpecific} />
           <Route path="/success" component={Success} />
+          <Route path="/enquiry" component={Enquiry} />
         </Switch>
       </Container>
       <Footer />
