@@ -1,26 +1,33 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import { CheckMark } from "../../constants/icons";
 
 export default class Success extends React.Component {
   render() {
     return (
-      <div className="[ row ]">
-        <div className="[ col-lg-12 col-md-12 col-sm-12 col-xs-12 ]">
-          <div className="[ text-center ] [ success ]">
-            <h1>Thank You for Submitting the Form!</h1>
-            <p>We will get back to you shortly</p>
-            <i className="[ fas fa-check ] [ success__icon--color ]" />
-          </div>
-          <div className="[ text-center ]">
-            <NavLink
-              to="/"
-              className="[ btn ] [ btn--expand ] [ success__btn ]"
-            >
-              Back to Homepage
-            </NavLink>
-          </div>
-        </div>
-      </div>
+      <Container className="success">
+        <Row>
+          <Col>
+            <div>
+              <CheckMark />
+              <h1 className="main__title">Thank You!</h1>
+              <p>Your submission has been received.</p>
+              <p>
+                We will get back to you shortly, please check your email for
+                this.
+              </p>
+            </div>
+            <div>
+              <NavLink to="/" className="success__link">
+                Back to Homepage
+              </NavLink>
+            </div>
+          </Col>
+        </Row>
+      </Container>
     );
   }
 }

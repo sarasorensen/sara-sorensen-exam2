@@ -7,22 +7,33 @@ import CardDeck from "react-bootstrap/CardDeck";
 function HotelItem({ id, name, image, price, email }) {
   return (
     <CardDeck>
-      <Link to={"hotelSpecific/" + id} className="hotel__card">
-        <Card className="hotel__card">
-          <Card.Body>
-            <Card.Img
-              variant="top"
-              className="hotel__card--img home__card--img"
-              src={image}
-            />
-            <Card.Title>{name}</Card.Title>{" "}
-            <p>
-              Price: <span className="card__price">{price}$</span>
-            </p>
-            <p>{email}</p>
-          </Card.Body>
-        </Card>
-      </Link>
+      <Card className="hotel__card">
+        <Card.Body>
+          <Card.Img
+            variant="top"
+            className="hotel__card--img "
+            src={image}
+            alt={name}
+          />
+          <ul className="hotel__card--ul">
+            <li>
+              <Card.Title className="hotel__card--title">{name}</Card.Title>{" "}
+            </li>
+            <li>
+              <p className="hotel__card--price">
+                Price: <span className="card__price--color">{price}$</span>
+              </p>
+            </li>
+            <li>
+              <p>{email}</p>
+            </li>
+
+            <Link to={"hotelSpecific/" + id}>
+              <button className="btn__main ">View Hotel</button>
+            </Link>
+          </ul>
+        </Card.Body>
+      </Card>
     </CardDeck>
   );
 }
@@ -30,6 +41,8 @@ function HotelItem({ id, name, image, price, email }) {
 HotelItem.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  email: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
 };
 

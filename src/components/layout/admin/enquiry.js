@@ -141,9 +141,6 @@ export default class ContactComponent extends React.Component {
                   className="form__control"
                   noValidate
                   onChange={this.handleChange}
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
                 />
 
                 {formErrors.checkin.length > 0 && (
@@ -166,9 +163,6 @@ export default class ContactComponent extends React.Component {
                   className="form__control"
                   noValidate
                   onChange={this.handleChange}
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
                 />
                 {formErrors.checkout.length > 0 && (
                   <span className="[ form__error ]">

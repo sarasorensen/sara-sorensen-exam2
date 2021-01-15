@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { BASE_URL, FETCH_OPTIONS } from "../../constants/api";
 import { useParams, Link } from "react-router-dom";
-import Card from "react-bootstrap/Card";
+import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import Heading from "../Heading";
 import Spinner from "react-bootstrap/Spinner";
+import { Wifi, Cup, Location } from "../../constants/icons";
 
 export function HotelSpecific() {
   <Heading title="Hotel Details" />;
@@ -28,34 +30,62 @@ export function HotelSpecific() {
     return <Spinner animation="border" className="spinner" />;
   }
 
-  return (
-    <div className="specific">
-      <Row>
-        <Card className="specific__card">
-          <Card.Img src={detail.image} variant="top" alt={detail.name} />
-          <Card.Body className="specific__card--details">
-            <h1 className="main__title--card">{detail.name}</h1>
-            <ul>
-              <li>Max {detail.maxGuests} guests</li>
-              <li>
-                Price per night is{" "}
-                <span className="card__price"> {detail.price}$</span>
-              </li>
+  const click = () => {
+    console.log("clicked button");
+  };
 
-              <li> {detail.description}</li>
-              <li>
-                {" "}
-                If you have any questions, please contact:{" "}
-                <a href={"mailto:" + detail.email}>{detail.email}</a>
-              </li>
-            </ul>
-            <Link to={"/enquiry"}>
-              <button className="btn__main">Book Hotel</button>
-            </Link>
-          </Card.Body>
-        </Card>
+  return (
+    <Container className="specific">
+      <Row>
+        <Col className="specific__col--1">
+          <img
+            src={detail.image}
+            className="specific__card--img"
+            alt={detail.name}
+          />
+        </Col>
+        <Col className="specific__card--details">
+          <h1 className="main__title--card">{detail.name}</h1>
+
+          <p>Max {detail.maxGuests} guests</p>
+
+          <p>
+            {" "}
+            Price per night is{" "}
+            <span className="card__price--color"> {detail.price}$</span>
+          </p>
+
+          <p>{detail.description}</p>
+
+          <p>
+            {" "}
+            If you have any questions, please contact:{" "}
+            <a className="card__link" href={"mailto:" + detail.email}>
+              {detail.email}
+            </a>
+          </p>
+          <Row className="d-flex jc-center text-center specific__row--icons">
+            <Col>
+              <Wifi />
+              <p>Wifi included</p>
+            </Col>
+            <Col>
+              <Cup />
+              <p>Breakfast included</p>
+            </Col>
+            <Col>
+              <Location />
+              <p>Central Location</p>
+            </Col>
+          </Row>
+          <Link to={"/enquiry"}>
+            <button className="btn__main  float-right" onClick={click}>
+              Book Hotel
+            </button>
+          </Link>
+        </Col>
       </Row>
-    </div>
+    </Container>
   );
 }
 

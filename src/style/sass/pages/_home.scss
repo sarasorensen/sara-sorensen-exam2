@@ -1,6 +1,6 @@
 .wrapper {
   padding-bottom: 2.5rem;
-  min-height: 150vh;
+  min-height: 180vh;
 }
 .home {
   width: 100%;
@@ -27,26 +27,10 @@
   right: 50%;
   transform: translate(-50%, -50%);
 }
-.search {
-  width: 150vh;
-  position: relative;
-  display: flex;
-  align-items: center;
-  margin-bottom: 1.5em;
-  & .form-control {
-    border-radius: 0;
-  }
-}
-.search__icon {
-  color: $color__beige;
-}
-.search__icon--box {
-  background-color: $color__main;
-  padding: 0.3em;
-}
 .InfoBoxes {
   width: 18rem;
   min-width: 15rem;
+  margin-top: 5%;
   text-align: center;
   color: $color__main;
   box-shadow: $box__shadow;
@@ -60,63 +44,16 @@
   @include main__link;
   text-transform: uppercase;
 }
-.infoSection__container {
-  min-width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: $color__grey;
-  color: $color__beige;
+.carousel {
+  min-width: 70%;
+  max-width: 70%;
+  margin: 0 auto;
   box-shadow: $box__shadow;
   border-radius: 5px;
-  margin-top: 5%;
+  margin-top: 1em;
   margin-bottom: 5%;
-}
-.infoSection__col {
-  margin: 0;
-  padding: 0;
-}
-.infoSection__img {
-  width: 100%;
-  margin: 0;
-}
-.infoSection__link {
-  @include secondary__link;
-  margin-top: 5%;
-}
-.dropdown {
-  width: 150vh;
-  overflow: scroll;
-  min-height: 210px;
-  max-height: 210px;
-  background-color: $color__white;
-  top: -5%;
-  margin-bottom: 5%;
-  & .card,
-  .hotel__card,
-  .card-deck {
-    @include main__link;
-    width: 100vh;
-    display: flex;
-    min-height: 100%;
-    max-height: 100%;
-    margin-left: 1em;
-    border: none;
-  }
-  & .hotel__card--img {
-    float: left;
-    min-width: 100px;
-    max-width: 100px;
-    min-height: 100px;
-    max-height: 100px;
-    border-radius: 50%;
-  }
-  & .card-body {
-    padding: 0;
-  }
-  & .card-title {
-    text-align: left;
-    margin-left: 18%;
-    margin-top: 5%;
+  @include transition;
+  & .carousel__img {
+    width: 100%;
   }
 }

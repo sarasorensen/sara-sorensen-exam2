@@ -5,9 +5,9 @@ import Heading from "../Heading";
 import Spinner from "react-bootstrap/Spinner";
 import HomeHeader from "./HomeHeader";
 import Search from "./Search";
-import HotelCard from "../hotels/HotelCard";
+import HomeCard from "./HomeCard";
 import InfoBoxes from "./InfoBoxes";
-import OfferSection from "./OfferSection";
+import CarouselSection from "./CarouselSection";
 
 export function Home() {
   <Heading title="Home" />;
@@ -104,17 +104,19 @@ export function Home() {
             }
           >
             {filteredHotels.map((hotel) => {
-              const { id, name, image } = hotel;
+              const { id, name, image, price } = hotel;
               return (
-                <div
-                  options={hotel}
-                  sm={6}
-                  md={4}
-                  key={id}
-                  className="dropdown__card"
-                >
-                  {" "}
-                  <HotelCard id={id} image={image} name={name} />{" "}
+                <div>
+                  <div sm={6} md={4} key={id}>
+                    {" "}
+                    <HomeCard
+                      className="dropdown__card"
+                      id={id}
+                      image={image}
+                      name={name}
+                      price={price}
+                    />{" "}
+                  </div>
                 </div>
               );
             })}
@@ -122,7 +124,7 @@ export function Home() {
 
           <InfoBoxes />
 
-          <OfferSection />
+          <CarouselSection />
         </div>
       </div>
     </div>

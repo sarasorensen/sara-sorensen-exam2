@@ -50,7 +50,6 @@ function Hotels() {
   return (
     <Container>
       <h1 className="main__title">Our Hotels</h1>
-      <p className="sub__title">Click on the hotel card to see more info</p>
       <Search handleSearch={filterHotels} />
       <Row className="hotels">
         {filteredHotels.map((hotel) => {
