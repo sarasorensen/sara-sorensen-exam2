@@ -35,7 +35,7 @@ h2 {
 
 .sub__title {
   color: #f1aa1e;
-  margin-top: 2.5em;
+  margin-top: 3em;
 }
 
 .dropdown {
@@ -113,52 +113,24 @@ ul {
   list-style: none;
 }
 
-.footer__content {
-  width: 100%;
-  padding: 1rem;
-  text-align: center;
+.footer {
   background-color: #293338;
   color: #f4f5f4;
-}
-
-.footer {
-  background-color: #414141;
   width: 100%;
-  text-align: left;
-  font-family: sans-serif;
-  font-weight: bold;
-  font-size: 16px;
-  padding: 50px;
-  margin-top: 50px;
+  text-align: center;
+  padding: 1.5em;
+  margin-top: 5%;
 }
 
-.footer .footer-left,
-.footer .footer-center,
-.footer .footer-right {
-  display: inline-block;
-  vertical-align: top;
-}
-
-/* footer left*/
 .footer .footer-left {
+  text-align: left;
   width: 33%;
-  padding-right: 15px;
+  margin-top: 1.5em;
 }
 
-.footer .about {
-  line-height: 20px;
-  color: #ffffff;
-  font-size: 13px;
-  font-weight: normal;
-  margin: 0;
-}
-
-.footer .about span {
-  display: block;
-  color: #ffffff;
-  font-size: 14px;
-  font-weight: bold;
-  margin-bottom: 20px;
+.footer .footer-left h3 {
+  color: #f4f5f4;
+  text-align: center;
 }
 
 .footer .icons {
@@ -167,88 +139,50 @@ ul {
 
 .footer .icons a {
   display: inline-block;
-  width: 35px;
-  height: 35px;
-  cursor: pointer;
-  background-color: #33383b;
-  border-radius: 2px;
-  font-size: 20px;
-  color: #ffffff;
+  color: #f1aa1e;
+  width: 30px;
+  height: 30px;
   text-align: center;
-  line-height: 35px;
   margin-right: 3px;
   margin-bottom: 5px;
+  transition: 0.3s ease all;
+  -moz-transition: 0.3s ease all;
+  -webkit-transition: 0.3s ease all;
 }
 
-/* footer center*/
+.footer .icons a:hover {
+  color: #ffffff;
+  text-decoration: none;
+  opacity: 1;
+}
+
 .footer .footer-center {
   width: 30%;
+  margin-top: 1.5em;
 }
 
-.footer .footer-center i {
-  background-color: #33383b;
-  color: #ffffff;
-  font-size: 25px;
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 42px;
-  margin: 10px 15px;
-  vertical-align: middle;
-}
-
-.footer .footer-center i.fa-envelope {
-  font-size: 17px;
-  line-height: 38px;
+.footer .footer-center .footer__logo {
+  width: 35%;
+  margin-bottom: 5px;
 }
 
 .footer .footer-center p {
   display: inline-block;
-  color: #ffffff;
   vertical-align: middle;
   margin: 0;
 }
 
-.footer .footer-center p span {
-  display: block;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 2;
-}
-
-.footer .footer-center p a {
-  color: #0099ff;
-  text-decoration: none;
-}
-
-/* footer right*/
 .footer .footer-right {
   width: 35%;
 }
 
-.footer h2 {
-  color: #ffffff;
-  font-size: 36px;
-  font-weight: normal;
-  margin: 0;
-}
-
-.footer h2 span {
-  color: #0099ff;
-}
-
-.footer__logo {
-  width: 35%;
-}
-
-.footer__menu {
+.footer .footer-right .footer__menu {
   list-style: none;
   margin: 20px 0 12px;
   padding: 0;
 }
 
-.footer__menu a {
+.footer .footer-right .footer__menu a {
   color: #ffffff;
   display: inline-block;
   padding-right: 0.5rem;
@@ -260,21 +194,10 @@ ul {
   -webkit-transition: 0.3s ease all;
 }
 
-.footer__menu a:hover {
+.footer .footer-right .footer__menu a:hover {
   color: #f1aa1e;
   text-decoration: none;
   opacity: 1;
-}
-
-.footer .menu a:hover {
-  color: #0099ff;
-}
-
-.footer .name {
-  color: #0099ff;
-  font-size: 14px;
-  font-weight: normal;
-  margin: 0;
 }
 
 @media (max-width: 767px) {
@@ -423,7 +346,7 @@ body {
 }
 
 .success__icon {
-  width: 12%;
+  width: 8%;
   color: #293338;
   margin-bottom: 1em;
   margin-top: 1em;
@@ -494,6 +417,15 @@ body {
   position: relative;
   padding-bottom: 100px;
   /* height of your footer */
+}
+
+.enquiry__name {
+  margin-top: 1em;
+}
+
+.enquiry__hotel {
+  width: 80%;
+  margin-bottom: 10%;
 }
 
 .wrapper {
@@ -570,7 +502,7 @@ body {
   -webkit-box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.256);
           box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.256);
   border-radius: 5px;
-  margin-top: 1em;
+  margin-top: 2.5em;
   margin-bottom: 5%;
   transition: 0.3s ease all;
   -moz-transition: 0.3s ease all;
@@ -579,6 +511,8 @@ body {
 
 .carousel .carousel__img {
   width: 100%;
+  min-height: 60vh;
+  max-height: 60vh;
 }
 
 .hotels {

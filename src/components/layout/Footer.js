@@ -6,25 +6,22 @@ import { Map, Message, Pencil } from "../../components/constants/icons";
 
 function Footer() {
   return (
-    <div className="footer__content">
+    <div className="footer">
       <Row>
         <Col className="footer-left col-md-4 col-sm-6">
-          <p className="about">
-            <span> About the company</span> Ut congue augue non tellus bibendum,
-            in varius tellus condimentum. In scelerisque nibh tortor, sed
-            rhoncus odio condimentum in. Sed sed est ut sapien ultrices
-            eleifend. Integer tellus est, vehicula eu lectus tincidunt,
-            ultricies feugiat leo. Suspendisse tellus elit, pharetra in
-            hendrerit ut, aliquam quis augue. Nam ut nibh mollis, tristique ante
-            sed, viverra massa.
+          <h3>About Us</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat.
           </p>
-          <div className="icons">
-            <Map />
-            <Message />
-            <Pencil />
-          </div>
         </Col>
         <div className="footer-center col-md-4 col-sm-6">
+          <a href="/">
+            {" "}
+            <img src={Logo} className="footer__logo" alt="company logo " />
+          </a>
           <div>
             <p>Bergen street 1</p>
           </div>
@@ -35,10 +32,24 @@ function Footer() {
             <p>holidaze@company.com</p>
             <p className="name"> Holidaze &copy; 2021</p>
           </div>
+          <div className="icons">
+            <a href="#">
+              {" "}
+              <Map />
+            </a>
+            <a href="#">
+              {" "}
+              <Message />
+            </a>
+            <a href="#">
+              {" "}
+              <Pencil />
+            </a>
+          </div>
         </div>
         <div className="footer-right col-md-4 col-sm-6">
-          <img src={Logo} className="footer__logo" alt="company logo " />
           <ul className="footer__menu">
+            <h3>Links</h3>
             <li>
               <a href="home"> Home</a>
             </li>

@@ -11,21 +11,12 @@ export function CarouselSection() {
       <Carousel className="carousel">
         <Carousel.Item>
           <img className="carousel__img d-block" src={Slide1} alt="slide 1" />
-          <Carousel.Caption>
-            <p>1</p>
-          </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img className="carousel__img d-block" src={Slide2} alt="slide 2" />
-          <Carousel.Caption>
-            <p>2</p>
-          </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img className="carousel__img d-block" src={Slide3} alt="slide 3" />
-          <Carousel.Caption>
-            <p>3</p>
-          </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
     </div>

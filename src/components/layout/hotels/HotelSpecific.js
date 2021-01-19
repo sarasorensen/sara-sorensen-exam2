@@ -30,8 +30,10 @@ export function HotelSpecific() {
     return <Spinner animation="border" className="spinner" />;
   }
 
-  const click = () => {
-    console.log("clicked button");
+  const setStorage = () => {
+    localStorage.setItem("hotel", detail.name);
+    localStorage.setItem("image", detail.image);
+    localStorage.setItem("price", detail.price);
   };
 
   return (
@@ -79,7 +81,7 @@ export function HotelSpecific() {
             </Col>
           </Row>
           <Link to={"/enquiry"}>
-            <button className="btn__main  float-right" onClick={click}>
+            <button className="btn__main  float-right" onClick={setStorage}>
               Book Hotel
             </button>
           </Link>

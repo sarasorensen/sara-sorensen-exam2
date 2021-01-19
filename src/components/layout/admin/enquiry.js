@@ -9,6 +9,11 @@ const emailRegex = RegExp(
   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<Per>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 );
 
+var hotelName = localStorage.getItem("hotel");
+var image = localStorage.getItem("image");
+var price = localStorage.getItem("price");
+let sessionTotalPrice = sessionStorage.getItem("totalPrice");
+
 export default class ContactComponent extends React.Component {
   constructor(props) {
     super(props);
@@ -33,9 +38,9 @@ export default class ContactComponent extends React.Component {
     formErrors.fullName =
       this.state.fullName.length < 2 ? "Minimum 2 characters required" : "";
     formErrors.checkin =
-      this.state.checkin.length < 1 ? "Check in date must be selected" : "";
+      this.state.checkin.length < 0 ? "Check in date must be selected" : "";
     formErrors.checkout =
-      this.state.checkout.length < 1 ? "Check out date must be selected" : "";
+      this.state.checkout.length < 0 ? "Check out date must be selected" : "";
     formErrors.email = emailRegex.test(this.state.email)
       ? ""
       : "Invalid email address";
@@ -49,8 +54,6 @@ export default class ContactComponent extends React.Component {
     this.setState({ [name]: value }, () => {
       this.validateFormData();
     });
-
-    console.log(name, value);
   };
 
   isFormInvalid = () => {
@@ -64,7 +67,25 @@ export default class ContactComponent extends React.Component {
     );
   };
 
-  success = () => {
+  handleDate = (e) => {
+    const CheckIn = this.setState({
+      checkin: e.target.value,
+    });
+
+    console.log("check In " + CheckIn);
+    //console.log("check in" + checkIn);
+    //let checkOut = Date.parse(data.checkout);
+    //console.log("check out" + checkOut);
+    //let days = Math.floor((checkOut - checkIn) / (1000 * 60 * 60 * 24));
+
+    //let totalPrice = price * days;
+    // console.log("total" + totalPrice);
+
+    // sessionStorage.setItem("totalPrice", totalPrice);
+  };
+
+  success = (event) => {
+    event.preventDefault();
     this.props.history.push("/success");
   };
 
@@ -75,7 +96,10 @@ export default class ContactComponent extends React.Component {
       <div className="form__container">
         <Row>
           <Col className="form__col--1">
-            <House />
+            <h1 className="enquiry__name">{hotelName}</h1>
+
+            <img className="enquiry__hotel" src={image} alt={hotelName} />
+
             <p className="form__info">
               Thank you for choosing Holidaze to book your hotel with. Don't
               worry about making any mistakes when booking your hotel, as this
@@ -137,10 +161,11 @@ export default class ContactComponent extends React.Component {
                   id="datetime-local"
                   label="Next appointment"
                   type="datetime-local"
-                  defaultValue="2017-05-24T10:30"
+                  placeholder="2021-01-01T10:30"
                   className="form__control"
                   noValidate
-                  onChange={this.handleChange}
+                  value={this.state.checkin}
+                  onChange={this.handleDate}
                 />
 
                 {formErrors.checkin.length > 0 && (
@@ -159,7 +184,7 @@ export default class ContactComponent extends React.Component {
                   id="datetime-local"
                   label="Next appointment"
                   type="datetime-local"
-                  defaultValue="2017-05-24T10:30"
+                  placeholder="2021-01-01T10:30"
                   className="form__control"
                   noValidate
                   onChange={this.handleChange}
@@ -170,6 +195,10 @@ export default class ContactComponent extends React.Component {
                   </span>
                 )}
               </Form.Group>
+              <p>
+                TotalPrice = {sessionTotalPrice} Price:{" "}
+                <span className="card__price--color"> {price}$</span>
+              </p>
               <button
                 className="btn__main form__btn "
                 type="submit"

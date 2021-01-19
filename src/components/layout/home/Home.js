@@ -99,8 +99,8 @@ export function Home() {
             ref={node}
             className={
               showDropdown !== true && isSearched === false
-                ? " [ d-none ] "
-                : " [ d-block dropdown ] "
+                ? "d-none "
+                : "d-block dropdown "
             }
           >
             {filteredHotels.map((hotel) => {
