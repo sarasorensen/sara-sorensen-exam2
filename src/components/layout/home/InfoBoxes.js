@@ -7,11 +7,10 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Map, Message, Pencil } from "../../constants/icons";
 
-//<Link to={"gamedetails/" + id}>  </Link>
-
 const InfoBoxes = () => {
   return (
     <Row
+      className="InfoBoxes__row"
       style={{
         justifyContent: "space-between",
         flexDirection: "row",

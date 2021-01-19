@@ -27,7 +27,12 @@ export function HotelSpecific() {
   });
 
   if (loading) {
-    return <Spinner animation="border" className="spinner" />;
+    return (
+      <div className="spinner__box">
+        <Spinner role="status" className="spinner__box--animation" />
+        <span className="sr-only">Loading content...</span>
+      </div>
+    );
   }
 
   const setStorage = () => {

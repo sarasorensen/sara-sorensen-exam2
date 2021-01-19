@@ -1,5 +1,5 @@
 .search {
-  width: 150vh;
+  width: 100%;
   position: relative;
   display: flex;
   align-items: center;
@@ -70,4 +70,10 @@
   margin-bottom: 0.5em;
   float: right;
   margin-right: 17%;
+}
+
+@media (max-width: 767px) {
+  .search {
+    width: 100%;
+  }
 }

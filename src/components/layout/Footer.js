@@ -2,7 +2,7 @@ import React from "react";
 import Logo from "../../images/logo-y.png";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { Map, Message, Pencil } from "../../components/constants/icons";
+import { Facebook, Twitter, LinkedIn } from "../../components/constants/icons";
 
 function Footer() {
   return (
@@ -22,34 +22,17 @@ function Footer() {
             {" "}
             <img src={Logo} className="footer__logo" alt="company logo " />
           </a>
-          <div>
-            <p>Bergen street 1</p>
-          </div>
-          <div>
-            <p> (+47) 51 66 00 00</p>
-          </div>
-          <div>
-            <p>holidaze@company.com</p>
-            <p className="name"> Holidaze &copy; 2021</p>
-          </div>
-          <div className="icons">
-            <a href="#">
-              {" "}
-              <Map />
-            </a>
-            <a href="#">
-              {" "}
-              <Message />
-            </a>
-            <a href="#">
-              {" "}
-              <Pencil />
-            </a>
-          </div>
+
+          <p>Bergen street 1</p>
+
+          <p> (+47) 51 66 00 00</p>
+          <p>holidaze@company.com</p>
+
+          <p className="name"> Holidaze &copy; 2021</p>
         </div>
         <div className="footer-right col-md-4 col-sm-6">
           <ul className="footer__menu">
-            <h3>Links</h3>
+            <h3>Navigation</h3>
             <li>
               <a href="home"> Home</a>
             </li>
@@ -59,9 +42,21 @@ function Footer() {
             <li>
               <a href="contact"> Contact</a>
             </li>
-            <li>
-              <a href="enquiry"> Enquiry</a>
-            </li>
+
+            <div className="icons">
+              <a href="https://www.facebook.com/">
+                {" "}
+                <Facebook />
+              </a>
+              <a href="https://twitter.com/twitter">
+                {" "}
+                <Twitter />
+              </a>
+              <a href="https://www.linkedin.com/feed/">
+                {" "}
+                <LinkedIn />
+              </a>
+            </div>
           </ul>
         </div>
       </Row>

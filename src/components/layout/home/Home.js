@@ -7,7 +7,6 @@ import HomeHeader from "./HomeHeader";
 import Search from "./Search";
 import HomeCard from "./HomeCard";
 import InfoBoxes from "./InfoBoxes";
-import CarouselSection from "./CarouselSection";
 
 export function Home() {
   <Heading title="Home" />;
@@ -79,7 +78,12 @@ export function Home() {
   };
 
   if (loading) {
-    return <Spinner animation="border" className="spinner" />;
+    return (
+      <div className="spinner__box">
+        <Spinner role="status" className="spinner__box--animation" />
+        <span className="sr-only">Loading content...</span>
+      </div>
+    );
   }
 
   return (
@@ -123,8 +127,6 @@ export function Home() {
           </div>
 
           <InfoBoxes />
-
-          <CarouselSection />
         </div>
       </div>
     </div>

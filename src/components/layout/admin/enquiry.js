@@ -2,8 +2,7 @@ import React from "react";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import "react-datepicker/dist/react-datepicker.css";
-import { House, Person, Email } from "../../constants/icons";
+import { Person, Email } from "../../constants/icons";
 
 const emailRegex = RegExp(
   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<Per>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
