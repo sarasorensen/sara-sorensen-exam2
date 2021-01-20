@@ -94,7 +94,7 @@ export default class ContactComponent extends React.Component {
     return (
       <div className="form__container">
         <Row>
-          <Col className="form__col--1">
+          <Col className="form__col--1 col-sm-12   col-lg-6">
             <h1 className="enquiry__name">{hotelName}</h1>
 
             <img className="enquiry__hotel" src={image} alt={hotelName} />
@@ -105,7 +105,7 @@ export default class ContactComponent extends React.Component {
               can be changed later via email support.
             </p>
           </Col>
-          <Col>
+          <Col className="col-sm-11   col-lg-6">
             <Form onSubmit={this.success.bind(this)}>
               <h1 className="main__title">Enquiry</h1>
               <Form.Group className="form__group">

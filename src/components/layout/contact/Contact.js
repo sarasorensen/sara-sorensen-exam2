@@ -66,14 +66,14 @@ export default class ContactComponent extends React.Component {
     return (
       <div className="form__container">
         <Row>
-          <Col className="form__col--1">
+          <Col className="form__col--1 col-sm-12   col-lg-6">
             <Envelope />
             <p className="form__info">
               If you have any questions or just want to get in touch, use the
               contact form. We look forward to hearing from you!
             </p>
           </Col>
-          <Col>
+          <Col className="form__col--2 col-sm-11  col-lg-6">
             <Form onSubmit={this.success.bind(this)}>
               <h1 className="main__title">Contact Us</h1>
               <Form.Group className="form__group">

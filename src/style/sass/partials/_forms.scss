@@ -23,9 +23,7 @@
   margin-top: 5%;
   box-shadow: $box__shadow;
 }
-.form__group {
-  margin-left: 5%;
-}
+
 .form__input {
   width: 100%;
 }
@@ -39,12 +37,11 @@
   @include transition;
 }
 .form__control {
-  width: 100%;
+  width: 90%;
   font-size: 13px;
   height: 25px;
   padding: 10px 10px 10px 5px;
   display: block;
-  width: 300px;
   border: none;
   outline: none;
   border-bottom: 1px solid $color__grey;
@@ -59,8 +56,13 @@
   }
 }
 .form__col--1 {
+  width: 50%;
+  float: left;
   background-color: $color__grey;
   text-align: center;
+}
+.form__col--2 {
+  margin: 0 auto;
 }
 .form__info {
   font-size: 1em;
@@ -71,9 +73,93 @@
   float: right;
   margin-right: 17%;
 }
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 
+@media (max-width: 595px) {
+  .search {
+    width: 100%;
+  }
+  .row {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .form__container {
+    width: 100%;
+    & .form__col--1 {
+      width: 100%;
+      flex: 100%;
+    }
+    & .form__col--2 {
+      width: 100%;
+    }
+    & .form__control {
+      width: 100%;
+    }
+    & .form__btn {
+      margin-right: 0;
+    }
+  }
+}
 @media (max-width: 767px) {
   .search {
+    width: 100%;
+  }
+  .row {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .form__container {
+    width: 100%;
+    & .form__col--1 {
+      width: 100%;
+    }
+    & .form__col--2 {
+      width: 100%;
+      margin: 0 auto;
+    }
+    & .form__control {
+      width: 100%;
+    }
+    & .form__btn {
+      margin-right: 0;
+    }
+  }
+}
+
+@media all and (max-width: 992px) {
+  .row {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .form__container {
+    width: 100%;
+    & .form__col--1 {
+      width: 100%;
+    }
+    & .form__col--2 {
+      width: 100%;
+    }
+    & .form__control {
+      width: 100%;
+    }
+    & .form__btn {
+      margin-right: 0;
+    }
+  }
+}
+
+@media all and (max-width: 1024px) {
+  .row {
     width: 100%;
   }
 }

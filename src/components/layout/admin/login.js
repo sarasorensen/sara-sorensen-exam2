@@ -38,14 +38,14 @@ const ValidatedLoginForm = () => (
       return (
         <div className="form__container">
           <Row>
-            <Col className="form__col--1">
+            <Col className="form__col--1 col-sm-12   col-lg-6">
               <PersonFill />
               <p className="form__info">
                 If you have an existing admin user, please enter your email and
                 password in this form.
               </p>
             </Col>
-            <Col>
+            <Col className="col-sm-11   col-lg-6">
               <Form onSubmit={handleSubmit}>
                 <h1 className="main__title">Log in</h1>
                 <Form.Group className="form__group">

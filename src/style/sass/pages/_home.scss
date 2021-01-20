@@ -19,16 +19,21 @@
   transform: translate(-50%, -50%);
 }
 .InfoBoxes__row {
-  margin-top: 20%;
+  margin-top: 18%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
 }
 .InfoBoxes {
-  width: 18rem;
+  width: 15rem;
   min-width: 15rem;
-  margin-top: 20%;
+  margin: 0 auto;
+  margin-bottom: 1em;
   text-align: center;
   color: $color__main;
   box-shadow: $box__shadow;
-  margin: 0.5em;
 }
 .InfoBoxes__img {
   width: 100%;
@@ -41,10 +46,13 @@
 
 @media (max-width: 767px) {
   .wrapper {
-    min-height: 230vh;
+    min-height: 200vh;
+  }
+  .InfoBoxes__row {
+    flex-direction: column;
   }
   .InfoBoxes {
-    width: 100%;
+    max-width: 25%;
   }
   .home__content {
     top: 20%;

@@ -23,24 +23,13 @@ function Layout() {
   return (
     <Router>
       <Navbar expand="lg">
-        <NavLink to="/" exact>
-          <img
-            src={Logo}
-            className="navbar__logo left-align"
-            alt="company logo "
-          />
+        <NavLink className="navbar__logo left-align" to="/" exact>
+          <img src={Logo} alt="company logo " />
         </NavLink>
-        <Navbar.Toggle
-          aria-controls="basic-navbar-nav"
-          className="order-md-1 order-0"
-        />
+        <Navbar.Toggle aria-controls="basic-navbar-nav" className="order-0" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="navbar-nav ml-auto">
-            <NavLink
-              to="/"
-              exact
-              className="navbar__link order-md-0 mx-auto order-1"
-            >
+            <NavLink to="/" exact className="navbar__link order-md-0 mx-auto">
               Home
             </NavLink>
             <NavLink to="/hotels" className="navbar__link ">

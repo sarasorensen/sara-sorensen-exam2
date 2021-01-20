@@ -61,7 +61,7 @@ function Hotels() {
           const { id, name, image, price, email } = hotel;
 
           return (
-            <Col sm={6} md={4} key={id}>
+            <Col className="col-sm-12 col-md-6 col-lg-4" key={id}>
               <HotelCard
                 id={id}
                 name={name}

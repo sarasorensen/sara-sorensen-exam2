@@ -44,14 +44,14 @@ export function HotelSpecific() {
   return (
     <Container className="specific">
       <Row>
-        <Col className="specific__col--1">
+        <Col className="specific__col--1 col-sm-12 col-md-6 col-lg-4">
           <img
             src={detail.image}
             className="specific__card--img"
             alt={detail.name}
           />
         </Col>
-        <Col className="specific__card--details">
+        <Col className="specific__card--details col-sm-12 col-md-6 col-lg-4">
           <h1 className="main__title--card">{detail.name}</h1>
 
           <p>Max {detail.maxGuests} guests</p>

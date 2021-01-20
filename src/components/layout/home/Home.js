@@ -111,7 +111,7 @@ export function Home() {
               const { id, name, image, price } = hotel;
               return (
                 <div>
-                  <div sm={6} md={4} key={id}>
+                  <div className="col-sm-12 col-md-8 col-lg-6" key={id}>
                     {" "}
                     <HomeCard
                       className="dropdown__card"

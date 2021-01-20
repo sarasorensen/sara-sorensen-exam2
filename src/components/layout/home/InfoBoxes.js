@@ -9,14 +9,7 @@ import { Map, Message, Pencil } from "../../constants/icons";
 
 const InfoBoxes = () => {
   return (
-    <Row
-      className="InfoBoxes__row"
-      style={{
-        justifyContent: "space-between",
-        flexDirection: "row",
-        alignItems: "center",
-      }}
-    >
+    <Row className="InfoBoxes__row">
       <Col xs={12} md={6} lg={4}>
         <Card className="InfoBoxes">
           <Card.Img variant="top" className="InfoBoxes__img" src={Hotel} />
