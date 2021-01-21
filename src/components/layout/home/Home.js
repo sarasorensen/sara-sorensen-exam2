@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import { BASE_URL, FETCH_OPTIONS } from "../../constants/api";
-//import onClickOutside from 'react-onclickoutside'
 import Heading from "../Heading";
 import Spinner from "react-bootstrap/Spinner";
 import HomeHeader from "./HomeHeader";
@@ -28,7 +27,7 @@ export function Home() {
       .finally(() => setLoading(false));
   }, []);
 
-  const node = useRef();
+  const ref = useRef();
   const [showDropdown, setDropdown] = useState(false);
   const [Open] = useState(true);
 
@@ -36,22 +35,17 @@ export function Home() {
     setDropdown(false);
   };
 
-  const handleClickOutside = (e) => {
-    if (node.current.contains(e.target)) {
-      setIsSearched(true);
-      return;
-    }
-    setIsSearched(false);
-    setDropdown(false);
-  };
-
   useEffect(() => {
-    if (Open) {
-      document.addEventListener("mousedown", handleClickOutside);
-    } else {
-      document.removeEventListener("mousedown", handleClickOutside);
+    function handleClickOutside(event) {
+      if (ref.current && ref.current.contains(event.target)) {
+        setIsSearched(true);
+        return;
+      }
+      setIsSearched(false);
+      setDropdown(false);
     }
 
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
@@ -68,9 +62,14 @@ export function Home() {
         setIsSearched(false);
       }
 
+      if (searchValue === undefined || searchValue === null) {
+        console.log("sorry no match");
+      }
+
       if (lowerCaseName.includes(searchValue)) {
         return true;
       }
+
       return false;
     });
 
@@ -89,45 +88,42 @@ export function Home() {
   return (
     <div className="wrapper">
       <HomeHeader />
-      <div className="home">
-        <div className="home__content">
-          <h1>Find your dream hotel in Bergen</h1>
-          <Search
-            handleSearch={filterHotels}
-            onChange={
-              showDropdown !== true && isSearched === false ? Open : Close
-            }
-          />
+      <div className="home home__content">
+        <h1>Find your dream hotel in Bergen</h1>
+        <Search
+          handleSearch={filterHotels}
+          onChange={
+            showDropdown !== true && isSearched === false ? Open : Close
+          }
+        />
 
-          <div
-            ref={node}
-            className={
-              showDropdown !== true && isSearched === false
-                ? "d-none "
-                : "d-block dropdown "
-            }
-          >
-            {filteredHotels.map((hotel) => {
-              const { id, name, image, price } = hotel;
-              return (
-                <div>
-                  <div className="col-sm-12 col-md-8 col-lg-6" key={id}>
-                    {" "}
-                    <HomeCard
-                      className="dropdown__card"
-                      id={id}
-                      image={image}
-                      name={name}
-                      price={price}
-                    />{" "}
-                  </div>
+        <div
+          ref={ref}
+          className={
+            showDropdown !== true && isSearched === false
+              ? "d-none "
+              : "d-block dropdown "
+          }
+        >
+          {filteredHotels.map((hotel) => {
+            const { id, name, image, price } = hotel;
+            return (
+              <div>
+                <div className="col-sm-12 col-md-8 col-lg-6" key={id}>
+                  {" "}
+                  <HomeCard
+                    className="dropdown__card "
+                    id={id}
+                    image={image}
+                    name={name}
+                    price={price}
+                  />{" "}
                 </div>
-              );
-            })}
-          </div>
-
-          <InfoBoxes />
+              </div>
+            );
+          })}
         </div>
+        <InfoBoxes />
       </div>
     </div>
   );

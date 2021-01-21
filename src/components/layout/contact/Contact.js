@@ -40,14 +40,11 @@ export default class ContactComponent extends React.Component {
   };
 
   handleChange = (e) => {
-    e.preventDefault();
-    const { name, value } = e.target;
+    this.setState({ [e.target.name]: e.target.value });
 
-    this.setState({ [name]: value }, () => {
-      this.validateFormData();
-    });
+    console.log(e.target.value);
 
-    console.log(name, value);
+    this.validateFormData();
   };
 
   isFormInvalid = () => {
@@ -56,8 +53,15 @@ export default class ContactComponent extends React.Component {
     return fullName.length !== 0 || message.length !== 0 || email.length !== 0;
   };
 
-  success = () => {
+  onSubmit = (e) => {
+    e.preventDefault();
+
     this.props.history.push("/success");
+    console.log("Contact info", this.state);
+
+    localStorage.setItem("Full Name", this.state.fullName);
+    localStorage.setItem("Email", this.state.email);
+    localStorage.setItem("Message", this.state.message);
   };
 
   render() {
@@ -74,7 +78,7 @@ export default class ContactComponent extends React.Component {
             </p>
           </Col>
           <Col className="form__col--2 col-sm-11  col-lg-6">
-            <Form onSubmit={this.success.bind(this)}>
+            <Form onSubmit={this.onSubmit.bind(this)}>
               <h1 className="main__title">Contact Us</h1>
               <Form.Group className="form__group">
                 <Form.Label htmlFor="fullName" className="form__label">
@@ -87,6 +91,7 @@ export default class ContactComponent extends React.Component {
                   id="fullName"
                   className="form__control"
                   noValidate
+                  value={this.state.fullName}
                   onChange={this.handleChange}
                   aria-required="true"
                   required
@@ -109,6 +114,7 @@ export default class ContactComponent extends React.Component {
                   className="form__control"
                   placeholder="example@example.com"
                   noValidate
+                  value={this.state.email}
                   onChange={this.handleChange}
                   aria-required="true"
                   required
@@ -131,6 +137,7 @@ export default class ContactComponent extends React.Component {
                   cols="80"
                   className="form__control"
                   noValidate
+                  value={this.state.fullName}
                   onChange={this.handleChange}
                   aria-required="true"
                 />
