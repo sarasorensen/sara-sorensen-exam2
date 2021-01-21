@@ -9,6 +9,7 @@ import InfoBoxes from "./InfoBoxes";
 
 export function Home() {
   <Heading title="Home" />;
+  localStorage.clear();
 
   const [hotels, setHotels] = useState([]);
   const [filteredHotels, setFilteredHotels] = useState([]);
@@ -22,6 +23,7 @@ export function Home() {
       .then((json) => {
         setHotels(json);
         setFilteredHotels(json);
+        console.log(json);
       })
       .catch((error) => console.log(error))
       .finally(() => setLoading(false));

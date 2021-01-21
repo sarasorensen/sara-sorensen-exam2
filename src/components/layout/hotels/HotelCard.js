@@ -20,9 +20,9 @@ function HotelItem({ id, name, image, price, email }) {
               <Card.Title className="hotel__card--title">{name}</Card.Title>{" "}
             </li>
             <li>
-              <p className="hotel__card--price">
+              <div className="hotel__card--price">
                 Price: <span className="card__price--color">{price}$</span>
-              </p>
+              </div>
             </li>
             <li>
               <p>{email}</p>

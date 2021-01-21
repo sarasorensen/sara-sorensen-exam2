@@ -137,7 +137,7 @@ export default class ContactComponent extends React.Component {
                   cols="80"
                   className="form__control"
                   noValidate
-                  value={this.state.fullName}
+                  value={this.state.message}
                   onChange={this.handleChange}
                   aria-required="true"
                 />

@@ -6,7 +6,6 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Email, Lock, PersonFill } from "../../constants/icons";
 
-//local storage fix
 const ValidatedLoginForm = () => (
   <Formik
     initialValues={{

@@ -8,6 +8,11 @@
     text-decoration: underline;
   }
 }
+@mixin inline__link {
+  color: $color__grey;
+  font-family: Arial, Helvetica, sans-serif;
+  @include transition;
+}
 
 @mixin hover {
   @include transition;

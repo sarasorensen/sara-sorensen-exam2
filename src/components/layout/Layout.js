@@ -29,16 +29,33 @@ function Layout() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" className="order-0" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="navbar-nav ml-auto">
-            <NavLink to="/" exact className="navbar__link order-md-0 mx-auto">
+            <NavLink
+              onClick={localStorage.clear()}
+              to="/"
+              exact
+              className="navbar__link order-md-0 mx-auto"
+            >
               Home
             </NavLink>
-            <NavLink to="/hotels" className="navbar__link ">
+            <NavLink
+              onClick={localStorage.clear()}
+              to="/hotels"
+              className="navbar__link "
+            >
               Hotels
             </NavLink>
-            <NavLink to="/contact" className="navbar__link ">
+            <NavLink
+              onClick={localStorage.clear()}
+              to="/contact"
+              className="navbar__link "
+            >
               Contact
             </NavLink>
-            <NavLink to="/login" className="navbar__link">
+            <NavLink
+              onClick={localStorage.clear()}
+              to="/login"
+              className="navbar__link"
+            >
               <Person />
             </NavLink>
           </Nav>

@@ -10,8 +10,8 @@ const emailRegex = RegExp(
 
 var hotelName = localStorage.getItem("hotel");
 var image = localStorage.getItem("image");
-var price = localStorage.getItem("price");
-let sessionTotalPrice = sessionStorage.getItem("totalPrice");
+var price = Number.parseInt(localStorage.getItem("price"));
+let localTotalPrice = localStorage.getItem("totalPrice");
 
 export default class ContactComponent extends React.Component {
   constructor(props) {
@@ -48,11 +48,22 @@ export default class ContactComponent extends React.Component {
 
   handleChange = (e) => {
     e.preventDefault();
-    const { name, value } = e.target;
 
-    this.setState({ [name]: value }, () => {
-      this.validateFormData();
-    });
+    this.setState({ [e.target.name]: e.target.value });
+
+    let checkIn = Date.parse(this.state.checkin);
+    let checkOut = Date.parse(this.state.checkout);
+    console.log("teste" + checkIn + checkOut);
+
+    let days = Math.floor((checkOut - checkIn) / (1000 * 60 * 60 * 24));
+
+    let totalPrice = price * days;
+
+    localStorage.setItem("totalPrice", totalPrice);
+
+    console.log(e.target.value);
+
+    this.validateFormData();
   };
 
   isFormInvalid = () => {
@@ -66,26 +77,17 @@ export default class ContactComponent extends React.Component {
     );
   };
 
-  handleDate = (e) => {
-    const CheckIn = this.setState({
-      checkin: e.target.value,
-    });
-
-    console.log("check In " + CheckIn);
-    //console.log("check in" + checkIn);
-    //let checkOut = Date.parse(data.checkout);
-    //console.log("check out" + checkOut);
-    //let days = Math.floor((checkOut - checkIn) / (1000 * 60 * 60 * 24));
-
-    //let totalPrice = price * days;
-    // console.log("total" + totalPrice);
-
-    // sessionStorage.setItem("totalPrice", totalPrice);
-  };
-
-  success = (event) => {
+  onSubmit = (event) => {
     event.preventDefault();
+
     this.props.history.push("/success");
+
+    console.log("Enquiry info", this.state);
+
+    localStorage.setItem("Full Name", this.state.fullName);
+    localStorage.setItem("Email", this.state.email);
+    localStorage.setItem("check in", this.state.checkin);
+    localStorage.setItem("check out", this.state.checkout);
   };
 
   render() {
@@ -106,7 +108,7 @@ export default class ContactComponent extends React.Component {
             </p>
           </Col>
           <Col className="col-sm-11   col-lg-6">
-            <Form onSubmit={this.success.bind(this)}>
+            <Form onSubmit={this.onSubmit.bind(this)}>
               <h1 className="main__title">Enquiry</h1>
               <Form.Group className="form__group">
                 <Form.Label htmlFor="fullName" className="form__label">
@@ -119,9 +121,10 @@ export default class ContactComponent extends React.Component {
                   id="fullName"
                   className="form__control"
                   noValidate
+                  value={this.state.fullName}
                   onChange={this.handleChange}
                   aria-required="true"
-                  required
+                  required="required"
                 />
                 {formErrors.fullName.length > 0 && (
                   <span className="[ form__error ]">
@@ -140,10 +143,10 @@ export default class ContactComponent extends React.Component {
                   id="email"
                   className="form__control"
                   placeholder="example@example.com"
-                  noValidate
+                  required="required"
+                  value={this.state.email}
                   onChange={this.handleChange}
                   aria-required="true"
-                  required
                 />
                 {formErrors.email.length > 0 && (
                   <span className="[ form__error ]">
@@ -157,14 +160,12 @@ export default class ContactComponent extends React.Component {
                 </Form.Label>
                 <input
                   name="checkin"
-                  id="datetime-local"
                   label="Next appointment"
-                  type="datetime-local"
-                  placeholder="2021-01-01T10:30"
+                  type="date"
                   className="form__control"
-                  noValidate
+                  required="required"
                   value={this.state.checkin}
-                  onChange={this.handleDate}
+                  onChange={this.handleChange}
                 />
 
                 {formErrors.checkin.length > 0 && (
@@ -180,12 +181,11 @@ export default class ContactComponent extends React.Component {
 
                 <input
                   name="checkout"
-                  id="datetime-local"
                   label="Next appointment"
-                  type="datetime-local"
-                  placeholder="2021-01-01T10:30"
+                  type="date"
                   className="form__control"
-                  noValidate
+                  required="required"
+                  value={this.state.checkout}
                   onChange={this.handleChange}
                 />
                 {formErrors.checkout.length > 0 && (
@@ -195,7 +195,7 @@ export default class ContactComponent extends React.Component {
                 )}
               </Form.Group>
               <p>
-                TotalPrice = {sessionTotalPrice} Price:{" "}
+                TotalPrice = {localTotalPrice} Price:{" "}
                 <span className="card__price--color"> {price}$</span>
               </p>
               <button

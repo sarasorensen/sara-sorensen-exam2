@@ -10,3 +10,17 @@
 .success__link {
   @include main__link;
 }
+.toggle {
+  cursor: pointer;
+  margin: 0 auto;
+  margin-bottom: 1em;
+  @include inline__link;
+  & ul {
+    margin: 0;
+    padding: 0;
+  }
+  & li {
+    margin: 0;
+    padding: 0;
+  }
+}
