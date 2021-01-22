@@ -85,10 +85,8 @@ export function HotelSpecific() {
               <p>Central Location</p>
             </Col>
           </Row>
-          <Link to={"/enquiry"}>
-            <button className="btn__main  float-right" onClick={setStorage}>
-              Book Hotel
-            </button>
+          <Link to={"/enquiry/" + id}>
+            <button className="btn__main  float-right">Book Hotel</button>
           </Link>
         </Col>
       </Row>

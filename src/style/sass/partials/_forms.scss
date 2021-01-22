@@ -55,6 +55,25 @@
     border-bottom: 1px solid $color__main;
   }
 }
+.form__inline {
+  width: 100%;
+  font-size: 13px;
+  height: 25px;
+  padding: 10px 10px 10px 5px;
+  display: inline-block;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid $color__grey;
+  opacity: 0.5;
+  @include transition;
+  &:focus {
+    outline: none;
+    opacity: 1;
+  }
+  &:hover {
+    border-bottom: 1px solid $color__main;
+  }
+}
 .form__col--1 {
   width: 50%;
   float: left;

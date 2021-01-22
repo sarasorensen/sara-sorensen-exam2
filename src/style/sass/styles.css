@@ -299,6 +299,30 @@ ul {
   border-bottom: 1px solid #f1aa1e;
 }
 
+.form__inline {
+  width: 100%;
+  font-size: 13px;
+  height: 25px;
+  padding: 10px 10px 10px 5px;
+  display: inline-block;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #293338;
+  opacity: 0.5;
+  transition: 0.3s ease all;
+  -moz-transition: 0.3s ease all;
+  -webkit-transition: 0.3s ease all;
+}
+
+.form__inline:focus {
+  outline: none;
+  opacity: 1;
+}
+
+.form__inline:hover {
+  border-bottom: 1px solid #f1aa1e;
+}
+
 .form__col--1 {
   width: 50%;
   float: left;
@@ -620,16 +644,43 @@ body {
   min-height: 55vh;
 }
 
-.admin .admin__col {
-  text-align: left;
-}
-
 .admin h2 {
   text-align: left;
+  margin: 0;
+  margin-bottom: 0.5em;
+}
+
+.admin__col {
+  width: 100%;
+  background-color: #ffffff;
+  color: #000000;
+  -webkit-box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.256);
+          box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.256);
+  text-align: left;
+  margin: 1em;
+  padding: 1em;
+}
+
+.admin__col a {
+  color: #293338;
+  text-decoration: underline;
+  font-family: Arial, Helvetica, sans-serif;
+  transition: 0.3s ease all;
+  -moz-transition: 0.3s ease all;
+  -webkit-transition: 0.3s ease all;
+}
+
+.admin__col ul {
+  padding: 0;
+}
+
+.admin__col li {
+  padding: 0;
 }
 
 .admin__error {
   width: 100%;
+  min-height: 55vh;
   background-color: transparent;
   color: #293338;
   margin: 32px auto 37px;
@@ -947,11 +998,12 @@ body {
 
 .success {
   width: 100%;
+  min-height: 55vh;
   background-color: transparent;
   color: #293338;
   margin: 32px auto 37px;
   padding: 1em;
-  margin-top: 1em;
+  margin-top: 2.5em;
   text-align: center;
 }
 
@@ -974,6 +1026,7 @@ body {
   margin: 0 auto;
   margin-bottom: 1em;
   color: #293338;
+  text-decoration: underline;
   font-family: Arial, Helvetica, sans-serif;
   transition: 0.3s ease all;
   -moz-transition: 0.3s ease all;
