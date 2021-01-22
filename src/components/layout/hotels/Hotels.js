@@ -10,6 +10,7 @@ import Search from "../home/Search";
 
 function Hotels() {
   <Heading title="Hotels" />;
+  window.localStorage.removeItem("email");
 
   const [hotels, setHotels] = useState([]);
   const [filteredHotels, setFilteredHotels] = useState([]);

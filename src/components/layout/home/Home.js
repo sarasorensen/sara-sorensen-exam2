@@ -9,6 +9,7 @@ import InfoBoxes from "./InfoBoxes";
 
 export function Home() {
   <Heading title="Home" />;
+  window.localStorage.removeItem("email");
 
   const [hotels, setHotels] = useState([]);
   const [filteredHotels, setFilteredHotels] = useState([]);

@@ -69,6 +69,7 @@ export default class ContactComponent extends React.Component {
   };
 
   render() {
+    window.localStorage.removeItem("email");
     const { formErrors } = this.state;
 
     return (
