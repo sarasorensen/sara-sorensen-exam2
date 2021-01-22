@@ -28,7 +28,7 @@ h1 {
 
 h2 {
   font-family: "Proza Libre";
-  color: #f4f5f4;
+  color: #f1aa1e;
   font-weight: 900;
   text-align: center;
 }
@@ -318,7 +318,7 @@ ul {
 .form__btn {
   margin-bottom: 0.5em;
   float: right;
-  margin-right: 17%;
+  margin-right: 10%;
 }
 
 .row:after {
@@ -613,6 +613,18 @@ body {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
   }
+}
+
+.admin {
+  width: 100%;
+}
+
+.admin .admin__col {
+  text-align: left;
+}
+
+.admin h2 {
+  text-align: left;
 }
 
 .enquiry__name {

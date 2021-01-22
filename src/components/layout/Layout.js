@@ -14,6 +14,7 @@ import Contact from "./contact/Contact";
 import Login from "../layout/admin/Login";
 import HotelSpecific from "./hotels/HotelSpecific";
 import Enquiry from "./admin/Enquiry";
+import Admin from "./admin/Admin";
 import Footer from "./Footer";
 import Success from "../layout/admin/Success";
 import Logo from "../../images/logo-y.png";
@@ -29,34 +30,24 @@ function Layout() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" className="order-0" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="navbar-nav ml-auto">
+            <NavLink to="/" exact className="navbar__link order-md-0 mx-auto">
+              Home
+            </NavLink>
+            <NavLink to="/hotels" className="navbar__link ">
+              Hotels
+            </NavLink>
+            <NavLink to="/contact" className="navbar__link ">
+              Contact
+            </NavLink>
+            <NavLink to="/login" className="navbar__link">
+              <Person />
+            </NavLink>
             <NavLink
-              onClick={localStorage.clear()}
-              to="/"
+              to="/admin"
               exact
               className="navbar__link order-md-0 mx-auto"
             >
-              Home
-            </NavLink>
-            <NavLink
-              onClick={localStorage.clear()}
-              to="/hotels"
-              className="navbar__link "
-            >
-              Hotels
-            </NavLink>
-            <NavLink
-              onClick={localStorage.clear()}
-              to="/contact"
-              className="navbar__link "
-            >
-              Contact
-            </NavLink>
-            <NavLink
-              onClick={localStorage.clear()}
-              to="/login"
-              className="navbar__link"
-            >
-              <Person />
+              Admin
             </NavLink>
           </Nav>
         </Navbar.Collapse>
@@ -71,6 +62,7 @@ function Layout() {
           <Route path="/hotelSpecific/:id" component={HotelSpecific} />
           <Route path="/success" component={Success} />
           <Route path="/enquiry" component={Enquiry} />
+          <Route path="/admin" component={Admin} />
         </Switch>
       </Container>
       <Footer />

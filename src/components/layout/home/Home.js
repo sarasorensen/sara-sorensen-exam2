@@ -9,7 +9,6 @@ import InfoBoxes from "./InfoBoxes";
 
 export function Home() {
   <Heading title="Home" />;
-  localStorage.clear();
 
   const [hotels, setHotels] = useState([]);
   const [filteredHotels, setFilteredHotels] = useState([]);

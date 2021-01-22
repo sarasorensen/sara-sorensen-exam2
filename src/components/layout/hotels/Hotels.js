@@ -10,7 +10,6 @@ import Search from "../home/Search";
 
 function Hotels() {
   <Heading title="Hotels" />;
-  localStorage.clear();
 
   const [hotels, setHotels] = useState([]);
   const [filteredHotels, setFilteredHotels] = useState([]);

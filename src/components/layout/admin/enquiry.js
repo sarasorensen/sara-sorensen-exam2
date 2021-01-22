@@ -10,8 +10,6 @@ const emailRegex = RegExp(
 
 var hotelName = localStorage.getItem("hotel");
 var image = localStorage.getItem("image");
-var price = Number.parseInt(localStorage.getItem("price"));
-let localTotalPrice = localStorage.getItem("totalPrice");
 
 export default class ContactComponent extends React.Component {
   constructor(props) {
@@ -50,19 +48,6 @@ export default class ContactComponent extends React.Component {
     e.preventDefault();
 
     this.setState({ [e.target.name]: e.target.value });
-
-    let checkIn = Date.parse(this.state.checkin);
-    let checkOut = Date.parse(this.state.checkout);
-    console.log("teste" + checkIn + checkOut);
-
-    let days = Math.floor((checkOut - checkIn) / (1000 * 60 * 60 * 24));
-
-    let totalPrice = price * days;
-
-    localStorage.setItem("totalPrice", totalPrice);
-
-    console.log(e.target.value);
-
     this.validateFormData();
   };
 
@@ -84,10 +69,14 @@ export default class ContactComponent extends React.Component {
 
     console.log("Enquiry info", this.state);
 
-    localStorage.setItem("Full Name", this.state.fullName);
-    localStorage.setItem("Email", this.state.email);
-    localStorage.setItem("check in", this.state.checkin);
-    localStorage.setItem("check out", this.state.checkout);
+    const enquiryInfo = [
+      this.state.fullName,
+      this.state.email,
+      this.state.checkin,
+      this.state.checkout,
+    ];
+
+    localStorage.setItem("enquiry", JSON.stringify(enquiryInfo));
   };
 
   render() {
@@ -194,10 +183,6 @@ export default class ContactComponent extends React.Component {
                   </span>
                 )}
               </Form.Group>
-              <p>
-                TotalPrice = {localTotalPrice} Price:{" "}
-                <span className="card__price--color"> {price}$</span>
-              </p>
               <button
                 className="btn__main form__btn "
                 type="submit"

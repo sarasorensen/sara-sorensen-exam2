@@ -56,12 +56,16 @@ export default class ContactComponent extends React.Component {
   onSubmit = (e) => {
     e.preventDefault();
 
-    this.props.history.push("/success");
+    this.props.history.push("/admin");
     console.log("Contact info", this.state);
 
-    localStorage.setItem("Full Name", this.state.fullName);
-    localStorage.setItem("Email", this.state.email);
-    localStorage.setItem("Message", this.state.message);
+    const contactInfo = [
+      this.state.fullName,
+      this.state.email,
+      this.state.message,
+    ];
+
+    localStorage.setItem("contact", JSON.stringify(contactInfo));
   };
 
   render() {
