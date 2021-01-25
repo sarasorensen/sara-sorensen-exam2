@@ -5,6 +5,18 @@ import { BASE_URL, FETCH_OPTIONS } from "../../constants/api";
 export default function Messages() {
   const url = BASE_URL + "enquiries";
 
+  const data = {
+    name: "Carla",
+    email: "Carla@gmal.no",
+    establishmentId: "an-id",
+    checkIn: "April 28 2021",
+    checkOut: "April 29 2021",
+  };
+
+  FETCH_OPTIONS.method = "POST";
+
+  FETCH_OPTIONS.body = JSON.stringify(data);
+
   const [enquiries, setEnquiries] = useState([]);
   const [loading, setLoading] = useState(true);
 

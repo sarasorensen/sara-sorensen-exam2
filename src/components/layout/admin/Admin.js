@@ -9,6 +9,10 @@ import Col from "react-bootstrap/Col";
 export default function Admin() {
   let loginInfo = localStorage.getItem("email");
 
+  const enquiryInfo = JSON.parse(localStorage.getItem("enquiry"));
+
+  const contactInfo = JSON.parse(localStorage.getItem("contact"));
+
   //if (loginInfo === null) {
   //  return (
   //   <Container className="admin__error">
@@ -42,13 +46,23 @@ export default function Admin() {
 
         <Col className="admin__col col-sm-12">
           <h2>Messages from Clients</h2>
-
+          <ul>
+            <li>{contactInfo.name}</li>
+            <li>{contactInfo.email}</li>
+            <li>{contactInfo.message}</li>
+          </ul>
           <Messages />
         </Col>
 
         <Col className="admin__col col-sm-12">
           <h2>Enquiries from Clients</h2>
-
+          <ul>
+            {" "}
+            <li>{enquiryInfo.name}</li>
+            <li>{enquiryInfo.email}</li>
+            <li>{enquiryInfo.checkIn}</li>
+            <li>{enquiryInfo.checkOut}</li>
+          </ul>
           <AllEnquiries />
         </Col>
       </Row>

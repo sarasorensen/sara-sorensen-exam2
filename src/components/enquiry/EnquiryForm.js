@@ -67,15 +67,13 @@ export default class ContactComponent extends React.Component {
 
     this.setState({ redirect: "/admin" });
 
-    console.log("Enquiry info", this.state);
-
-    const enquiryInfo = [
-      this.state.fullName,
-      this.state.email,
-      this.state.checkin,
-      this.state.checkout,
-      (this.id = { hotelName }),
-    ];
+    const enquiryInfo = {
+      name: this.state.fullName,
+      email: this.state.email,
+      establishmentId: (this.id = { hotelName }),
+      checkIn: this.state.checkin,
+      checkOut: this.state.checkout,
+    };
 
     localStorage.setItem("enquiry", JSON.stringify(enquiryInfo));
   };
