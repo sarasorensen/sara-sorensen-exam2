@@ -192,7 +192,7 @@ const House = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
-    className="form__icon bi bi-house-fill"
+    className="icon bi bi-house-fill"
     viewBox="0 0 16 16"
   >
     <path

@@ -48,7 +48,7 @@ export default function Admin() {
           <p className="admin__email">{loginInfo}</p>
         </Col>
 
-        <Col className="admin__log col-sm-12 ">
+        <Col id="newHotel" className="admin__log col-sm-12 ">
           <NewHotelForm />
         </Col>
 

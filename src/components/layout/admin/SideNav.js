@@ -5,6 +5,7 @@ import {
   Lock,
   DashBoard,
   Person,
+  House,
 } from "../../constants/icons";
 
 export default function SideNav(props) {
@@ -16,6 +17,10 @@ export default function SideNav(props) {
       <a href="#user">
         <Person />
         User
+      </a>
+      <a href="#newHotel">
+        <House />
+        New Hotel
       </a>
       <a href="#messages">
         <Message />
