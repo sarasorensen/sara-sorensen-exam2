@@ -71,16 +71,22 @@ export default class Admin extends React.Component {
           <h2 className="sub__title ">Welcome!</h2>
           {loginInfo}
         </Col>
-        <Col className="admin__col  col-sm-12">
+        <Col className="admin__col col-sm-12">
           <h2>Enquiries from Clients</h2>
           <ul>
-            <li>{enquiryInfo[0]}</li>
-            <li>{enquiryInfo[1]}</li>
-            <li>{enquiryInfo[2]}</li>
-            <li>{enquiryInfo[3]}</li>
+            {enquiryInfo.map((value) => {
+              return (
+                <div className="box">
+                  <li>{value.enquiryInfo}</li>
+                  <li>{value.enquiryInfo}</li>
+                  <li>{value.enquiryInfo}</li>
+                  <li>{value.enquiryInfo}</li>
+                  <li>{value.enquiryInfo}</li>
+                </div>
+              );
+            })}
           </ul>
         </Col>
-
         <Col className="admin__col col-sm-12">
           <h2>Messages from Clients</h2>
           <ul>

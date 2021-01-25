@@ -711,6 +711,10 @@ body {
   margin-bottom: 10%;
 }
 
+.box {
+  border: 1px solid #000000;
+}
+
 .wrapper {
   padding-bottom: 2.5rem;
   min-height: 100vh;

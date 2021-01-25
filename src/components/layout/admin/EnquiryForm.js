@@ -8,6 +8,8 @@ const emailRegex = RegExp(
   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<Per>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 );
 
+var hotelName = localStorage.getItem("hotel");
+
 export default class ContactComponent extends React.Component {
   constructor(props) {
     super(props);
@@ -17,6 +19,7 @@ export default class ContactComponent extends React.Component {
       email: "",
       checkin: "",
       checkout: "",
+      id: "",
       formErrors: {
         fullName: "",
         email: "",
@@ -71,6 +74,7 @@ export default class ContactComponent extends React.Component {
       this.state.email,
       this.state.checkin,
       this.state.checkout,
+      (this.id = { hotelName }),
     ];
 
     localStorage.setItem("enquiry", JSON.stringify(enquiryInfo));
