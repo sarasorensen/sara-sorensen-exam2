@@ -60,9 +60,13 @@ export default class ContactComponent extends React.Component {
 
     console.log("Contact info", this.state);
 
-    localStorage.setItem("Full Name", this.state.fullName);
-    localStorage.setItem("Email", this.state.email);
-    localStorage.setItem("Message", this.state.message);
+    const contactInfo = [
+      this.state.fullName,
+      this.state.email,
+      this.state.message,
+    ];
+
+    localStorage.setItem("contact", JSON.stringify(contactInfo));
   };
 
   render() {

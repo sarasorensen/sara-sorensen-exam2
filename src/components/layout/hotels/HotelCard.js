@@ -41,9 +41,7 @@ function HotelItem({ id, name, image, price, email }) {
 HotelItem.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
   email: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
 };
 
 export default HotelItem;

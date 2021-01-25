@@ -12,23 +12,12 @@ export default function Enquiry() {
   <Heading title="Enquiry" />;
   window.localStorage.removeItem("email");
 
-  const url = BASE_URL + "enquiries";
+  const id = "/hotelSpecific/600e9abbddf35e2054bd2610";
 
-  // the data we want to send
-  const data = {
-    name: "Bob The Sheep",
-    email: "bob@sheepstuff.no",
-    id: "an-id",
-    checkIn: "May 28 2020",
-    checkOut: "May 29 2020",
-  };
+  const urlDelete = BASE_URL + "establishments" + id;
 
-  FETCH_OPTIONS.method = "POST";
-
-  FETCH_OPTIONS.body = JSON.stringify(data);
-
-  // send every
-  fetch(url, FETCH_OPTIONS)
+  FETCH_OPTIONS.method = "DELETE";
+  fetch(urlDelete, FETCH_OPTIONS)
     .then((r) => r.json())
     .then((j) => console.log(j));
 

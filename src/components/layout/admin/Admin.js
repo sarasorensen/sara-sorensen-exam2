@@ -1,5 +1,6 @@
 import React from "react";
-//import { BASE_URL, FETCH_OPTIONS } from "../../constants/api";
+import { BASE_URL, FETCH_OPTIONS } from "../../constants/api";
+import { useParams } from "react-router-dom";
 //import { NavLink } from "react-router-dom";
 import AdminComp from "./AdminComp";
 //import NewHotel from "./NewHotel";
