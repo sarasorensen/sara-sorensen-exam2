@@ -13,7 +13,7 @@ import Hotels from "./hotels/Hotels";
 import Contact from "./contact/Contact";
 import Login from "../layout/admin/Login";
 import HotelSpecific from "./hotels/HotelSpecific";
-import Enquiry from "./admin/Enquiry";
+import Enquiry from "../enquiry/Enquiry";
 import Admin from "./admin/Admin";
 import Footer from "./Footer";
 import Success from "../layout/admin/Success";

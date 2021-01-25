@@ -1,4 +1,3 @@
-import React from "react";
 import { BASE_URL, FETCH_OPTIONS } from "../../constants/api";
 
 export default function NewHotel() {

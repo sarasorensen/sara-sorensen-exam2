@@ -1,9 +1,6 @@
 import React from "react";
-import { BASE_URL, FETCH_OPTIONS } from "../../constants/api";
-import { useParams } from "react-router-dom";
-//import { NavLink } from "react-router-dom";
-import AdminComp from "./AdminComp";
-//import NewHotel from "./NewHotel";
+import Messages from "./Messages";
+import AllEnquiries from "./AllEnquiries";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -43,7 +40,17 @@ export default function Admin() {
           {loginInfo}
         </Col>
 
-        <AdminComp />
+        <Col className="admin__col col-sm-12">
+          <h2>Messages from Clients</h2>
+
+          <Messages />
+        </Col>
+
+        <Col className="admin__col col-sm-12">
+          <h2>Enquiries from Clients</h2>
+
+          <AllEnquiries />
+        </Col>
       </Row>
     </Container>
   );
