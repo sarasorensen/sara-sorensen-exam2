@@ -276,7 +276,7 @@ ul {
 }
 
 .form__control {
-  width: 90%;
+  width: 95%;
   font-size: 13px;
   height: 25px;
   padding: 10px 10px 10px 5px;
@@ -300,7 +300,7 @@ ul {
 }
 
 .form__inline {
-  width: 100%;
+  width: 90%;
   font-size: 13px;
   height: 25px;
   padding: 10px 10px 10px 5px;
@@ -321,6 +321,19 @@ ul {
 
 .form__inline:hover {
   border-bottom: 1px solid #f1aa1e;
+}
+
+.radio__check {
+  margin-right: 1em;
+}
+
+.radio__1 {
+  font-size: 13px;
+}
+
+.radio__2 {
+  margin-left: 1em;
+  font-size: 13px;
 }
 
 .form__col--1 {

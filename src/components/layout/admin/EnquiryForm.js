@@ -62,7 +62,7 @@ export default class ContactComponent extends React.Component {
   onSubmit = (event) => {
     event.preventDefault();
 
-    this.setState({ redirect: "/success" });
+    this.setState({ redirect: "/admin" });
 
     console.log("Enquiry info", this.state);
 

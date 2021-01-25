@@ -16,17 +16,20 @@ export default class ContactComponent extends React.Component {
       hotelName: "",
       email: "",
       image: "",
+      price: "",
       maxGuests: "",
       lat: "",
       lng: "",
       description: "",
       address: "",
       selfCatering: "",
+      id: "",
 
       formErrors: {
         hotelName: "",
         email: "",
         image: "",
+        price: "",
         maxGuests: "",
         lat: "",
         lng: "",
@@ -73,6 +76,7 @@ export default class ContactComponent extends React.Component {
       hotelName,
       email,
       image,
+      price,
       maxGuests,
       lat,
       lng,
@@ -84,6 +88,7 @@ export default class ContactComponent extends React.Component {
       hotelName.length !== 0 ||
       email.length !== 0 ||
       image.length !== 0 ||
+      price.length !== 0 ||
       maxGuests.length !== 0 ||
       lat.length !== 0 ||
       lng.length !== 0 ||
@@ -92,27 +97,31 @@ export default class ContactComponent extends React.Component {
     );
   };
 
-  onSubmit = (event) => {
-    event.preventDefault();
+  //onSubmit = (event) => {
+  //  event.preventDefault();
 
-    this.setState({ redirect: "/success" });
+  // this.setState({ redirect: "/success" });
 
-    console.log("Enquiry info", this.state);
+  // console.log("Enquiry info", this.state);
 
-    const enquiryInfo = [
-      this.state.hotelName,
-      this.state.email,
-      this.state.image,
-      this.state.maxGuests,
-      this.state.lat,
-      this.state.lng,
-      this.state.description,
-      this.state.address,
-      this.state.selfCatering,
-    ];
+  //  const enquiryInfo = [
+  //    this.state.hotelName,
+  //    this.state.email,
+  //    this.state.image,
+  //    this.state.price,
+  //    this.state.maxGuests,
+  //    this.state.lat,
+  //    this.state.lng,
+  //    this.state.description,
+  //   this.state.address,
+  //   this.state.selfCatering,
+  //   this.state.id,
+  //  ];
 
-    localStorage.setItem("enquiry", JSON.stringify(enquiryInfo));
-  };
+  //  localStorage.setItem("enquiry", JSON.stringify(enquiryInfo));
+  //};
+
+  // onSubmit={this.onSubmit.bind(this)}
 
   render() {
     window.localStorage.removeItem("email");
@@ -124,8 +133,11 @@ export default class ContactComponent extends React.Component {
 
     return (
       <>
-        <Col className="admin__col col-sm-11   col-lg-6">
-          <Form onSubmit={this.onSubmit.bind(this)}>
+        <Col className="admin__col col-sm-1   col-lg-7">
+          <Form
+            action="http://sarasorensen.com/exam-react/hotels"
+            method="post"
+          >
             <h1 className="main__title">Add New Hotel</h1>
             <Form.Group className="form__group">
               <Form.Label htmlFor="hotelName" className="form__label">
@@ -149,71 +161,100 @@ export default class ContactComponent extends React.Component {
               )}
             </Form.Group>
             <Form.Group className="form__group">
-              <Form.Label htmlFor="email" className="form__label">
-                Hotel Email Address:
-              </Form.Label>
-              <input
-                type="text"
-                name="email"
-                id="email"
-                className="form__control"
-                placeholder="example@example.com"
-                required="required"
-                value={this.state.email}
-                onChange={this.handleChange}
-                aria-required="true"
-              />
-              {formErrors.email.length > 0 && (
-                <span className="[ form__error ]">
-                  <i>{formErrors.email}</i>
-                </span>
-              )}
-            </Form.Group>
-            <Form.Group className="form__group">
-              <Form.Label htmlFor="image" className="form__label">
-                Image Url
-              </Form.Label>
-              <input
-                type="text"
-                name="image"
-                id="image"
-                className="form__control"
-                placeholder="http://imageurl.com"
-                required="required"
-                value={this.state.image}
-                onChange={this.handleChange}
-                aria-required="true"
-              />
-              {formErrors.image.length > 0 && (
-                <span className="[ form__error ]">
-                  <i>{formErrors.image}</i>
-                </span>
-              )}
-            </Form.Group>
-            <Form.Group className="form__group">
-              <Form.Label htmlFor="maxGuests" className="form__label">
-                Max Guests
-              </Form.Label>
-              <input
-                type="text"
-                name="maxGuests"
-                id="maxGuests"
-                className="form__control"
-                placeholder="1"
-                required="required"
-                value={this.state.maxGuests}
-                onChange={this.handleChange}
-                aria-required="true"
-              />
-              {formErrors.maxGuests.length > 0 && (
-                <span className="[ form__error ]">
-                  <i>{formErrors.maxGuests}</i>
-                </span>
-              )}
+              <Row>
+                <Col className="col-sm-6">
+                  <Form.Label htmlFor="email" className="form__label">
+                    Hotel Email Address:
+                  </Form.Label>
+                  <input
+                    type="text"
+                    name="email"
+                    id="email"
+                    className="form__inline "
+                    placeholder="example@example.com"
+                    required="required"
+                    value={this.state.email}
+                    onChange={this.handleChange}
+                    aria-required="true"
+                  />
+                  {formErrors.email.length > 0 && (
+                    <span className="[ form__error ]">
+                      <i>{formErrors.email}</i>
+                    </span>
+                  )}
+                </Col>
+                <Col className="col-sm-6">
+                  <Form.Label htmlFor="image" className="form__label">
+                    Image Url
+                  </Form.Label>
+                  <input
+                    type="text"
+                    name="image"
+                    id="image"
+                    className="form__inline "
+                    placeholder="http://imageurl.com"
+                    required="required"
+                    value={this.state.image}
+                    onChange={this.handleChange}
+                    aria-required="true"
+                  />
+                  {formErrors.image.length > 0 && (
+                    <span className="[ form__error ]">
+                      <i>{formErrors.image}</i>
+                    </span>
+                  )}
+                </Col>
+              </Row>
             </Form.Group>
             <Form.Group className="form__group">
               <Row>
-                <Col className="col-sm-5">
+                <Col className="col-sm-6">
+                  <Form.Label htmlFor="maxGuests" className="form__label">
+                    Max Guests
+                  </Form.Label>
+                  <input
+                    type="text"
+                    name="maxGuests"
+                    id="maxGuests"
+                    className="form__inline"
+                    placeholder="1"
+                    required="required"
+                    value={this.state.maxGuests}
+                    onChange={this.handleChange}
+                    aria-required="true"
+                  />
+                  {formErrors.maxGuests.length > 0 && (
+                    <span className="[ form__error ]">
+                      <i>{formErrors.maxGuests}</i>
+                    </span>
+                  )}
+                </Col>
+                <Col className="col-sm-6">
+                  <Form.Label htmlFor="price" className="form__label">
+                    Price
+                  </Form.Label>
+                  <input
+                    type="text"
+                    name="price"
+                    id="price"
+                    className="form__inline"
+                    placeholder="1"
+                    required="required"
+                    value={this.state.price}
+                    onChange={this.handleChange}
+                    aria-required="true"
+                  />
+                  {formErrors.price.length > 0 && (
+                    <span className="[ form__error ]">
+                      <i>{formErrors.price}</i>
+                    </span>
+                  )}
+                </Col>
+              </Row>
+            </Form.Group>
+            <Form.Group className="form__group">
+              <Row>
+                <Col className="col-sm-6">
                   <Form.Label htmlFor="lat" className="form__label">
                     Lattitude
                   </Form.Label>
@@ -234,7 +275,7 @@ export default class ContactComponent extends React.Component {
                     </span>
                   )}
                 </Col>
-                <Col className="col-sm-5">
+                <Col className="col-sm-6">
                   <Form.Label htmlFor="lng" className="form__label">
                     Longitude
                   </Form.Label>
@@ -299,29 +340,54 @@ export default class ContactComponent extends React.Component {
                 </span>
               )}
             </Form.Group>
-            <div className="form__group">
-              <Form.Group>
-                <Form.Label
-                  htmlFor="selfCatering"
-                  className="form__label radio-inline"
-                >
-                  Self Catering
-                </Form.Label>
 
-                <div className="radio form-check-inline">
-                  <Form.Label>
-                    <input type="radio" value={this.state.selfCatering.true} />
+            <Form.Group className="form__group">
+              <Row>
+                <Col className="col-sm-6">
+                  <Form.Label htmlFor=" id" className="form__label">
+                    Id:
+                  </Form.Label>
+                  <input
+                    type="text"
+                    name="id"
+                    id="id"
+                    className="form__inline"
+                    placeholder="12679"
+                    required="required"
+                    value={this.state.id}
+                    onChange={this.handleChange}
+                    aria-required="true"
+                  />
+                </Col>
+
+                <Col className="col-sm-6">
+                  <Form.Label
+                    htmlFor="selfCatering"
+                    className="form__label radio-inline"
+                  >
+                    Self Catering
+                  </Form.Label>
+
+                  <Form.Label className="radio__1">
+                    <input
+                      className="radio__check"
+                      type="radio"
+                      value={this.state.selfCatering.true}
+                    />
                     True
                   </Form.Label>
-                </div>
-                <div className="radio form-check-inline">
-                  <Form.Label>
-                    <input type="radio" value={this.state.selfCatering.false} />
+
+                  <Form.Label className="radio__2">
+                    <input
+                      className="radio__check"
+                      type="radio"
+                      value={this.state.selfCatering.false}
+                    />
                     False
                   </Form.Label>
-                </div>
-              </Form.Group>
-            </div>
+                </Col>
+              </Row>
+            </Form.Group>
 
             <button
               className="btn__main form__btn "

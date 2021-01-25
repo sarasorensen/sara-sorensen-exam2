@@ -110,17 +110,15 @@ export function Home() {
           {filteredHotels.map((hotel) => {
             const { id, name, image, price } = hotel;
             return (
-              <div>
-                <div className="col-sm-12 col-md-8 col-lg-6" key={id}>
-                  {" "}
-                  <HomeCard
-                    className="dropdown__card "
-                    id={id}
-                    image={image}
-                    name={name}
-                    price={price}
-                  />{" "}
-                </div>
+              <div className="col-sm-12 col-md-8 col-lg-6" key={id}>
+                {" "}
+                <HomeCard
+                  className="dropdown__card "
+                  id={id}
+                  image={image}
+                  name={name}
+                  price={price}
+                />{" "}
               </div>
             );
           })}
