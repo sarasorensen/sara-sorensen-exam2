@@ -60,6 +60,7 @@ export default class Login extends React.Component {
 
   render() {
     const { formErrors } = this.state;
+    window.localStorage.removeItem("email");
 
     return (
       <div className="form__container">
@@ -114,16 +115,15 @@ export default class Login extends React.Component {
                   </span>
                 )}
               </Form.Group>
-              <div style={{ display: "flex" }}>
-                <button
-                  to={"/admin"}
-                  className="btn__main form__btn "
-                  type="submit"
-                  disabled={this.isFormInvalid()}
-                >
-                  Login
-                </button>
-              </div>
+
+              <button
+                to={"/admin"}
+                className="btn__main"
+                type="submit"
+                disabled={this.isFormInvalid()}
+              >
+                Login
+              </button>
             </Form>
           </Col>
         </Row>

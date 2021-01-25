@@ -32,11 +32,10 @@ export default function Messages() {
     <>
       {enquiries.map((item) => (
         <div key={item.id} className="allEnquiries ">
-          <p>{item.name}</p>
-          <p>{item.email} </p>
-          <p>{item.checkIn}</p>
-          <p>{item.checkOut}</p>
-          <p>{item.establishmentId}</p>
+          <h3>{item.name}</h3>
+          <p>Email: {item.email} </p>
+          <p>Check in: {item.checkIn}</p>
+          <p>Check Out: {item.checkOut}</p>
         </div>
       ))}
     </>

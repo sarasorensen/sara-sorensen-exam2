@@ -86,7 +86,7 @@ export function HotelSpecific() {
             </Col>
           </Row>
           <Link to={"/enquiry/" + id}>
-            <button className="btn__main  float-right">Book Hotel</button>
+            <button className="btn__main ">Book Hotel</button>
           </Link>
         </Col>
       </Row>

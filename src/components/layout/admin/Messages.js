@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Spinner from "react-bootstrap/Spinner";
 import { BASE_URL, FETCH_OPTIONS } from "../../constants/api";
+import { Message } from "../../constants/icons";
 
 export default function Messages() {
   const url = BASE_URL + "contacts";
@@ -32,9 +33,11 @@ export default function Messages() {
     <>
       {messages.map((item) => (
         <div key={item.id} className="messages ">
-          <p>{item.name}</p>
-          <p>{item.email} </p>
-          <p>{item.message}</p>
+          <h3>{item.name}</h3>
+          <p>Email: {item.email} </p>
+          <p>
+            <Message /> {item.message}
+          </p>
         </div>
       ))}
     </>

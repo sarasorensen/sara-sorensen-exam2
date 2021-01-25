@@ -147,7 +147,7 @@ export default class ContactComponent extends React.Component {
             )}
           </Form.Group>
           <button
-            className="btn__main form__btn "
+            className="btn__main"
             type="submit"
             disabled={this.isFormInvalid()}
             value="submit"
