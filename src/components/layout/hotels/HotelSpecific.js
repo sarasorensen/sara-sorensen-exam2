@@ -35,12 +35,6 @@ export function HotelSpecific() {
     );
   }
 
-  // const setStorage = () => {
-  //   localStorage.setItem("hotel", detail.name);
-  //   localStorage.setItem("image", detail.image);
-  //   localStorage.setItem("price", detail.price);
-  //  };
-
   return (
     <Container className="specific">
       <Row>

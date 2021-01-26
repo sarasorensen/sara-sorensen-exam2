@@ -726,7 +726,7 @@ body {
 
 .sidenav a {
   width: 90%;
-  padding: 0.5em;
+  padding: 0.2em;
   margin-bottom: 0.5em;
 }
 
@@ -952,7 +952,25 @@ body {
   text-decoration: underline;
 }
 
-@media (max-width: 767px) {
+@media (min-width: 200px) and (max-width: 450px) {
+  .wrapper {
+    min-height: 170vh;
+  }
+  .InfoBoxes__row {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .InfoBoxes {
+    width: 100%;
+  }
+  .home__content {
+    top: 20%;
+  }
+}
+
+@media (min-width: 451px) and (max-width: 599px) {
   .wrapper {
     min-height: 200vh;
   }
@@ -963,7 +981,43 @@ body {
             flex-direction: column;
   }
   .InfoBoxes {
-    max-width: 25%;
+    width: 100%;
+  }
+  .home__content {
+    top: 20%;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 767px) {
+  .wrapper {
+    min-height: 245vh;
+  }
+  .InfoBoxes__row {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .InfoBoxes {
+    width: 100%;
+  }
+  .home__content {
+    top: 20%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 990px) {
+  .wrapper {
+    min-height: 130vh;
+  }
+  .InfoBoxes__row {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .InfoBoxes {
+    width: 100%;
   }
   .home__content {
     top: 20%;

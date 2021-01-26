@@ -1,5 +1,5 @@
 import React from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import { Person, Email } from "../constants/icons";
@@ -7,8 +7,6 @@ import { Person, Email } from "../constants/icons";
 const emailRegex = RegExp(
   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<Per>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 );
-
-var hotelName = localStorage.getItem("hotel");
 
 export default class ContactComponent extends React.Component {
   constructor(props) {
@@ -70,7 +68,7 @@ export default class ContactComponent extends React.Component {
     const enquiryInfo = {
       name: this.state.fullName,
       email: this.state.email,
-      establishmentId: (this.id = { hotelName }),
+      establishmentId: this.state.id,
       checkIn: this.state.checkin,
       checkOut: this.state.checkout,
     };
@@ -175,14 +173,16 @@ export default class ContactComponent extends React.Component {
                 </span>
               )}
             </Form.Group>
-            <button
-              className="btn__main"
-              type="submit"
-              disabled={this.isFormInvalid()}
-              value="submit"
-            >
-              Submit
-            </button>
+            <Link to={"/admin" + this.state.id}>
+              <button
+                className="btn__main"
+                type="submit"
+                disabled={this.isFormInvalid()}
+                value="submit"
+              >
+                Submit
+              </button>
+            </Link>
           </Form>
         </Col>
       </>
