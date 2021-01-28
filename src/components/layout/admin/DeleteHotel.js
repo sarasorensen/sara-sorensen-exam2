@@ -1,4 +1,3 @@
-import React from "react";
 import { BASE_URL, FETCH_OPTIONS } from "../../constants/api";
 
 const idDelete = "/hotelSpecific/600eab1accba8d02463df1f8";

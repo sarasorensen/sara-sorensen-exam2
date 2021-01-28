@@ -29,17 +29,16 @@ export function Home() {
       .finally(() => setLoading(false));
   }, []);
 
-  const ref = useRef();
-  const [showDropdown, setDropdown] = useState(false);
-  const [Open] = useState(true);
+  const node = useRef();
+  const [dropdown, setDropdown] = useState(false);
 
-  const Close = () => {
-    setDropdown(false);
+  const toggling = () => {
+    setDropdown(!dropdown);
   };
 
   useEffect(() => {
     function handleClickOutside(event) {
-      if (ref.current && ref.current.contains(event.target)) {
+      if (node.current && node.current.contains(event.target)) {
         setIsSearched(true);
         return;
       }
@@ -51,7 +50,7 @@ export function Home() {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [Open]);
+  }, [node]);
 
   const filterHotels = function (e) {
     setIsSearched(true);
@@ -92,17 +91,12 @@ export function Home() {
       <HomeHeader />
       <div className="home home__content">
         <h1>Find your dream hotel in Bergen</h1>
-        <Search
-          handleSearch={filterHotels}
-          onChange={
-            showDropdown !== true && isSearched === false ? Open : Close
-          }
-        />
+        <Search handleSearch={filterHotels} onChange={toggling} />
 
         <div
-          ref={ref}
+          ref={node}
           className={
-            showDropdown !== true && isSearched === false
+            dropdown !== true && isSearched === false
               ? "d-none "
               : "d-block dropdown "
           }

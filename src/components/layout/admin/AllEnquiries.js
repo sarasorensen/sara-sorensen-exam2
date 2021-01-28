@@ -16,6 +16,7 @@ export default function Messages() {
       .then(function (data) {
         setEnquiries(data);
       })
+      .catch((error) => console.log(error))
       .finally(() => setLoading(false));
   });
 

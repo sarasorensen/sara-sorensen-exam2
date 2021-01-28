@@ -36,74 +36,8 @@ export default function Admin() {
   //   );
   //  //   }
 
-  if (contactInfo.name === null) {
-    return (
-      <Container className="admin__error">
-        <Row>
-          <Col id="user" className="admin__log left col-sm-12 ">
-            <LogedIn />
-            <p className="admin__login">You are logged in as:</p>
-            <p className="admin__email">sarasorensen97@hotmail.com</p>
-            <p className="admin__email">{loginInfo}</p>
-          </Col>
-          <Col id="messages" className="admin__col col-sm-12">
-            <h2 className="admin__h2">Messages from Clients</h2>
-            <Messages />
-          </Col>
-
-          <Col id="enquiries" className="admin__col col-sm-12">
-            <h2 className="admin__h2">Enquiries from Clients</h2>
-            <div className="allEnquiries">
-              <h3>{enquiryInfo.name}</h3>
-              <p>Email: {enquiryInfo.email}</p>
-              <p>Check In: {enquiryInfo.checkIn}</p>
-              <p>Check Out: {enquiryInfo.checkOut}</p>
-            </div>
-            <AllEnquiries />
-          </Col>
-        </Row>
-      </Container>
-    );
-  }
-
-  if (enquiryInfo.name === null) {
-    return (
-      <Container className="admin__error">
-        <Row>
-          <Col id="user" className="admin__log left col-sm-12 ">
-            <LogedIn />
-            <p className="admin__login">You are logged in as:</p>
-            <p className="admin__email">sarasorensen97@hotmail.com</p>
-            <p className="admin__email">{loginInfo}</p>
-          </Col>
-          <Col id="enquiries" className="admin__col col-sm-12">
-            <h2 className="admin__h2">Enquiries from Clients</h2>
-            <p>No enquiries</p>
-          </Col>
-
-          <Col id="messages" className="admin__col col-sm-12">
-            <h2 className="admin__h2">Messages from Clients</h2>
-            <div className="messages">
-              <h3>{contactInfo.name}</h3>
-              <p>Email: {contactInfo.email}</p>
-              <p>
-                <Message /> {contactInfo.message}
-              </p>
-            </div>
-            <Messages />
-          </Col>
-
-          <Col id="enquiries" className="admin__col col-sm-12">
-            <h2 className="admin__h2">Enquiries from Clients</h2>
-
-            <AllEnquiries />
-          </Col>
-        </Row>
-      </Container>
-    );
-  }
-
-  if (enquiryInfo.name === null || contactInfo.name === null) {
+  console.log(contactInfo);
+  if (enquiryInfo === null || contactInfo === null) {
     return (
       <Container className="admin__error">
         <Row>
@@ -128,6 +62,7 @@ export default function Admin() {
       </Container>
     );
   }
+
   return (
     <Container id="admin" className="admin">
       <h1>Admin</h1>
