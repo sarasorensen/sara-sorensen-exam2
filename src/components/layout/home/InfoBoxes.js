@@ -10,7 +10,7 @@ import { Map, Message, Pencil } from "../../constants/icons";
 const InfoBoxes = () => {
   return (
     <Row className="InfoBoxes__row">
-      <Col xs={12} md={6} lg={4}>
+      <Col xs={12} md={6} lg={2}>
         <Card className="InfoBoxes">
           <Card.Img variant="top" className="InfoBoxes__img" src={Hotel} />
           <Card.Body>
@@ -23,7 +23,7 @@ const InfoBoxes = () => {
           </Card.Body>
         </Card>
       </Col>
-      <Col xs={12} md={6} lg={4}>
+      <Col xs={12} md={6} lg={2}>
         <Card className="InfoBoxes">
           <Card.Img variant="top" className="InfoBoxes__img" src={Contact} />
           <Card.Body>
@@ -36,7 +36,7 @@ const InfoBoxes = () => {
           </Card.Body>
         </Card>
       </Col>
-      <Col xs={12} md={6} lg={4}>
+      <Col xs={12} md={6} lg={2}>
         <Card className="InfoBoxes">
           <Card.Img variant="top" className="InfoBoxes__img" src={Book} />
           <Card.Body>
