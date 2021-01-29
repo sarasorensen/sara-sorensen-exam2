@@ -16,6 +16,7 @@ export default function NewHotel() {
     selfCatering: true,
     id: 12890138,
   };
+
   FETCH_OPTIONS.method = "POST";
   FETCH_OPTIONS.body = JSON.stringify(newEstablishment);
   fetch(url, FETCH_OPTIONS)

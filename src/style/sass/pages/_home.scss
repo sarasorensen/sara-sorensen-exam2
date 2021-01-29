@@ -6,6 +6,7 @@
   width: 100%;
   & h1 {
     text-align: center;
+    z-index: 2;
   }
 }
 .home__content {
@@ -98,6 +99,6 @@
     width: 80%;
   }
   .home__content {
-    top: 20%;
+    top: 25%;
   }
 }
