@@ -1,7 +1,10 @@
+//import { useState } from "react";
 import { BASE_URL, FETCH_OPTIONS } from "../../constants/api";
 
 export default function NewHotel() {
+  //const [setNewHotel] = useState(null);
   const url = BASE_URL + "establishments";
+
   const newEstablishment = {
     name: "Sara's Hotel",
     email: "sara@email.com",
@@ -21,5 +24,5 @@ export default function NewHotel() {
   FETCH_OPTIONS.body = JSON.stringify(newEstablishment);
   fetch(url, FETCH_OPTIONS)
     .then((r) => r.json())
-    .then((j) => console.log(j));
+    .then((newHotel) => console.log(newHotel));
 }

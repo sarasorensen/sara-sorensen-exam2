@@ -1,4 +1,4 @@
-const KEY = "5ff6fef5aba38384e5fe94d1";
+const KEY = "60143a93331728343db7cb4e";
 
 export const POST_CONTACTFORM =
   "https://noroffcors.herokuapp.com/https://skuggen.dev/holidaze-api/contact-success.php";

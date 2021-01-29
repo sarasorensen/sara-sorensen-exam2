@@ -6,6 +6,7 @@ import Col from "react-bootstrap/Col";
 import React, { useState, useEffect } from "react";
 import { BASE_URL, FETCH_OPTIONS } from "../../constants/api";
 import HotelCard from "../hotels/HotelCard";
+//import NewHotel from "../admin/NewHotel";
 import Search from "../home/Search";
 
 function Hotels() {

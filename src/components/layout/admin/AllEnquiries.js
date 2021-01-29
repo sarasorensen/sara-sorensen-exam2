@@ -5,6 +5,8 @@ import { BASE_URL, FETCH_OPTIONS } from "../../constants/api";
 export default function Messages() {
   const url = BASE_URL + "enquiries";
 
+  let enquiryInfo = JSON.parse(localStorage.getItem("enquiryInfo"));
+
   const [enquiries, setEnquiries] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -13,8 +15,8 @@ export default function Messages() {
       .then(function (response) {
         return response.json();
       })
-      .then(function (data) {
-        setEnquiries(data);
+      .then(function (j) {
+        setEnquiries(j);
       })
       .catch((error) => console.log(error))
       .finally(() => setLoading(false));
@@ -29,16 +31,41 @@ export default function Messages() {
     );
   }
 
+  if (enquiryInfo === null) {
+    return (
+      <div id="enquiries" className="admin__col">
+        <h2 className="admin__h2">Enquiries from Clients</h2>
+        {enquiries.map((item) => (
+          <div key={item.id} className="allEnquiries ">
+            <h3>{item.name}</h3>
+            <p>Email: {item.email} </p>
+            <p>Check in: {item.checkin}</p>
+            <p>Check Out: {item.checkout}</p>
+          </div>
+        ))}
+      </div>
+    );
+  }
+
   return (
     <>
-      {enquiries.map((item) => (
-        <div key={item.id} className="allEnquiries ">
-          <h3>{item.name}</h3>
-          <p>Email: {item.email} </p>
-          <p>Check in: {item.checkIn}</p>
-          <p>Check Out: {item.checkOut}</p>
+      <div id="enquiries" className="admin__col   ">
+        <h2 className="admin__h2">Enquiries from Clients</h2>
+        <div className="allEnquiries">
+          <h3>{enquiryInfo.name}</h3>
+          <p>Email: {enquiryInfo.email}</p>
+          <p>Check In: {enquiryInfo.checkin}</p>
+          <p>Check Out: {enquiryInfo.checkout}</p>
         </div>
-      ))}
+        {enquiries.map((item) => (
+          <div key={item.id} className="allEnquiries ">
+            <h3>{item.name}</h3>
+            <p>Email: {item.email} </p>
+            <p>Check in: {item.checkin}</p>
+            <p>Check Out: {item.checkout}</p>
+          </div>
+        ))}
+      </div>
     </>
   );
 }

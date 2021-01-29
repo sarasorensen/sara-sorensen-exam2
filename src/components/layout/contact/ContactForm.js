@@ -13,7 +13,6 @@ export default class ContactComponent extends React.Component {
     super(props);
 
     this.state = {
-      redirect: false,
       fullName: "",
       email: "",
       message: "",
@@ -57,8 +56,6 @@ export default class ContactComponent extends React.Component {
   onSubmit = (e) => {
     e.preventDefault();
     this.setState({ redirect: "/admin" });
-
-    console.log("Contact info", this.state);
 
     const contactInfo = {
       name: this.state.fullName,

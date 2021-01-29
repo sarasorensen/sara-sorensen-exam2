@@ -35,6 +35,9 @@ export function HotelSpecific() {
     );
   }
 
+  localStorage.setItem("name", detail.name);
+  localStorage.setItem("image", detail.image);
+
   return (
     <Container className="specific">
       <Row>
