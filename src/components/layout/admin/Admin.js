@@ -1,4 +1,5 @@
 import React from "react";
+import Heading from "../Heading";
 import Messages from "./Messages";
 import AllEnquiries from "./AllEnquiries";
 import Container from "react-bootstrap/Container";
@@ -9,13 +10,14 @@ import SideNav from "./SideNav";
 import NewHotelForm from "./NewHotelForm";
 
 export default function Admin() {
+  <Heading title="Administrator dashboard" />;
   let loginInfo = localStorage.getItem("email");
 
   // if (loginInfo === null) {
   //   return (
-  //    <Container className="admin__error">
+  //    <Container className="admin">
   //      <Row>
-  //       <Col>
+  //       <Col className="admin__error">
   //        <div>
   //         <Access />
   //       <h2 className="main__title">You don't have access!</h2>
@@ -31,48 +33,44 @@ export default function Admin() {
   //  //   }
 
   return (
-    <>
+    <Container id="admin" className="admin">
       <h1 className="main__title">Admin</h1>
-
-      <Container id="admin" className="admin">
-        <Row>
-          <div className="admin__col">
-            <SideNav />
-          </div>
-          <div className="admin__col">
-            <div id="user" className="admin__log">
-              <LogedIn />
-              <div className="admin__log--text">
-                <p className="admin__login">You are logged in as:</p>
-                <p>sarasorensen97@hotmail.com</p>
-                <p>{loginInfo}</p>
-              </div>
+      <Row>
+        <div className="admin__col">
+          <SideNav />
+        </div>
+        <div className="admin__col">
+          <div id="user" className="admin__logInfo">
+            <LogedIn />
+            <div>
+              <p>You are logged in as:</p>
+              <p>sarasorensen97@hotmail.com</p>
+              <p>{loginInfo}</p>
             </div>
           </div>
+        </div>
 
-          <div id="newHotel" className="admin__col  ">
-            <h2 className="admin__h2">New Hotel</h2>
-            <p>
-              The link below takes you to the source file, where you can
-              download the code needed for a new establishment. Or you can use
-              the form.
-            </p>
-            <a href="https://github.com/sarasorensen/sara-sorensen-exam2/blob/master/src/components/layout/admin/NewHotel.js">
-              Source Link
-            </a>
+        <div id="newHotel" className="admin__col">
+          <h2>New Hotel</h2>
+          <p>
+            The link below takes you to the source file, where you can download
+            the code needed for a new establishment. Or you can use the form.
+          </p>
+          <a href="https://github.com/sarasorensen/sara-sorensen-exam2/blob/master/src/components/layout/admin/NewHotel.js">
+            Source Link
+          </a>
 
-            <NewHotelForm />
-          </div>
+          <NewHotelForm />
+        </div>
 
-          <div id="messages" className="admin__col  ">
-            <Messages />
-          </div>
+        <div id="messages" className="admin__col">
+          <Messages />
+        </div>
 
-          <div id="enquiries" className="admin__col  ">
-            <AllEnquiries />
-          </div>
-        </Row>
-      </Container>
-    </>
+        <div id="enquiries" className="admin__col">
+          <AllEnquiries />
+        </div>
+      </Row>
+    </Container>
   );
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
 import Form from "react-bootstrap/Form";
+import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 const emailRegex = RegExp(
@@ -110,10 +111,10 @@ export default class ContactComponent extends React.Component {
       return <Redirect to={this.state.redirect} />;
     }
     return (
-      <>
+      <Container className="form">
         <Form onSubmit={this.onSubmit.bind(this)}>
           <h2 className="main__title">Create Establishment</h2>
-          <Form.Group className="form__group">
+          <Form.Group>
             <Form.Label htmlFor="hotelName" className="form__label">
               Hotel Name:
             </Form.Label>
@@ -134,7 +135,7 @@ export default class ContactComponent extends React.Component {
               </span>
             )}
           </Form.Group>
-          <Form.Group className="form__group">
+          <Form.Group>
             <Row>
               <Col className="col-sm-6">
                 <Form.Label htmlFor="email" className="form__label">
@@ -144,7 +145,7 @@ export default class ContactComponent extends React.Component {
                   type="text"
                   name="email"
                   id="email"
-                  className="form__inline "
+                  className="form__inline"
                   placeholder="example@example.com"
                   required="required"
                   value={this.state.email}
@@ -180,7 +181,7 @@ export default class ContactComponent extends React.Component {
               </Col>
             </Row>
           </Form.Group>
-          <Form.Group className="form__group">
+          <Form.Group>
             <Row>
               <Col className="col-sm-6">
                 <Form.Label htmlFor="maxGuests" className="form__label">
@@ -226,7 +227,7 @@ export default class ContactComponent extends React.Component {
               </Col>
             </Row>
           </Form.Group>
-          <Form.Group className="form__group">
+          <Form.Group>
             <Row>
               <Col className="col-sm-6">
                 <Form.Label htmlFor="lat" className="form__label">
@@ -272,7 +273,7 @@ export default class ContactComponent extends React.Component {
               </Col>
             </Row>
           </Form.Group>
-          <Form.Group className="form__group">
+          <Form.Group>
             <Form.Label htmlFor="description" className="form__label">
               description
             </Form.Label>
@@ -293,7 +294,7 @@ export default class ContactComponent extends React.Component {
               </span>
             )}
           </Form.Group>
-          <Form.Group className="form__group">
+          <Form.Group>
             <Form.Label htmlFor=" address" className="form__label">
               Address
             </Form.Label>
@@ -314,7 +315,7 @@ export default class ContactComponent extends React.Component {
               </span>
             )}
           </Form.Group>
-          <Form.Group className="form__group">
+          <Form.Group>
             <Row>
               <Col className="col-sm-6">
                 <Form.Label htmlFor=" id" className="form__label">
@@ -360,7 +361,7 @@ export default class ContactComponent extends React.Component {
             </Row>
           </Form.Group>
           <button
-            className="btn__main"
+            className="btn"
             type="submit"
             disabled={this.isFormInvalid()}
             value="submit"
@@ -368,7 +369,7 @@ export default class ContactComponent extends React.Component {
             Submit
           </button>
         </Form>
-      </>
+      </Container>
     );
   }
 }

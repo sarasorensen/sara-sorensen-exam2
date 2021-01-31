@@ -1,4 +1,5 @@
 import React from "react";
+import Heading from "../Heading";
 import { NavLink } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -6,6 +7,7 @@ import Col from "react-bootstrap/Col";
 import { CheckMark } from "../../constants/icons";
 
 export default function Success() {
+  <Heading title="Submission success" />;
   return (
     <Container className="success">
       <Row>

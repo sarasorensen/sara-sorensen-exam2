@@ -11,25 +11,23 @@ function HotelItem({ id, name, image, price, email }) {
         <Card.Body>
           <Card.Img
             variant="top"
-            className="hotel__card--img "
+            className="hotel__img"
             src={image}
             alt={name}
           />
-          <ul className="hotel__card--ul">
+          <ul className="hotel__ul">
             <li>
-              <Card.Title className="hotel__card--title">{name}</Card.Title>{" "}
+              <Card.Title className="hotel__title">{name}</Card.Title>{" "}
             </li>
             <li>
-              <div className="hotel__card--price">
-                Price: <span className="card__price--color">{price}$</span>
-              </div>
+              Price: <span className="hotel__price">{price}$</span>
             </li>
             <li>
               <p>{email}</p>
             </li>
 
             <Link to={"hotelSpecific/" + id}>
-              <button className="btn__main ">View Hotel</button>
+              <button className="btn ">View Hotel</button>
             </Link>
           </ul>
         </Card.Body>

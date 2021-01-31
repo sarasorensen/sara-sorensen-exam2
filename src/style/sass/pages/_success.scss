@@ -9,13 +9,13 @@
   text-align: center;
 }
 .success__link {
-  @include main__link;
+  @include link;
 }
 .toggle {
   cursor: pointer;
   margin: 0 auto;
   margin-bottom: 1em;
-  @include inline__link;
+  @include link__underline;
   & ul {
     margin: 0;
     padding: 0;

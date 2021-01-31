@@ -25,8 +25,8 @@ export default function Messages() {
 
   if (loading) {
     return (
-      <div>
-        <Spinner role="status" className="spinner__box--animation" />
+      <div className="spinner">
+        <Spinner role="status" className="spinner__animation" />
         <span className="sr-only">Loading content...</span>
       </div>
     );
@@ -34,11 +34,11 @@ export default function Messages() {
 
   if (contactInfo === null) {
     return (
-      <div id="messages" className="admin__col   ">
+      <div id="messages" className="admin__col">
         <h2 className="admin__h2">Messages from Clients</h2>
 
         {messages.map((item) => (
-          <div key={item.id} className="messages ">
+          <div key={item.id} className="admin__box">
             <h3>{item.name}</h3>
             <p>Email: {item.email} </p>
             <p>
@@ -52,9 +52,9 @@ export default function Messages() {
 
   return (
     <>
-      <div id="messages" className="admin__col   ">
+      <div id="messages" className="admin__col">
         <h2 className="admin__h2">Messages from Clients</h2>
-        <div className="messages">
+        <div className="admin__box">
           <h3>{contactInfo.name}</h3>
           <p>Email: {contactInfo.email}</p>
           <p>
@@ -62,7 +62,7 @@ export default function Messages() {
           </p>
         </div>
         {messages.map((item) => (
-          <div key={item.id} className="messages ">
+          <div key={item.id} className="admin__box">
             <h3>{item.name}</h3>
             <p>Email: {item.email} </p>
             <p>

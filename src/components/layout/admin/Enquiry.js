@@ -1,9 +1,11 @@
 import React from "react";
+import Heading from "../Heading";
 import { Redirect } from "react-router-dom";
 import Form from "react-bootstrap/Form";
+import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { Person, Email, Message } from "../../constants/icons";
+import { Person, Email } from "../../constants/icons";
 
 const emailRegex = RegExp(
   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<Per>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -79,13 +81,14 @@ export default class ContactComponent extends React.Component {
   };
 
   render() {
+    <Heading title="Enquiry" />;
     const { formErrors } = this.state;
 
     if (this.state.redirect) {
       return <Redirect to={this.state.redirect} />;
     }
     return (
-      <div className="form__container">
+      <Container className="form">
         <Row>
           <Col className="form__col--1 col-sm-12 col-lg-6">
             <h1 className="enquiry__name">{name}</h1>
@@ -96,10 +99,10 @@ export default class ContactComponent extends React.Component {
               can be changed later via email support.
             </p>
           </Col>
-          <Col className="col-sm-11 col-lg-6">
+          <Col className="form__col--2 col-sm-11 col-lg-6">
             <Form onSubmit={this.onSubmit.bind(this)}>
               <h1 className="main__title">Enquiry</h1>
-              <Form.Group className="form__group">
+              <Form.Group>
                 <Form.Label htmlFor="fullName" className="form__label">
                   <Person />
                   Full Name:
@@ -121,7 +124,7 @@ export default class ContactComponent extends React.Component {
                   </span>
                 )}
               </Form.Group>
-              <Form.Group className="form__group">
+              <Form.Group>
                 <Form.Label htmlFor="email" className="form__label">
                   <Email />
                   Email Address:
@@ -144,7 +147,7 @@ export default class ContactComponent extends React.Component {
                   </span>
                 )}
               </Form.Group>
-              <Form.Group className="form__group">
+              <Form.Group>
                 <Form.Label htmlFor="checkin" className="form__label">
                   Check In
                 </Form.Label>
@@ -163,7 +166,7 @@ export default class ContactComponent extends React.Component {
                   </span>
                 )}
               </Form.Group>
-              <Form.Group className="form__group">
+              <Form.Group>
                 <Form.Label htmlFor="checkout" className="form__label">
                   Check Out
                 </Form.Label>
@@ -184,7 +187,7 @@ export default class ContactComponent extends React.Component {
               </Form.Group>
 
               <button
-                className="btn__main"
+                className="btn"
                 type="submit"
                 disabled={this.isFormInvalid()}
                 value="submit"
@@ -194,7 +197,7 @@ export default class ContactComponent extends React.Component {
             </Form>
           </Col>
         </Row>
-      </div>
+      </Container>
     );
   }
 }

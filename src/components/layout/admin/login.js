@@ -1,5 +1,7 @@
 import React from "react";
+import Heading from "../Heading";
 import Form from "react-bootstrap/Form";
+import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Email, Lock, PersonFill } from "../../constants/icons";
@@ -59,11 +61,12 @@ export default class Login extends React.Component {
   };
 
   render() {
+    <Heading title="Log in" />;
     const { formErrors } = this.state;
     window.localStorage.removeItem("email");
 
     return (
-      <div className="form__container">
+      <Container className="form">
         <Row>
           <Col className="form__col--1 col-sm-12   col-lg-6">
             <PersonFill />
@@ -72,10 +75,10 @@ export default class Login extends React.Component {
               password in this form.
             </p>
           </Col>
-          <Col className="col-sm-11   col-lg-6">
+          <Col className="form__col--2 col-sm-11   col-lg-6">
             <Form onSubmit={this.onSubmit.bind(this)}>
               <h1 className="main__title">Log in</h1>
-              <Form.Group className="form__group">
+              <Form.Group>
                 <Form.Label className="form__label" htmlFor="email">
                   <Email />
                   Email
@@ -95,7 +98,7 @@ export default class Login extends React.Component {
                   </span>
                 )}
               </Form.Group>
-              <Form.Group className="form__group">
+              <Form.Group>
                 <Form.Label className="form__label" htmlFor="password">
                   <Lock />
                   Password
@@ -118,7 +121,7 @@ export default class Login extends React.Component {
 
               <button
                 to={"/admin"}
-                className="btn__main"
+                className="btn"
                 type="submit"
                 disabled={this.isFormInvalid()}
               >
@@ -127,7 +130,7 @@ export default class Login extends React.Component {
             </Form>
           </Col>
         </Row>
-      </div>
+      </Container>
     );
   }
 }

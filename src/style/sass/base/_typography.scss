@@ -7,11 +7,9 @@ $fallback-font: "arial", sans-serif;
 a {
   color: $color__black;
   &:hover {
-    text-decoration: none;
     color: inherit;
   }
 }
-
 h1 {
   font-family: $main-heading;
   color: $color__white;
@@ -19,27 +17,22 @@ h1 {
   font-weight: 900;
   margin-bottom: 1em;
 }
-.main__title {
-  color: $color__lightGrey;
-  margin-top: 1em;
-}
-.main__title--card {
-  font-size: 1.5em;
-  color: $color__main;
-}
 h2 {
   font-family: $main-heading;
   color: $color__main;
   font-weight: 900;
   text-align: center;
 }
-.sub__title {
-  color: $color__main;
-  margin-top: 3em;
-}
-
 h3 {
   font-family: $main-heading;
   color: $color__grey;
   font-weight: 100;
+}
+.main__title {
+  color: $color__lightGrey;
+  margin-top: 1em;
+}
+.sub__title {
+  color: $color__main;
+  margin-top: 3em;
 }

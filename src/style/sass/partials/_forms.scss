@@ -1,69 +1,69 @@
 .search {
   width: 100%;
-  position: relative;
-  display: flex;
-  align-items: center;
-  margin-bottom: 10%;
-  & .form-control {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 0.2em;
+  & .search__input {
+    width: 90%;
+    box-sizing: border-box;
+    height: 42px;
+    border: none;
+    padding: 5px;
     border-radius: 0;
   }
-}
-.search__icon {
-  color: $color__beige;
-}
-.search__icon--box {
-  background-color: $color__main;
-  padding: 0.3em;
+  & .search__icon {
+    height: 42px;
+    background-color: $color__white;
+    padding: 0.3em;
+    color: $color__main;
+  }
+  & :hover {
+    @include hover;
+  }
 }
 
-.btn__main {
-  @include secondary__link;
+.btn {
+  @include button;
   margin-right: 0.5em;
   margin-bottom: 0.5em;
   float: right;
 }
-
-.form__container {
+.form {
   width: 50em;
   background-color: $color__white;
   color: $color__black;
   margin: 32px auto 37px;
   margin-top: 5%;
   box-shadow: $box__shadow;
-}
-
-.form__input {
-  width: 100%;
+  & .form__label {
+    width: 90%;
+    color: $color__grey;
+    font-size: 13px;
+    @include transition;
+  }
+  & .form__control {
+    width: 95%;
+    font-size: 13px;
+    height: 25px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid $color__grey;
+    opacity: 0.5;
+    @include transition;
+    &:focus {
+      outline: none;
+      opacity: 1;
+    }
+    &:hover {
+      border-bottom: 1px solid $color__main;
+    }
+  }
 }
 .form__error {
   color: $error;
 }
-.form__label {
-  width: 90%;
-  color: $color__grey;
-  font-size: 13px;
-  @include transition;
-}
-.form__control {
-  width: 95%;
-  font-size: 13px;
-  height: 25px;
-  padding: 10px 10px 10px 5px;
-  display: block;
-  border: none;
-  outline: none;
-  border-bottom: 1px solid $color__grey;
-  opacity: 0.5;
-  @include transition;
-  &:focus {
-    outline: none;
-    opacity: 1;
-  }
-  &:hover {
-    border-bottom: 1px solid $color__main;
-  }
-}
-
 .form__inline {
   width: 90%;
   font-size: 13px;
@@ -115,13 +115,11 @@
   font-size: 1em;
   color: $color__white;
 }
-
 .row:after {
   content: "";
   display: table;
   clear: both;
 }
-
 @media (max-width: 595px) {
   .search {
     width: 100%;
@@ -143,9 +141,6 @@
     }
     & .form__control {
       width: 100%;
-    }
-    & .form__btn {
-      margin-right: 0;
     }
   }
 }
@@ -171,12 +166,8 @@
     & .form__control {
       width: 100%;
     }
-    & .form__btn {
-      margin-right: 0;
-    }
   }
 }
-
 @media all and (max-width: 992px) {
   .row {
     width: 100%;
@@ -195,12 +186,8 @@
     & .form__control {
       width: 100%;
     }
-    & .form__btn {
-      margin-right: 0;
-    }
   }
 }
-
 @media all and (max-width: 1024px) {
   .row {
     width: 100%;

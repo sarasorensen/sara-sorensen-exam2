@@ -1,21 +1,6 @@
-.admin__error {
-  width: 100%;
-  min-height: 55vh;
-  background-color: transparent;
-  color: $color__grey;
-  margin: 32px auto 37px;
-  padding: 1em;
-  margin-top: 1em;
-  text-align: center;
-
-  & h2 {
-    color: $color__grey;
-    text-align: center;
-    margin: 0;
-    margin-bottom: 0.5em;
-  }
+.admin {
+  min-width: 100%;
 }
-
 .admin__col {
   width: 100%;
   color: $color__grey;
@@ -27,7 +12,7 @@
   margin: 1em;
   padding: 1em;
   & a {
-    @include inline__link;
+    @include link__underline;
   }
   & ul {
     padding: 0;
@@ -36,8 +21,7 @@
     padding: 0;
   }
 }
-
-.admin__log {
+.admin__logInfo {
   width: 100%;
   background-color: $color__white;
   color: $color__grey;
@@ -45,29 +29,12 @@
   align-items: center;
   justify-content: center;
   margin: 2.5em;
+  & p {
+    text-align: left;
+    font-size: 1.25rem;
+  }
 }
-.admin__icon {
-  width: 10%;
-  margin-right: 2em;
-}
-.admin__log--text {
-  text-align: left;
-  font-size: 1.25rem;
-}
-.admin__login {
-  margin-top: 1.5em;
-  margin-bottom: -0.01em;
-}
-
-.messages {
-  width: 90%;
-  background-color: $color__beige;
-  border-radius: 5px;
-  padding: 30px 40px 5px;
-  margin: 1em;
-}
-
-.allEnquiries {
+.admin__box {
   width: 100%;
   background-color: $color__beige;
   border-radius: 5px;
@@ -80,5 +47,21 @@
   & li {
     margin: 0;
     padding: 0;
+  }
+}
+.admin__error {
+  width: 100%;
+  min-height: 55vh;
+  background-color: transparent;
+  color: $color__grey;
+  margin: 32px auto 37px;
+  padding: 1em;
+  margin-top: 1em;
+  text-align: center;
+  & h2 {
+    color: $color__grey;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 0.5em;
   }
 }

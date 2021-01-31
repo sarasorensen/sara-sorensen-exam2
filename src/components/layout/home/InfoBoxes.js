@@ -9,41 +9,56 @@ import { Map, Message, Pencil } from "../../constants/icons";
 
 const InfoBoxes = () => {
   return (
-    <Row className="InfoBoxes__row">
+    <Row className="infoBoxes">
       <Col xs={12} md={6} lg={2}>
-        <Card className="InfoBoxes">
-          <Card.Img variant="top" className="InfoBoxes__img" src={Hotel} />
+        <Card className="infoBoxes__card">
+          <Card.Img
+            variant="top"
+            className="infoBoxes__img"
+            src={Hotel}
+            alt="Light stone buildings"
+          />
           <Card.Body>
             <Card.Text>
               <Map />
             </Card.Text>
-            <Card.Link className="InfoBoxes__link" href="hotels">
+            <Card.Link className="infoBoxes__link" href="hotels">
               Our Hotels
             </Card.Link>
           </Card.Body>
         </Card>
       </Col>
       <Col xs={12} md={6} lg={2}>
-        <Card className="InfoBoxes">
-          <Card.Img variant="top" className="InfoBoxes__img" src={Contact} />
+        <Card className="infoBoxes__card">
+          <Card.Img
+            variant="top"
+            className="infoBoxes__img"
+            src={Contact}
+            alt="Person with hat on in pool"
+          />
           <Card.Body>
             <Card.Text>
               <Message />
             </Card.Text>
-            <Card.Link className="InfoBoxes__link" href="contact">
+            <Card.Link className="infoBoxes__link" href="contact">
               Contact Us
             </Card.Link>
           </Card.Body>
         </Card>
       </Col>
       <Col xs={12} md={6} lg={2}>
-        <Card className="InfoBoxes">
-          <Card.Img variant="top" className="InfoBoxes__img" src={Book} />
+        <Card className="infoBoxes__card">
+          <Card.Img
+            variant="top"
+            className="IinfoBoxes__img"
+            src={Book}
+            alt="Books with beach in background"
+          />
           <Card.Body>
             <Card.Text>
               <Pencil />
             </Card.Text>
-            <Card.Link className="InfoBoxes__link" href="hotels">
+            <Card.Link className="infoBoxes__link" href="hotels">
               Book Now
             </Card.Link>
           </Card.Body>

@@ -1,12 +1,9 @@
-.hotels {
+.hotel {
   padding-bottom: 10%;
   margin-top: -5%;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-}
-.img-details {
-  width: 50%;
 }
 .hotel__card {
   color: $color__black;
@@ -15,29 +12,25 @@
   min-height: 450px;
   max-height: 450px;
   text-decoration: none;
-  & .hotel__card--img {
+  & .hotel__img {
     min-width: 30vh;
     min-height: 30vh;
     max-height: 30vh;
   }
-  & .hotel__card--title {
+  & .hotel__title {
     margin-top: 2em;
-  }
-  & .hotel__card--price {
-    margin: 0;
+    font-size: 1.5em;
+    color: $color__main;
   }
 }
-
-.card__price--color {
+.hotel__price {
   color: $color__main;
 }
-
-.hotel__card--ul {
+.hotel__ul {
   padding: 0;
 }
-
 @media (max-width: 767px) {
-  .hotels {
+  .hotel {
     flex-direction: column;
     & .hotel__card {
       width: 100%;

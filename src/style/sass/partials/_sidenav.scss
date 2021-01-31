@@ -20,13 +20,11 @@
     color: $color__main;
   }
 }
-
 @media (min-width: 200px) and (max-width: 450px) {
   .sidenav {
     flex-direction: column;
   }
 }
-
 @media (min-width: 451px) and (max-width: 599px) {
   .sidenav {
     flex-direction: column;

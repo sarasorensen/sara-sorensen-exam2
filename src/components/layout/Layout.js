@@ -24,7 +24,7 @@ import { Person } from "../constants/icons";
 const Layout = () => (
   <Router>
     <Navbar expand="lg">
-      <NavLink className="navbar__logo left-align" to="/" exact>
+      <NavLink className="logo left-align" to="/" exact>
         <img src={Logo} alt="company logo " />
       </NavLink>
       <Navbar.Toggle aria-controls="basic-navbar-nav" className="order-0" />
@@ -40,6 +40,7 @@ const Layout = () => (
             Contact
           </NavLink>
           <NavLink to="/login" className="navbar__link">
+            <span className="sr-only">Log In</span>
             <Person />
           </NavLink>
           <NavLink

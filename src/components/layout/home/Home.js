@@ -2,6 +2,9 @@ import React, { useState, useEffect, useRef } from "react";
 import { BASE_URL, FETCH_OPTIONS } from "../../constants/api";
 import Heading from "../Heading";
 import Spinner from "react-bootstrap/Spinner";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import HomeHeader from "./HomeHeader";
 import Search from "./Search";
 import HomeCard from "./HomeCard";
@@ -80,47 +83,52 @@ export function Home() {
 
   if (loading) {
     return (
-      <div className="spinner__box">
-        <Spinner role="status" className="spinner__box--animation" />
+      <div className="spinner">
+        <Spinner role="status" className="spinner__animation" />
         <span className="sr-only">Loading content...</span>
       </div>
     );
   }
 
   return (
-    <div className="wrapper">
+    <Container>
       <HomeHeader />
-      <div className="home home__content">
-        <h1>Find your dream hotel in Bergen</h1>
-        <Search handleSearch={filterHotels} onChange={toggling} />
+      <Row className="home">
+        <Col className="home__col">
+          <h1>Find your dream hotel in Bergen</h1>
 
-        <div
-          ref={node}
-          className={
-            dropdown !== true && isSearched === false
-              ? "d-none "
-              : "d-block dropdown "
-          }
-        >
-          {filteredHotels.map((hotel) => {
-            const { id, name, image, price } = hotel;
-            return (
-              <div className="col-sm-12 col-md-8 col-lg-6" key={id}>
-                {" "}
-                <HomeCard
-                  className="dropdown__card "
-                  id={id}
-                  image={image}
-                  name={name}
-                  price={price}
-                />{" "}
-              </div>
-            );
-          })}
-        </div>
+          <div>
+            <Search handleSearch={filterHotels} onChange={toggling} />
+
+            <div
+              ref={node}
+              className={
+                dropdown !== true && isSearched === false
+                  ? "d-none "
+                  : "d-block dropdown "
+              }
+            >
+              {filteredHotels.map((hotel) => {
+                const { id, name, image, price } = hotel;
+                return (
+                  <Col className="col-sm-12 col-md-8 col-lg-6" key={id}>
+                    {" "}
+                    <HomeCard
+                      className="dropdown__card "
+                      id={id}
+                      image={image}
+                      name={name}
+                      price={price}
+                    />{" "}
+                  </Col>
+                );
+              })}
+            </div>
+          </div>
+        </Col>
         <InfoBoxes />
-      </div>
-    </div>
+      </Row>
+    </Container>
   );
 }
 

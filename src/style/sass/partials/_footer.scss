@@ -4,9 +4,8 @@
   width: 100%;
   text-align: center;
   padding: 1.5em;
-  margin-top: 5%;
 }
-.footer .footer-left {
+.footer .footer__left {
   text-align: left;
   width: 33%;
   margin-top: 1.5em;
@@ -15,7 +14,6 @@
     text-align: center;
   }
 }
-
 .footer .icons {
   margin-top: 25px;
   & a {
@@ -34,8 +32,7 @@
     }
   }
 }
-
-.footer .footer-center {
+.footer .footer__center {
   width: 30%;
   margin-top: 1.5em;
   & .footer__logo {
@@ -48,8 +45,7 @@
     margin-top: 5px;
   }
 }
-
-.footer .footer-right {
+.footer .footer__right {
   width: 35%;
   margin-top: 0.5em;
   & .footer__menu {
@@ -76,14 +72,14 @@
   .footer {
     font-size: 14px;
   }
-  .footer .footer-left,
-  .footer .footer-center,
-  .footer .footer-right {
+  .footer .footer__left,
+  .footer .footer__center,
+  .footer .footer__right {
     display: block;
     width: 100%;
     text-align: center;
   }
-  .footer .footer-center i {
+  .footer .footer__center i {
     margin-left: 0;
   }
 }

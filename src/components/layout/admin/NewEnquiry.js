@@ -33,8 +33,8 @@ export default function Messages() {
 
   if (loading) {
     return (
-      <div>
-        <Spinner role="status" className="spinner__box--animation" />
+      <div className="spinner">
+        <Spinner role="status" className="spinner__animation" />
         <span className="sr-only">Loading content...</span>
       </div>
     );
@@ -43,7 +43,7 @@ export default function Messages() {
   return (
     <>
       {enquiries.map((item) => (
-        <div key={item.id} className="allEnquiries ">
+        <div key={item.id} className="admin__box">
           <p>{item.name}</p>
           <p>{item.email} </p>
           <p>{item.checkIn}</p>

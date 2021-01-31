@@ -1,7 +1,7 @@
-.spinner__box {
+.spinner {
   min-width: 100%;
   min-height: 100vh;
-  & .spinner__box--animation {
+  & .spinner__animation {
     margin: 0 auto;
     margin-top: 25%;
     border: 5px solid $color__main;

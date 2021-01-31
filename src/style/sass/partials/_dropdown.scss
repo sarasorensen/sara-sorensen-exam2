@@ -1,18 +1,15 @@
 .dropdown {
-  width: 100%;
+  width: 97.5%;
   overflow: scroll;
-  position: fixed;
+  position: absolute;
   z-index: 1;
   min-height: 210px;
   max-height: 210px;
   background-color: $color__white;
-  top: 55%;
-  margin-bottom: 5%;
   & .card,
   .home__card,
   .card-deck {
     width: 100vh;
-    display: flex;
     min-height: 100%;
     max-height: 100%;
     margin-left: 1em;
@@ -41,15 +38,13 @@
     margin-left: 14%;
   }
   & .card__btn {
-    @include secondary__link;
-    text-align: left;
-    margin-left: -1em;
+    @include button;
+    float: left;
   }
 }
 ul {
   list-style: none;
 }
-
 @media (max-width: 767px) {
   .dropdown {
     top: 35%;

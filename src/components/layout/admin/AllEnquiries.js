@@ -24,8 +24,8 @@ export default function Messages() {
 
   if (loading) {
     return (
-      <div>
-        <Spinner role="status" className="spinner__box--animation" />
+      <div className="spinner">
+        <Spinner role="status" className="spinner__animation" />
         <span className="sr-only">Loading content...</span>
       </div>
     );
@@ -36,7 +36,7 @@ export default function Messages() {
       <div id="enquiries" className="admin__col">
         <h2 className="admin__h2">Enquiries from Clients</h2>
         {enquiries.map((item) => (
-          <div key={item.id} className="allEnquiries ">
+          <div key={item.id} className="admin__box">
             <h3>{item.name}</h3>
             <p>Email: {item.email} </p>
             <p>Check in: {item.checkin}</p>
@@ -49,16 +49,16 @@ export default function Messages() {
 
   return (
     <>
-      <div id="enquiries" className="admin__col   ">
+      <div id="enquiries" className="admin__col">
         <h2 className="admin__h2">Enquiries from Clients</h2>
-        <div className="allEnquiries">
+        <div className="admin__box">
           <h3>{enquiryInfo.name}</h3>
           <p>Email: {enquiryInfo.email}</p>
           <p>Check In: {enquiryInfo.checkin}</p>
           <p>Check Out: {enquiryInfo.checkout}</p>
         </div>
         {enquiries.map((item) => (
-          <div key={item.id} className="allEnquiries ">
+          <div key={item.id} className="admin__box">
             <h3>{item.name}</h3>
             <p>Email: {item.email} </p>
             <p>Check in: {item.checkin}</p>
