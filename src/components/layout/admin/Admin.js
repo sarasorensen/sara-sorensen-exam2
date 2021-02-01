@@ -52,7 +52,7 @@ export default function Admin() {
 
         <div id="newHotel" className="admin__col">
           <h2>New Hotel</h2>
-          <p>
+          <p className="admin__text">
             The link below takes you to the source file, where you can download
             the code needed for a new establishment. Or you can use the form.
           </p>

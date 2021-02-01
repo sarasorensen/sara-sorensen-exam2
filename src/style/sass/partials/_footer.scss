@@ -25,8 +25,8 @@
   }
 }
 .footer__logo {
-  min-width: 50%;
-  max-width: 50%;
+  min-width: 45%;
+  max-width: 45%;
 }
 .footer__icons {
   margin-top: 5%;
@@ -48,17 +48,14 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  margin-top: 2.5em;
   & a {
     color: $color__white;
+    margin-top: 15px;
     display: inline-block;
-    padding-right: 0.5rem;
-    padding-left: 0.5rem;
-    font-weight: 500;
-    opacity: 0.7;
     @include transition;
   }
-  &:hover {
+  & a:hover {
+    @include hover;
     color: $color__main;
     text-decoration: none;
     opacity: 1;

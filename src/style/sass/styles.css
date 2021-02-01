@@ -152,8 +152,8 @@ ul {
 }
 
 .footer__logo {
-  min-width: 50%;
-  max-width: 50%;
+  min-width: 45%;
+  max-width: 45%;
 }
 
 .footer__icons {
@@ -181,25 +181,28 @@ ul {
   list-style: none;
   margin: 0;
   padding: 0;
-  margin-top: 2.5em;
 }
 
 .footer__menu a {
   color: #ffffff;
+  margin-top: 15px;
   display: inline-block;
-  padding-right: 0.5rem;
-  padding-left: 0.5rem;
-  font-weight: 500;
-  opacity: 0.7;
   transition: 0.3s ease all;
   -moz-transition: 0.3s ease all;
   -webkit-transition: 0.3s ease all;
 }
 
-.footer__menu:hover {
+.footer__menu a:hover {
+  transition: 0.3s ease all;
+  -moz-transition: 0.3s ease all;
+  -webkit-transition: 0.3s ease all;
   color: #f1aa1e;
   text-decoration: none;
   opacity: 1;
+}
+
+.footer__menu a:hover:hover {
+  opacity: 0.7;
 }
 
 @media (max-width: 767px) {
@@ -479,23 +482,23 @@ body {
   margin-right: 0.5em;
 }
 
-.form__icon {
+.icon__form {
   width: 30%;
   color: #ffffff;
   margin-bottom: 10%;
   margin-top: 20%;
 }
 
-.search__icon {
+.icon__search {
   background-color: #ffffff;
 }
 
-.admin__icon {
+.icon__admin {
   width: 10%;
   margin-right: 2em;
 }
 
-.success__icon {
+.icon__success {
   width: 8%;
   color: #293338;
   margin-bottom: 1em;
@@ -509,38 +512,38 @@ body {
 }
 
 @media (min-width: 480px) {
-  .form__icon {
+  .icon__form {
     width: 8%;
     margin: 2em;
   }
 }
 
 @media (min-width: 595px) {
-  .form__icon {
+  .icon__form {
     width: 10%;
     margin: 2em;
   }
 }
 
 @media (min-width: 767px) {
-  .form__icon {
+  .icon__form {
     width: 10%;
     margin: 2em;
   }
 }
 
 @media (max-width: 812px) {
-  .form__icon {
+  .icon__form {
     width: 10%;
     margin: 2em;
   }
-  .specific__icons {
+  .icon__spec {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  .specific__icons .form__icon {
+  .icon__spec .icon__form {
     width: 100%;
     -ms-flex-preferred-size: 100%;
         flex-basis: 100%;
@@ -549,7 +552,7 @@ body {
 }
 
 @media (min-width: 993px) {
-  .form__icon {
+  .icon__form {
     width: 30%;
     margin: 20%;
   }
@@ -763,6 +766,12 @@ body {
   padding: 0;
 }
 
+.admin__text {
+  text-align: center;
+  width: 60%;
+  padding: 1em;
+}
+
 .admin__logInfo {
   width: 100%;
   background-color: #ffffff;
@@ -874,6 +883,7 @@ body {
   margin: 0;
   padding: 0;
   margin-top: 15%;
+  margin-bottom: 5%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
