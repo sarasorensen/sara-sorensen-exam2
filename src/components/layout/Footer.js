@@ -8,8 +8,8 @@ function Footer() {
   return (
     <div className="footer">
       <Row>
-        <Col className="footer__left col-md-4 col-sm-6">
-          <h2>About Us</h2>
+        <Col xs={12} md={6} lg={2} className="footer__col">
+          <h2 className="footer__heading">About Us</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -17,7 +17,7 @@ function Footer() {
             aliquip ex ea commodo consequat.
           </p>
         </Col>
-        <div className="footer__center col-md-4 col-sm-6">
+        <Col xs={12} md={6} lg={2} className="footer__col">
           <a href="/">
             {" "}
             <img src={Logo} className="logo footer__logo" alt="company logo " />
@@ -29,10 +29,10 @@ function Footer() {
           <p>holidaze@company.com</p>
 
           <p className="name"> Holidaze &copy; 2021</p>
-        </div>
-        <div className="footer__right col-md-4 col-sm-6">
+        </Col>
+        <Col xs={12} md={6} lg={2} className="footer__col">
+          <h2 className="footer__heading">Links</h2>
           <ul className="footer__menu">
-            <h3>Navigation</h3>
             <li>
               <a href="home"> Home</a>
             </li>
@@ -44,7 +44,7 @@ function Footer() {
             </li>
           </ul>
 
-          <div className="icons">
+          <div className="footer__icons">
             <a href="https://www.facebook.com/">
               {" "}
               <span className="sr-only">Facebook Logo</span>
@@ -61,7 +61,7 @@ function Footer() {
               <LinkedIn />
             </a>
           </div>
-        </div>
+        </Col>
       </Row>
     </div>
   );

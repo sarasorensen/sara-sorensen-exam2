@@ -295,7 +295,7 @@ export default class ContactComponent extends React.Component {
             )}
           </Form.Group>
           <Form.Group>
-            <Form.Label htmlFor=" address" className="form__label">
+            <Form.Label htmlFor="address" className="form__label">
               Address
             </Form.Label>
             <input
@@ -318,7 +318,7 @@ export default class ContactComponent extends React.Component {
           <Form.Group>
             <Row>
               <Col className="col-sm-6">
-                <Form.Label htmlFor=" id" className="form__label">
+                <Form.Label htmlFor="id" className="form__label">
                   Id:
                 </Form.Label>
                 <input
@@ -344,7 +344,9 @@ export default class ContactComponent extends React.Component {
                 <Form.Label className="radio__1">
                   <input
                     className="radio__check"
+                    id="radio__1"
                     type="radio"
+                    name="radio"
                     value={this.state.selfCatering.true}
                   />
                   True
@@ -352,7 +354,9 @@ export default class ContactComponent extends React.Component {
                 <Form.Label className="radio__2">
                   <input
                     className="radio__check"
+                    id="radio__2"
                     type="radio"
+                    name="radio"
                     value={this.state.selfCatering.false}
                   />
                   False

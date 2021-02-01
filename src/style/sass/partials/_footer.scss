@@ -2,70 +2,66 @@
   background-color: $color__grey;
   color: $color__beige;
   width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  padding: 1.5em;
 }
-.footer .footer__left {
-  text-align: left;
-  width: 33%;
+.footer__col {
+  text-align: center;
   margin-top: 1.5em;
-  & h3 {
-    color: $color__beige;
-    text-align: center;
+  width: 20rem;
+  min-width: 20rem;
+  margin-left: 3.5em;
+  margin-right: 3.5em;
+  margin-bottom: 1em;
+  padding: 1em;
+  & p {
+    display: block;
+    margin: 0;
+    margin-top: 15px;
   }
 }
-.footer .icons {
-  margin-top: 25px;
+.footer__logo {
+  min-width: 50%;
+  max-width: 50%;
+}
+.footer__icons {
+  margin-top: 5%;
   & a {
     display: inline-block;
-    color: $color__main;
+    color: $color__beige;
     width: 30px;
     height: 30px;
-    text-align: center;
     margin-right: 3px;
-    margin-bottom: 5px;
     @include transition;
     &:hover {
-      color: $color__white;
+      color: $color__main;
       text-decoration: none;
       opacity: 1;
     }
   }
 }
-.footer .footer__center {
-  width: 30%;
-  margin-top: 1.5em;
-  & .footer__logo {
-    width: 35%;
-    margin-bottom: 5px;
+.footer__menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-top: 2.5em;
+  & a {
+    color: $color__white;
+    display: inline-block;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+    font-weight: 500;
+    opacity: 0.7;
+    @include transition;
   }
-  & p {
-    display: block;
-    margin: 0;
-    margin-top: 5px;
-  }
-}
-.footer .footer__right {
-  width: 35%;
-  margin-top: 0.5em;
-  & .footer__menu {
-    list-style: none;
-    margin: 20px 0 12px;
-    padding: 0;
-    & a {
-      color: $color__white;
-      display: inline-block;
-      padding-right: 0.5rem;
-      padding-left: 0.5rem;
-      font-weight: 500;
-      opacity: 0.7;
-      @include transition;
-      &:hover {
-        color: $color__main;
-        text-decoration: none;
-        opacity: 1;
-      }
-    }
+  &:hover {
+    color: $color__main;
+    text-decoration: none;
+    opacity: 1;
   }
 }
 @media (max-width: 767px) {

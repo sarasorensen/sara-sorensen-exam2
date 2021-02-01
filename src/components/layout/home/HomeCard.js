@@ -11,17 +11,17 @@ function HomeItem({ id, name, image, price, email }) {
         <Card.Body>
           <Card.Img
             variant="top"
-            className="home__card--img"
+            className="home__img"
             src={image}
             alt={name}
           />
           <ul>
             <li>
-              <Card.Title>{name}</Card.Title>{" "}
+              <Card.Title className="home__title">{name}</Card.Title>{" "}
             </li>
             <li>
-              <p className="card__price">
-                Price: <span className="card__price--color">{price}$</span>
+              <p className="home__price">
+                Price: <span className="hotel__price">{price}$</span>
               </p>
             </li>
             <li>
@@ -29,7 +29,7 @@ function HomeItem({ id, name, image, price, email }) {
             </li>
 
             <Link to={"hotelSpecific/" + id}>
-              <button className=" card__btn">View Hotel</button>
+              <button className="btn btn__card">View Hotel</button>
             </Link>
           </ul>
         </Card.Body>

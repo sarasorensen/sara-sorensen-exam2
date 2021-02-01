@@ -37,7 +37,7 @@
   align-items: center;
 }
 .infoBoxes__card {
-  color: $color__blue;
+  color: $color__main;
   width: 15rem;
   min-width: 15rem;
   margin-left: 3.5em;
@@ -51,7 +51,7 @@
   max-height: 100%;
 }
 .infoBoxes__link {
-  color: $color__blue;
+  color: $color__black;
   text-transform: uppercase;
   & :hover {
     @include hover;

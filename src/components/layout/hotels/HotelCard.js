@@ -25,11 +25,10 @@ function HotelItem({ id, name, image, price, email }) {
             <li>
               <p>{email}</p>
             </li>
-
-            <Link to={"hotelSpecific/" + id}>
-              <button className="btn ">View Hotel</button>
-            </Link>
           </ul>
+          <Link to={"hotelSpecific/" + id}>
+            <button className="btn btn__card">View Hotel</button>
+          </Link>
         </Card.Body>
       </Card>
     </CardDeck>

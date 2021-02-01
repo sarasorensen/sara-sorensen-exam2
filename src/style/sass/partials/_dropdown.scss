@@ -6,16 +6,14 @@
   min-height: 210px;
   max-height: 210px;
   background-color: $color__white;
-  & .card,
-  .home__card,
-  .card-deck {
+  & .home__card {
     width: 100vh;
     min-height: 100%;
     max-height: 100%;
     margin-left: 1em;
     border: none;
   }
-  & .home__card--img {
+  & .home__img {
     float: left;
     min-width: 125px;
     max-width: 125px;
@@ -25,19 +23,16 @@
     margin-right: 5%;
     border-radius: 0px;
   }
-  & .card-body {
-    padding: 0;
-  }
-  & .card-title {
+  & .home__title {
     text-align: left;
     margin-left: 14%;
     margin-top: 2em;
   }
-  & .card__price {
+  & .home__price {
     text-align: left;
     margin-left: 14%;
   }
-  & .card__btn {
+  & .btn__card {
     @include button;
     float: left;
   }

@@ -153,6 +153,7 @@ export default class ContactComponent extends React.Component {
                 </Form.Label>
                 <input
                   name="checkin"
+                  id="checkin"
                   label="Next appointment"
                   type="date"
                   className="form__control"
@@ -172,6 +173,7 @@ export default class ContactComponent extends React.Component {
                 </Form.Label>
                 <input
                   name="checkout"
+                  id="checkout"
                   label="Next appointment"
                   type="date"
                   className="form__control"

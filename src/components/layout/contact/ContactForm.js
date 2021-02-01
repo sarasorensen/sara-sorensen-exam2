@@ -147,6 +147,7 @@ export default class ContactComponent extends React.Component {
                   value={this.state.message}
                   onChange={this.handleChange}
                   aria-required="true"
+                  required
                 />
                 {formErrors.message.length > 0 && (
                   <span className="[ form__error ]">

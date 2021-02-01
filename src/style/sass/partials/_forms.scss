@@ -21,43 +21,37 @@
     @include hover;
   }
 }
-
 .btn {
   @include button;
   margin-right: 0.5em;
   margin-bottom: 0.5em;
+  font-weight: 600;
   float: right;
 }
 .form {
   width: 50em;
   background-color: $color__white;
-  color: $color__black;
+  color: $color__black !important;
   margin: 32px auto 37px;
+  font-size: 1rem;
   margin-top: 5%;
   box-shadow: $box__shadow;
   & .form__label {
     width: 90%;
-    color: $color__grey;
-    font-size: 13px;
+    color: $color__black;
     @include transition;
   }
   & .form__control {
     width: 95%;
-    font-size: 13px;
     height: 25px;
-    padding: 10px 10px 10px 5px;
+    padding: 20px 20px 20px 10px;
     display: block;
     border: none;
     outline: none;
-    border-bottom: 1px solid $color__grey;
-    opacity: 0.5;
+    border: 1px solid $color__lightGrey;
     @include transition;
-    &:focus {
-      outline: none;
-      opacity: 1;
-    }
     &:hover {
-      border-bottom: 1px solid $color__main;
+      border: 1px solid $color__main;
     }
   }
 }
@@ -66,21 +60,15 @@
 }
 .form__inline {
   width: 90%;
-  font-size: 13px;
   height: 25px;
-  padding: 10px 10px 10px 5px;
+  padding: 20px 20px 20px 10px;
   display: inline-block;
   border: none;
   outline: none;
-  border-bottom: 1px solid $color__grey;
-  opacity: 0.5;
+  border: 1px solid $color__lightGrey;
   @include transition;
-  &:focus {
-    outline: none;
-    opacity: 1;
-  }
   &:hover {
-    border-bottom: 1px solid $color__main;
+    border: 1px solid $color__main;
   }
 }
 .radio__check {

@@ -17,7 +17,7 @@ h1 {
 
 h2 {
   font-family: "Proza Libre";
-  color: #f1aa1e;
+  color: #2661ac;
   font-weight: 900;
   text-align: center;
 }
@@ -29,13 +29,18 @@ h3 {
 }
 
 .main__title {
-  color: #b1b1b1;
+  color: #293338;
   margin-top: 1em;
 }
 
 .sub__title {
-  color: #f1aa1e;
+  color: #2661ac;
   margin-top: 3em;
+}
+
+.footer__heading {
+  color: #ffffff;
+  font-size: 1.25rem;
 }
 
 .dropdown {
@@ -48,9 +53,7 @@ h3 {
   background-color: #ffffff;
 }
 
-.dropdown .card,
-.dropdown .home__card,
-.dropdown .card-deck {
+.dropdown .home__card {
   width: 100vh;
   min-height: 100%;
   max-height: 100%;
@@ -58,7 +61,7 @@ h3 {
   border: none;
 }
 
-.dropdown .home__card--img {
+.dropdown .home__img {
   float: left;
   min-width: 125px;
   max-width: 125px;
@@ -69,23 +72,19 @@ h3 {
   border-radius: 0px;
 }
 
-.dropdown .card-body {
-  padding: 0;
-}
-
-.dropdown .card-title {
+.dropdown .home__title {
   text-align: left;
   margin-left: 14%;
   margin-top: 2em;
 }
 
-.dropdown .card__price {
+.dropdown .home__price {
   text-align: left;
   margin-left: 14%;
 }
 
-.dropdown .card__btn {
-  background-color: #f1aa1e;
+.dropdown .btn__card {
+  background-color: #2661ac;
   color: #ffffff;
   padding: 0.5em;
   text-transform: uppercase;
@@ -97,7 +96,7 @@ h3 {
   float: left;
 }
 
-.dropdown .card__btn:hover {
+.dropdown .btn__card:hover {
   color: #ffffff;
   opacity: 0.7;
   text-decoration: none;
@@ -117,72 +116,75 @@ ul {
   background-color: #293338;
   color: #f4f5f4;
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   text-align: center;
-  padding: 1.5em;
 }
 
-.footer .footer__left {
-  text-align: left;
-  width: 33%;
+.footer__col {
+  text-align: center;
   margin-top: 1.5em;
+  width: 20rem;
+  min-width: 20rem;
+  margin-left: 3.5em;
+  margin-right: 3.5em;
+  margin-bottom: 1em;
+  padding: 1em;
 }
 
-.footer .footer__left h3 {
-  color: #f4f5f4;
-  text-align: center;
+.footer__col p {
+  display: block;
+  margin: 0;
+  margin-top: 15px;
 }
 
-.footer .icons {
-  margin-top: 25px;
+.footer__logo {
+  min-width: 50%;
+  max-width: 50%;
 }
 
-.footer .icons a {
+.footer__icons {
+  margin-top: 5%;
+}
+
+.footer__icons a {
   display: inline-block;
-  color: #f1aa1e;
+  color: #f4f5f4;
   width: 30px;
   height: 30px;
-  text-align: center;
   margin-right: 3px;
-  margin-bottom: 5px;
   transition: 0.3s ease all;
   -moz-transition: 0.3s ease all;
   -webkit-transition: 0.3s ease all;
 }
 
-.footer .icons a:hover {
-  color: #ffffff;
+.footer__icons a:hover {
+  color: #f1aa1e;
   text-decoration: none;
   opacity: 1;
 }
 
-.footer .footer__center {
-  width: 30%;
-  margin-top: 1.5em;
-}
-
-.footer .footer__center .footer__logo {
-  width: 35%;
-  margin-bottom: 5px;
-}
-
-.footer .footer__center p {
-  display: block;
-  margin: 0;
-  margin-top: 5px;
-}
-
-.footer .footer__right {
-  width: 35%;
-  margin-top: 0.5em;
-}
-
-.footer .footer__right .footer__menu {
+.footer__menu {
   list-style: none;
-  margin: 20px 0 12px;
+  margin: 0;
   padding: 0;
+  margin-top: 2.5em;
 }
 
-.footer .footer__right .footer__menu a {
+.footer__menu a {
   color: #ffffff;
   display: inline-block;
   padding-right: 0.5rem;
@@ -194,7 +196,7 @@ ul {
   -webkit-transition: 0.3s ease all;
 }
 
-.footer .footer__right .footer__menu a:hover {
+.footer__menu:hover {
   color: #f1aa1e;
   text-decoration: none;
   opacity: 1;
@@ -251,7 +253,7 @@ ul {
 }
 
 .btn {
-  background-color: #f1aa1e;
+  background-color: #2661ac;
   color: #ffffff;
   padding: 0.5em;
   text-transform: uppercase;
@@ -262,6 +264,7 @@ ul {
   -webkit-transition: 0.3s ease all;
   margin-right: 0.5em;
   margin-bottom: 0.5em;
+  font-weight: 600;
   float: right;
 }
 
@@ -274,8 +277,9 @@ ul {
 .form {
   width: 50em;
   background-color: #ffffff;
-  color: #000000;
+  color: #000000 !important;
   margin: 32px auto 37px;
+  font-size: 1rem;
   margin-top: 5%;
   -webkit-box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.256);
           box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.256);
@@ -283,8 +287,7 @@ ul {
 
 .form .form__label {
   width: 90%;
-  color: #293338;
-  font-size: 13px;
+  color: #000000;
   transition: 0.3s ease all;
   -moz-transition: 0.3s ease all;
   -webkit-transition: 0.3s ease all;
@@ -292,26 +295,19 @@ ul {
 
 .form .form__control {
   width: 95%;
-  font-size: 13px;
   height: 25px;
-  padding: 10px 10px 10px 5px;
+  padding: 20px 20px 20px 10px;
   display: block;
   border: none;
   outline: none;
-  border-bottom: 1px solid #293338;
-  opacity: 0.5;
+  border: 1px solid #b1b1b1;
   transition: 0.3s ease all;
   -moz-transition: 0.3s ease all;
   -webkit-transition: 0.3s ease all;
 }
 
-.form .form__control:focus {
-  outline: none;
-  opacity: 1;
-}
-
 .form .form__control:hover {
-  border-bottom: 1px solid #f1aa1e;
+  border: 1px solid #f1aa1e;
 }
 
 .form__error {
@@ -320,26 +316,19 @@ ul {
 
 .form__inline {
   width: 90%;
-  font-size: 13px;
   height: 25px;
-  padding: 10px 10px 10px 5px;
+  padding: 20px 20px 20px 10px;
   display: inline-block;
   border: none;
   outline: none;
-  border-bottom: 1px solid #293338;
-  opacity: 0.5;
+  border: 1px solid #b1b1b1;
   transition: 0.3s ease all;
   -moz-transition: 0.3s ease all;
   -webkit-transition: 0.3s ease all;
 }
 
-.form__inline:focus {
-  outline: none;
-  opacity: 1;
-}
-
 .form__inline:hover {
-  border-bottom: 1px solid #f1aa1e;
+  border: 1px solid #f1aa1e;
 }
 
 .radio__check {
@@ -903,7 +892,7 @@ body {
 }
 
 .infoBoxes__card {
-  color: #2661ac;
+  color: #f1aa1e;
   width: 15rem;
   min-width: 15rem;
   margin-left: 3.5em;
@@ -920,7 +909,7 @@ body {
 }
 
 .infoBoxes__link {
-  color: #2661ac;
+  color: #000000;
   text-transform: uppercase;
 }
 
@@ -1008,7 +997,7 @@ body {
 
 .hotel {
   padding-bottom: 10%;
-  margin-top: -5%;
+  margin-top: 5%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1038,11 +1027,11 @@ body {
 .hotel__card .hotel__title {
   margin-top: 2em;
   font-size: 1.5em;
-  color: #f1aa1e;
+  color: #2661ac;
 }
 
 .hotel__price {
-  color: #f1aa1e;
+  font-weight: 500;
 }
 
 .hotel__ul {
@@ -1109,12 +1098,12 @@ body {
 }
 
 .specific .specific__title {
-  color: #f1aa1e;
+  color: #2661ac;
   border-bottom: 1px solid #b1b1b1;
 }
 
 .specific .specific__link {
-  color: #f1aa1e;
+  color: #2661ac;
   font-family: Arial, Helvetica, sans-serif;
   transition: 0.3s ease all;
   -moz-transition: 0.3s ease all;
@@ -1125,7 +1114,7 @@ body {
   transition: 0.3s ease all;
   -moz-transition: 0.3s ease all;
   -webkit-transition: 0.3s ease all;
-  color: #f1aa1e;
+  color: #2661ac;
   text-decoration: underline;
 }
 
@@ -1178,7 +1167,7 @@ body {
 }
 
 .success__link {
-  color: #f1aa1e;
+  color: #2661ac;
   font-family: Arial, Helvetica, sans-serif;
   transition: 0.3s ease all;
   -moz-transition: 0.3s ease all;
@@ -1189,7 +1178,7 @@ body {
   transition: 0.3s ease all;
   -moz-transition: 0.3s ease all;
   -webkit-transition: 0.3s ease all;
-  color: #f1aa1e;
+  color: #2661ac;
   text-decoration: underline;
 }
 

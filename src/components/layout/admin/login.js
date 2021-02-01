@@ -86,11 +86,13 @@ export default class Login extends React.Component {
                 <input
                   name="email"
                   type="text"
-                  placeholder="Enter your email"
+                  id="email"
+                  placeholder="example@example.com"
                   className="form__control"
                   value={this.state.email}
                   onChange={this.handleChange}
-                  required
+                  aria-required="true"
+                  required="required"
                 />
                 {formErrors.email.length > 0 && (
                   <span className="[ form__error ]">
@@ -106,11 +108,13 @@ export default class Login extends React.Component {
                 <input
                   name="password"
                   type="password"
+                  id="password"
                   placeholder="Enter your password"
                   className="form__control"
                   value={this.state.password}
                   onChange={this.handleChange}
-                  required
+                  aria-required="true"
+                  required="required"
                 />
                 {formErrors.password.length > 0 && (
                   <span className="[ form__error ]">

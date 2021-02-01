@@ -1,6 +1,6 @@
 .hotel {
   padding-bottom: 10%;
-  margin-top: -5%;
+  margin-top: 5%;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -20,11 +20,11 @@
   & .hotel__title {
     margin-top: 2em;
     font-size: 1.5em;
-    color: $color__main;
+    color: $color__blue;
   }
 }
 .hotel__price {
-  color: $color__main;
+  font-weight: 500;
 }
 .hotel__ul {
   padding: 0;
