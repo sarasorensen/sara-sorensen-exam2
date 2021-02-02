@@ -17,6 +17,7 @@ export default function Admin() {
   <Heading title="Administrator dashboard" />;
 
   const [hotels, setHotels] = useState([]);
+  const [deleteHotel, setDeletedHotel] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -36,6 +37,7 @@ export default function Admin() {
       })
       .then((json) => {
         setHotels(json);
+        setDeletedHotel(json);
         setError(null);
       })
       .catch((error) => console.log(error))
@@ -58,24 +60,24 @@ export default function Admin() {
   const removeItem = function (hotel) {
     console.log(hotel.id);
 
-    // const id = hotel.id;
-    //  const urlDelete = BASE_URL + "establishments/" + id;
-    // FETCH_OPTIONS.method = "DELETE";
+    const id = hotel.id;
+    const urlDelete = BASE_URL + "establishments/" + id;
+    FETCH_OPTIONS.method = "DELETE";
 
-    // fetch(urlDelete, FETCH_OPTIONS)
-    //  .then((response) => {
-    //    if (response.status === 200) {
-    //      return response.json();
-    //    } else {
-    //      setError("A server error occured.");
-    //  }
-    //  })
-    // .then((json) => {
-    //   setDeleteHotel(json);
-    //    setError(null);
-    //  })
-    //  .catch((error) => console.log(error))
-    // .finally(() => setLoading(false));
+    fetch(urlDelete, FETCH_OPTIONS)
+      .then((response) => {
+        if (response.status === 200) {
+          return response.json();
+        } else {
+          setError("A server error occured.");
+        }
+      })
+      .then((json) => {
+        setDeletedHotel(json);
+        setError(null);
+      })
+      .catch((error) => console.log(error))
+      .finally(() => setLoading(false));
   };
 
   return (
