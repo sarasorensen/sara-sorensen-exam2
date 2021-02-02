@@ -91,28 +91,41 @@ export default class ContactComponent extends React.Component {
   };
   onSubmit = (event, newData) => {
     event.preventDefault();
-    this.setState({ redirect: "/hotels" });
+    this.setState({ redirect: "/admin" });
 
-    const form = new FormData();
-    form.append("name", this.state.hotelName);
-    form.append("email", this.state.email);
-    form.append("image", this.state.image);
-    form.append("maxGuests", this.state.maxGuests);
-    form.append("price", this.state.price);
-    form.append("lat", this.state.lat);
-    form.append("lng", this.state.lng);
-    form.append("description", this.state.description);
-    form.append("address", this.state.address);
-    form.append("selfCatering", this.state.selfCatering);
+    const formInput = {
+      name: this.state.hotelName,
+      email: this.state.email,
+      image: this.state.image,
+      maxGuests: this.state.maxGuests,
+      price: this.state.price,
+      lat: this.state.lat,
+      lng: this.state.lng,
+      description: this.state.description,
+      address: this.state.address,
+      selfCatering: this.state.selfCatering,
+    };
+    FETCH_OPTIONS.method = "POST";
+    FETCH_OPTIONS.body = formInput;
 
     const url = BASE_URL + "establishments";
 
-    FETCH_OPTIONS.method = "POST";
-    FETCH_OPTIONS.body = JSON.stringify(this.state);
-
     fetch(url, FETCH_OPTIONS)
-      .then((r) => r.json())
-      .then((json) => console.log("admin" + json));
+      .then((response) => {
+        // check if the call was successful
+        if (response.status === 200) {
+          return response.json();
+        } else {
+          // unsuccessful call
+          console.log("A server error occured.");
+        }
+      })
+      .then((json) => {
+        console.log(json);
+      })
+      .catch((error) => console.log(error));
+
+    //localStorage.setItem("formInput", JSON.stringify(formInput));
   };
 
   render() {
@@ -124,7 +137,7 @@ export default class ContactComponent extends React.Component {
     return (
       <Container className="form">
         <Form onSubmit={this.onSubmit.bind(this)}>
-          <h2 className="main__title">Create Establishment</h2>
+          <h2>Create Establishment</h2>
           <Form.Group>
             <Form.Label htmlFor="hotelName" className="form__label">
               Hotel Name:
