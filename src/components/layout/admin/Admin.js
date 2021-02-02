@@ -39,15 +39,11 @@ export default function Admin() {
   const [hotels, setHotels] = useState([]);
   const [deleteHotel, setDeleteHotel] = useState([]);
 
-  const id = "";
-  //FETCH_OPTIONS.method = "DELETE";
-
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    //const url = BASE_URL + "establishments";
-    const url = BASE_URL + "establishments/" + id;
+    const url = BASE_URL + "establishments";
 
     fetch(url, FETCH_OPTIONS)
       .then((response) => {
@@ -81,8 +77,28 @@ export default function Admin() {
     return <div>{error}</div>;
   }
 
-  const removeItem = function () {
-    console.log("clicked");
+  const removeItem = function (e, hotel) {
+    e.preventDefault();
+    console.log(hotel.id);
+
+    const id = hotel.id;
+    const urlDelete = BASE_URL + "establishments/" + id;
+    FETCH_OPTIONS.method = "DELETE";
+
+    fetch(urlDelete, FETCH_OPTIONS)
+      .then((response) => {
+        if (response.status === 200) {
+          return response.json();
+        } else {
+          setError("A server error occured.");
+        }
+      })
+      .then((json) => {
+        setDeleteHotel(json);
+        setError(null);
+      })
+      .catch((error) => console.log(error))
+      .finally(() => setLoading(false));
   };
 
   return (
@@ -132,7 +148,13 @@ export default function Admin() {
                           <p>{email}</p>
                         </li>
                       </ul>
-                      <button onClick={removeItem} className="btn btn__card">
+                      <button
+                        onClick={(e) => {
+                          e.preventDefault();
+                          removeItem(hotel);
+                        }}
+                        className="btn btn__card"
+                      >
                         Delete Hotel
                       </button>
                     </Card.Body>
