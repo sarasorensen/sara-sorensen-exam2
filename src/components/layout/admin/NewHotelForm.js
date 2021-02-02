@@ -4,7 +4,6 @@ import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { BASE_URL, FETCH_OPTIONS } from "../../constants/api";
 
 const emailRegex = RegExp(
   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<Per>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -105,27 +104,8 @@ export default class ContactComponent extends React.Component {
       address: this.state.address,
       selfCatering: this.state.selfCatering,
     };
-    FETCH_OPTIONS.method = "POST";
-    FETCH_OPTIONS.body = formInput;
 
-    const url = BASE_URL + "establishments";
-
-    fetch(url, FETCH_OPTIONS)
-      .then((response) => {
-        // check if the call was successful
-        if (response.status === 200) {
-          return response.json();
-        } else {
-          // unsuccessful call
-          console.log("A server error occured.");
-        }
-      })
-      .then((json) => {
-        console.log(json);
-      })
-      .catch((error) => console.log(error));
-
-    //localStorage.setItem("formInput", JSON.stringify(formInput));
+    localStorage.setItem("formInput", JSON.stringify(formInput));
   };
 
   render() {
@@ -136,7 +116,7 @@ export default class ContactComponent extends React.Component {
     }
     return (
       <Container className="form">
-        <Form onSubmit={this.onSubmit.bind(this)}>
+        <Form method="POST" onSubmit={this.onSubmit.bind(this)}>
           <h2>Create Establishment</h2>
           <Form.Group>
             <Form.Label htmlFor="hotelName" className="form__label">

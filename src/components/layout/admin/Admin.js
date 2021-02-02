@@ -17,11 +17,11 @@ export default function Admin() {
   <Heading title="Administrator dashboard" />;
 
   const [hotels, setHotels] = useState([]);
-  const [deleteHotel, setDeletedHotel] = useState([]);
+  //const [setDeletedHotel] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  //let formInput = localStorage.getItem("formInput");
+  let formInput = localStorage.getItem("formInput");
 
   useEffect(() => {
     const url = BASE_URL + "establishments";
@@ -37,7 +37,6 @@ export default function Admin() {
       })
       .then((json) => {
         setHotels(json);
-        setDeletedHotel(json);
         setError(null);
       })
       .catch((error) => console.log(error))
@@ -57,6 +56,31 @@ export default function Admin() {
     return <div>{error}</div>;
   }
 
+  function NewHotel({ fallback }) {
+    if (!formInput || formInput.length === 0) {
+      return fallback;
+    } else {
+      const url = BASE_URL + "establishments";
+      FETCH_OPTIONS.method = "POST";
+      FETCH_OPTIONS.body = JSON.stringify(formInput);
+
+      fetch(url, FETCH_OPTIONS)
+        .then((response) => {
+          if (response.status === 200) {
+            return response.json();
+          } else {
+            setError("A server error occured.");
+          }
+        })
+        .then((json) => {
+          console.log("new " + json);
+          setError(null);
+        })
+        .catch((error) => console.log(error))
+        .finally(() => setLoading(false));
+    }
+  }
+
   const removeItem = function (hotel) {
     console.log(hotel.id);
 
@@ -73,26 +97,19 @@ export default function Admin() {
         }
       })
       .then((json) => {
-        setDeletedHotel(json);
+        setHotels(json);
         setError(null);
       })
       .catch((error) => console.log(error))
       .finally(() => setLoading(false));
   };
 
-  return (
-    <Container id="admin" className="admin">
-      <h1 className="main__title">Admin</h1>
-      <Row>
-        <div className="admin__col">
-          <SideNav />
-        </div>
-
-        <div className="admin__col">
-          <LoginData />
-        </div>
-
-        <div className="admin__hotels">
+  function List({ hotels, fallback }) {
+    if (!hotels || hotels.length === 0) {
+      return fallback;
+    } else {
+      return (
+        <>
           <h2>All Hotels</h2>
 
           {hotels.map((hotel) => {
@@ -125,7 +142,7 @@ export default function Admin() {
                       <button
                         onClick={(e) => {
                           e.preventDefault();
-                          removeItem(hotel);
+                          removeItem(id);
                         }}
                         className="btn btn__card"
                       >
@@ -137,10 +154,29 @@ export default function Admin() {
               </div>
             );
           })}
+        </>
+      );
+    }
+  }
+
+  return (
+    <Container id="admin" className="admin">
+      <h1 className="main__title">Admin</h1>
+      <Row>
+        <div className="admin__col">
+          <SideNav />
+        </div>
+
+        <div className="admin__col">
+          <LoginData />
+        </div>
+
+        <div className="admin__hotels">
+          <List hotels={hotels} fallback={"Loading..."} />
         </div>
 
         <div id="newHotel" className="admin__col">
-          <NewHotelForm />
+          <NewHotelForm fallback={"Loading..."} />
         </div>
 
         <div id="messages" className="admin__col">
