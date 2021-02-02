@@ -39,6 +39,7 @@ HotelItem.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
+  price: PropTypes.string.isRequired,
 };
 
 export default HotelItem;

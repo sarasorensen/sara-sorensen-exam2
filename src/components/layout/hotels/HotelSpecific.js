@@ -12,6 +12,7 @@ export function HotelSpecific() {
   <Heading title="Hotel Specific" />;
 
   const [detail, setDetail] = useState(null);
+  const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
   const { id } = useParams();
@@ -20,8 +21,17 @@ export function HotelSpecific() {
 
   useEffect(() => {
     fetch(url, FETCH_OPTIONS)
-      .then((response) => response.json())
-      .then((json) => setDetail(json))
+      .then((response) => {
+        if (response.status === 200) {
+          return response.json();
+        } else {
+          setError("A server error occured.");
+        }
+      })
+      .then((json) => {
+        setDetail(json);
+        setError(null);
+      })
       .catch((error) => console.log("error hotel specific" + error))
       .finally(() => setLoading(false));
   });
@@ -33,6 +43,10 @@ export function HotelSpecific() {
         <span className="sr-only">Loading content...</span>
       </div>
     );
+  }
+
+  if (error) {
+    return <div className="error">{error}</div>;
   }
 
   localStorage.setItem("name", detail.name);

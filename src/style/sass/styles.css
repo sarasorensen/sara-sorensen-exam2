@@ -117,26 +117,25 @@ ul {
   background-color: #293338;
   color: #f4f5f4;
   width: 100%;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  text-align: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  text-align: center;
 }
 
 .footer__col {
-  text-align: center;
   margin-top: 1.5em;
   width: 20rem;
   min-width: 20rem;
@@ -227,9 +226,6 @@ ul {
     display: flex;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -237,9 +233,7 @@ ul {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    text-align: center;
     width: 100%;
-    text-align: center;
     margin-left: 0;
   }
   .footer__col p {
@@ -309,7 +303,7 @@ ul {
 .form {
   width: 50em;
   background-color: #ffffff;
-  color: #000000 !important;
+  color: #000000;
   margin: 32px auto 37px;
   font-size: 1rem;
   margin-top: 5%;
@@ -361,31 +355,6 @@ ul {
 
 .form__inline:hover {
   border: 1px solid #f1aa1e;
-}
-
-.radio__check {
-  margin-right: 0.5em;
-}
-
-.radio__label {
-  display: block;
-  color: #293338;
-  font-size: 13px;
-  transition: 0.3s ease all;
-  -moz-transition: 0.3s ease all;
-  -webkit-transition: 0.3s ease all;
-}
-
-.radio__1 {
-  font-size: 13px;
-  margin-right: 1em;
-  display: inline;
-}
-
-.radio__2 {
-  margin-left: 0;
-  font-size: 13px;
-  display: inline;
 }
 
 .form__col--1 {
@@ -525,7 +494,7 @@ body {
 
 .icon__admin {
   width: 10%;
-  margin-right: 2em;
+  margin-right: 0;
 }
 
 .icon__success {
@@ -648,10 +617,6 @@ body {
   text-align: center;
 }
 
-.sidenav h1 {
-  text-align: left;
-}
-
 .sidenav a {
   color: #293338;
   width: 100%;
@@ -753,6 +718,9 @@ body {
   width: 100%;
   color: #293338;
   background-color: #ffffff;
+  text-align: left;
+  margin: 1em;
+  padding: 1em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -760,40 +728,12 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  text-align: left;
-  margin: 1em;
-  padding: 1em;
-}
-
-.admin__col a {
-  color: #293338;
-  text-decoration: underline;
-  font-family: Arial, Helvetica, sans-serif;
-  transition: 0.3s ease all;
-  -moz-transition: 0.3s ease all;
-  -webkit-transition: 0.3s ease all;
-}
-
-.admin__col a:hover {
-  transition: 0.3s ease all;
-  -moz-transition: 0.3s ease all;
-  -webkit-transition: 0.3s ease all;
-  text-decoration: none;
-}
-
-.admin__col a:hover:hover {
-  opacity: 0.7;
-}
-
-.admin__col ul {
-  padding: 0;
-}
-
-.admin__col li {
-  padding: 0;
 }
 
 .admin__text {
@@ -827,40 +767,24 @@ body {
   width: 100%;
   color: #293338;
   background-color: #ffffff;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 1em;
+  padding: 1em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin: 1em;
-  padding: 1em;
-}
-
-.admin__hotels a {
-  color: #293338;
-  text-decoration: underline;
-  font-family: Arial, Helvetica, sans-serif;
-  transition: 0.3s ease all;
-  -moz-transition: 0.3s ease all;
-  -webkit-transition: 0.3s ease all;
-}
-
-.admin__hotels a:hover {
-  transition: 0.3s ease all;
-  -moz-transition: 0.3s ease all;
-  -webkit-transition: 0.3s ease all;
-  text-decoration: none;
-}
-
-.admin__hotels a:hover:hover {
-  opacity: 0.7;
+  flex-wrap: wrap;
 }
 
 .admin__hotels h2 {
@@ -885,8 +809,14 @@ body {
 }
 
 .admin__box li {
-  margin: 0;
+  margin-top: 1em;
+  margin-left: 0;
   padding: 0;
+}
+
+.error {
+  min-width: 100%;
+  min-height: 100vh;
 }
 
 .admin__error {
@@ -905,11 +835,6 @@ body {
   text-align: center;
   margin: 0;
   margin-bottom: 0.5em;
-}
-
-.btn__messages {
-  float: left;
-  margin-top: 1em;
 }
 
 .enquiry__name {
@@ -970,11 +895,6 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -982,6 +902,11 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .infoBoxes__card {
@@ -1094,12 +1019,18 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .hotel__card {
@@ -1147,18 +1078,6 @@ body {
 
 .specific {
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   height: 100%;
   margin: 0 auto;
   background-color: #ffffff;
@@ -1168,6 +1087,21 @@ body {
   margin-bottom: 5%;
   -webkit-box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.256);
           box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.256);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .specific .specific__col {
@@ -1246,69 +1180,5 @@ body {
     min-width: 100%;
     max-width: 100%;
   }
-}
-
-.success {
-  width: 100%;
-  min-height: 55vh;
-  background-color: transparent;
-  color: #293338;
-  margin: 32px auto 37px;
-  padding: 1em;
-  margin-top: 2.5em;
-  text-align: center;
-}
-
-.success__link {
-  color: #2661ac;
-  font-family: Arial, Helvetica, sans-serif;
-  transition: 0.3s ease all;
-  -moz-transition: 0.3s ease all;
-  -webkit-transition: 0.3s ease all;
-}
-
-.success__link:hover {
-  transition: 0.3s ease all;
-  -moz-transition: 0.3s ease all;
-  -webkit-transition: 0.3s ease all;
-  color: #2661ac;
-  text-decoration: underline;
-}
-
-.success__link:hover:hover {
-  opacity: 0.7;
-}
-
-.toggle {
-  cursor: pointer;
-  margin: 0 auto;
-  margin-bottom: 1em;
-  color: #293338;
-  text-decoration: underline;
-  font-family: Arial, Helvetica, sans-serif;
-  transition: 0.3s ease all;
-  -moz-transition: 0.3s ease all;
-  -webkit-transition: 0.3s ease all;
-}
-
-.toggle:hover {
-  transition: 0.3s ease all;
-  -moz-transition: 0.3s ease all;
-  -webkit-transition: 0.3s ease all;
-  text-decoration: none;
-}
-
-.toggle:hover:hover {
-  opacity: 0.7;
-}
-
-.toggle ul {
-  margin: 0;
-  padding: 0;
-}
-
-.toggle li {
-  margin: 0;
-  padding: 0;
 }
 /*# sourceMappingURL=styles.css.map */

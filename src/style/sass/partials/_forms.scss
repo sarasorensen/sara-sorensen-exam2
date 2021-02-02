@@ -32,7 +32,7 @@
 .form {
   width: 50em;
   background-color: $color__white;
-  color: $color__black !important;
+  color: $color__black;
   margin: 32px auto 37px;
   font-size: 1rem;
   margin-top: 5%;
@@ -71,25 +71,6 @@
   &:hover {
     border: 1px solid $color__main;
   }
-}
-.radio__check {
-  margin-right: 0.5em;
-}
-.radio__label {
-  display: block;
-  color: $color__grey;
-  font-size: 13px;
-  @include transition;
-}
-.radio__1 {
-  font-size: 13px;
-  margin-right: 1em;
-  display: inline;
-}
-.radio__2 {
-  margin-left: 0;
-  font-size: 13px;
-  display: inline;
 }
 .form__col--1 {
   width: 50%;

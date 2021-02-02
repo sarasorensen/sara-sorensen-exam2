@@ -3,20 +3,23 @@ import Spinner from "react-bootstrap/Spinner";
 import { BASE_URL, FETCH_OPTIONS } from "../../constants/api";
 
 export default function Enquiries() {
-  let enquiryInfo = JSON.parse(localStorage.getItem("enquiryInfo"));
-
   const [enquiries, setEnquiries] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const url = BASE_URL + "enquiries";
     fetch(url, FETCH_OPTIONS)
       .then(function (response) {
-        return response.json();
+        if (response.status === 200) {
+          return response.json();
+        } else {
+          setError("A server error occured.");
+        }
       })
-      .then(function (data) {
-        console.log("enquiries" + data);
-        setEnquiries(data);
+      .then(function (json) {
+        setEnquiries(json);
+        setError(null);
       })
       .catch((error) => console.log(error))
       .finally(() => setLoading(false));
@@ -31,43 +34,45 @@ export default function Enquiries() {
     );
   }
 
-  if (enquiries === null) {
-    return null;
-  } else if (enquiryInfo === null) {
-    return (
-      <div id="enquiries" className="admin__col">
-        <h2 className="admin__h2">Enquiries from Clients</h2>
-        {enquiries.map((item) => (
-          <div key={item.id} className="admin__box">
-            <h3>{item.name}</h3>
-            <p>Email: {item.email} </p>
-            <p>Check in: {item.checkin}</p>
-            <p>Check Out: {item.checkout}</p>
-          </div>
-        ))}
-      </div>
-    );
+  if (error) {
+    return <div className="error">{error}</div>;
   }
 
-  return (
-    <>
-      <div id="enquiries" className="admin__col">
-        <h2 className="admin__h2">Enquiries from Clients</h2>
-        <div className="admin__box">
-          <h3>{enquiryInfo.name}</h3>
-          <p>Email: {enquiryInfo.email}</p>
-          <p>Check In: {enquiryInfo.checkin}</p>
-          <p>Check Out: {enquiryInfo.checkout}</p>
+  function List({ enquiries, fallback }) {
+    if (!enquiries || enquiries.length === 0) {
+      return fallback;
+    } else {
+      return (
+        <div className="admin__col">
+          <h2>Enquiries</h2>
+
+          {enquiries.map((item) => {
+            return (
+              <div key={item.id} className="admin__box">
+                <ul>
+                  <li>
+                    {" "}
+                    <h3>{item.name}</h3>
+                  </li>
+                  <li>
+                    {" "}
+                    <p>Email: {item.email} </p>
+                  </li>
+                  <li>
+                    {" "}
+                    <p>Check in: {item.checkin}</p>
+                  </li>
+                  <li>
+                    <p>Check Out: {item.checkout}</p>
+                  </li>
+                </ul>
+              </div>
+            );
+          })}
         </div>
-        {enquiries.map((item) => (
-          <div key={item.id} className="admin__box">
-            <h3>{item.name}</h3>
-            <p>Email: {item.email} </p>
-            <p>Check in: {item.checkin}</p>
-            <p>Check Out: {item.checkout}</p>
-          </div>
-        ))}
-      </div>
-    </>
-  );
+      );
+    }
+  }
+
+  return <List enquiries={enquiries} fallback={"Can't fetch Enquiries..."} />;
 }

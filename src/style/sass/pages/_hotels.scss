@@ -1,9 +1,7 @@
 .hotel {
   padding-bottom: 10%;
   margin-top: 5%;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
+  @include flex__row;
 }
 .hotel__card {
   color: $color__black;

@@ -12,21 +12,29 @@ import InfoBoxes from "./InfoBoxes";
 
 export function Home() {
   <Heading title="Home" />;
-
   window.localStorage.removeItem("email");
 
   const [hotels, setHotels] = useState([]);
   const [filteredHotels, setFilteredHotels] = useState([]);
   const [isSearched, setIsSearched] = useState(false);
+
+  const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const url = BASE_URL + "establishments";
     fetch(url, FETCH_OPTIONS)
-      .then((response) => response.json())
+      .then((response) => {
+        if (response.status === 200) {
+          return response.json();
+        } else {
+          setError("A server error occured.");
+        }
+      })
       .then((json) => {
         setHotels(json);
         setFilteredHotels(json);
+        setError(null);
       })
       .catch((error) => console.log(error))
       .finally(() => setLoading(false));
@@ -87,6 +95,10 @@ export function Home() {
         <span className="sr-only">Loading content...</span>
       </div>
     );
+  }
+
+  if (error) {
+    return <div className="error">{error}</div>;
   }
 
   return (

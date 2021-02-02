@@ -1,9 +1,5 @@
 .specific {
   width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  align-items: center;
   height: 100%;
   margin: 0 auto;
   background-color: $color__white;
@@ -12,6 +8,7 @@
   margin-top: 5%;
   margin-bottom: 5%;
   box-shadow: $box__shadow;
+  @include flex__row;
   & .specific__col {
     width: 50%;
     float: left;
@@ -33,7 +30,6 @@
     color: $color__blue;
     @include line;
   }
-
   & .specific__link {
     @include link;
   }

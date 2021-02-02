@@ -4,19 +4,23 @@ import { BASE_URL, FETCH_OPTIONS } from "../../constants/api";
 import { Message } from "../../constants/icons";
 
 export default function Messages() {
-  let contactInfo = JSON.parse(localStorage.getItem("contact"));
-
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const url = BASE_URL + "contacts";
     fetch(url, FETCH_OPTIONS)
       .then(function (response) {
-        return response.json();
+        if (response.status === 200) {
+          return response.json();
+        } else {
+          setError("A server error occured.");
+        }
       })
       .then(function (data) {
         setMessages(data);
+        setError(null);
       })
       .catch((error) => console.log(error))
       .finally(() => setLoading(false));
@@ -31,60 +35,46 @@ export default function Messages() {
     );
   }
 
-  const clicked = function (item) {
-    console.log("clicked");
-    //window.open("mailto" + {item.email});
-  };
-
-  if (messages === null) {
-    return null;
-  } else if (contactInfo === null) {
-    return (
-      <div id="messages" className="admin__col">
-        <h2 className="admin__h2">Messages from Clients</h2>
-
-        {messages.map((item) => (
-          <div key={item.id} className="admin__box">
-            <h3>{item.name}</h3>
-            <a value={item.email} href={"mailto:" + item.email}>
-              {item.email}
-            </a>
-            <p>
-              <Message /> {item.message}
-            </p>
-            <button onClick={clicked} className="btn btn__messages">
-              Reply
-            </button>
-          </div>
-        ))}
-      </div>
-    );
+  if (error) {
+    return <div className="error">{error}</div>;
   }
 
-  return (
-    <>
-      <div id="messages" className="admin__col">
-        <h2 className="admin__h2">Messages from Clients</h2>
-        <div className="admin__box">
-          <h3>{contactInfo.name}</h3>
-          <a href={"mailto:" + contactInfo.email}>{contactInfo.email}</a>
-          <p>
-            <Message /> {contactInfo.message}
-          </p>
+  function List({ messages, fallback, id }) {
+    if (!messages || messages.length === 0) {
+      return fallback;
+    } else {
+      return (
+        <div id="messages" className="admin__col">
+          <h2 className="admin__h2">Messages from Clients</h2>
+
+          {messages.map((item) => (
+            <div key={item.id} className="admin__box">
+              <ul>
+                <li>
+                  {" "}
+                  <h3>{item.name}</h3>
+                </li>
+                <li>
+                  {" "}
+                  <a href={"mailto:" + item.email}>{item.email}</a>
+                </li>
+                <li>
+                  {" "}
+                  <p>
+                    <Message /> {item.message}
+                  </p>
+                </li>
+              </ul>
+
+              <a className="btn" href={"mailto:" + item.email}>
+                Reply
+              </a>
+            </div>
+          ))}
         </div>
-        {messages.map((item) => (
-          <div key={item.id} className="admin__box">
-            <h3>{item.name}</h3>
-            <a href={"mailto:" + item.email}>{item.email}</a>
-            <p>
-              <Message /> {item.message}
-            </p>
-            <button onClick={clicked} className="btn btn__messages">
-              Reply
-            </button>
-          </div>
-        ))}
-      </div>
-    </>
-  );
+      );
+    }
+  }
+
+  return <List messages={messages} fallback={"Can't fetch Messages..."} />;
 }

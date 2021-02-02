@@ -5,21 +5,10 @@
   width: 100%;
   color: $color__grey;
   background-color: $color__white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   text-align: left;
   margin: 1em;
   padding: 1em;
-  & a {
-    @include link__underline;
-  }
-  & ul {
-    padding: 0;
-  }
-  & li {
-    padding: 0;
-  }
+  @include flex__column;
 }
 .admin__text {
   text-align: center;
@@ -43,15 +32,10 @@
   width: 100%;
   color: $color__grey;
   background-color: $color__white;
-  display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-between;
   margin: 1em;
   padding: 1em;
-  & a {
-    @include link__underline;
-  }
+  @include flex__row;
   & h2 {
     width: 100%;
   }
@@ -70,9 +54,14 @@
     padding: 0;
   }
   & li {
-    margin: 0;
+    margin-top: 1em;
+    margin-left: 0;
     padding: 0;
   }
+}
+.error {
+  min-width: 100%;
+  min-height: 100vh;
 }
 .admin__error {
   width: 100%;
@@ -89,8 +78,4 @@
     margin: 0;
     margin-bottom: 0.5em;
   }
-}
-.btn__messages {
-  float: left;
-  margin-top: 1em;
 }

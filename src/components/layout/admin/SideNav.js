@@ -8,7 +8,7 @@ export default function SideNav(props) {
         <Person />
         User
       </a>
-      <a href="#newHotel">
+      <a href="#hotels">
         <House />
         All Hotels
       </a>

@@ -1,16 +1,20 @@
 import React, { useState, useEffect } from "react";
+//import { Access } from "../../constants/icons";
+//import { Link } from "react-router-dom";
 import Spinner from "react-bootstrap/Spinner";
 import Heading from "../Heading";
 import Messages from "./Messages";
 import AllEnquiries from "./AllEnquiries";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
+//import Col from "react-bootstrap/Col";
 import LoginData from "./LoginData";
 import SideNav from "./SideNav";
 import NewHotelForm from "./NewHotelForm";
 import { BASE_URL, FETCH_OPTIONS } from "../../constants/api";
 import Card from "react-bootstrap/Card";
 import CardDeck from "react-bootstrap/CardDeck";
+import DeleteHotel from "./DeleteHotel";
 
 export default function Admin() {
   <Heading title="Administrator dashboard" />;
@@ -19,17 +23,13 @@ export default function Admin() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  //let formInput = localStorage.getItem("formInput");
-
   useEffect(() => {
     const url = BASE_URL + "establishments";
     fetch(url, FETCH_OPTIONS)
       .then((response) => {
-        // check if the call was successful
         if (response.status === 200) {
           return response.json();
         } else {
-          // unsuccessful call
           setError("A server error occured.");
         }
       })
@@ -51,31 +51,29 @@ export default function Admin() {
   }
 
   if (error) {
-    return <div>{error}</div>;
+    return <div className="error">{error}</div>;
   }
 
-  const removeItem = function (hotel) {
-    console.log(hotel.id);
-
-    const id = hotel.id;
-    const urlDelete = BASE_URL + "establishments/" + id;
-    FETCH_OPTIONS.method = "DELETE";
-
-    fetch(urlDelete, FETCH_OPTIONS)
-      .then((response) => {
-        if (response.status === 200) {
-          return response.json();
-        } else {
-          setError("A server error occured.");
-        }
-      })
-      .then((json) => {
-        setHotels(json);
-        setError(null);
-      })
-      .catch((error) => console.log(error))
-      .finally(() => setLoading(false));
-  };
+  // const loginInfo = localStorage.getItem("email");
+  //This will be active, when development is finished.
+  // if (loginInfo === null) {
+  // return (
+  //  <Container className="admin">
+  //    <Row>
+  //     <Col className="admin__error">
+  //      <div>
+  //        <Access />
+  //     <h2 className="main__title">You don't have access!</h2>
+  //     <p>Sorry, you have to be logged in to view this page.</p>
+  //  <Link to="/login" className="success__link">
+  //     Log in Here
+  //    </Link>
+  //  </div>
+  // </Col>
+  //  </Row>
+  //  </Container>
+  //  );
+  // }
 
   function List({ hotels, fallback }) {
     if (!hotels || hotels.length === 0) {
@@ -112,15 +110,7 @@ export default function Admin() {
                           <p>{email}</p>
                         </li>
                       </ul>
-                      <button
-                        onClick={(e) => {
-                          e.preventDefault();
-                          removeItem(id);
-                        }}
-                        className="btn btn__card"
-                      >
-                        Delete Hotel
-                      </button>
+                      <DeleteHotel id={id} />
                     </Card.Body>
                   </Card>
                 </CardDeck>
@@ -140,11 +130,11 @@ export default function Admin() {
           <SideNav />
         </div>
 
-        <div className="admin__col">
+        <div id="user" className="admin__col">
           <LoginData />
         </div>
 
-        <div className="admin__hotels">
+        <div id="hotels" className="admin__hotels">
           <List hotels={hotels} fallback={"Loading..."} />
         </div>
 
