@@ -4,9 +4,12 @@ import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { BASE_URL, FETCH_OPTIONS } from "../../constants/api";
+
 const emailRegex = RegExp(
   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<Per>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 );
+
 export default class ContactComponent extends React.Component {
   constructor(props) {
     super(props);
@@ -92,16 +95,26 @@ export default class ContactComponent extends React.Component {
     this.setState({ redirect: "/hotels" });
 
     const form = new FormData();
-    form.append("establishmentName", this.state.hotelName);
-    form.append("establishmentEmail", this.state.email);
-    form.append("imageUrl", this.state.image);
+    form.append("name", this.state.hotelName);
+    form.append("email", this.state.email);
+    form.append("image", this.state.image);
     form.append("maxGuests", this.state.maxGuests);
     form.append("price", this.state.price);
-    form.append("googleLat", this.state.lat);
-    form.append("googleLong", this.state.lng);
+    form.append("lat", this.state.lat);
+    form.append("lng", this.state.lng);
     form.append("description", this.state.description);
+    form.append("address", this.state.address);
     form.append("selfCatering", this.state.selfCatering);
     form.append("id", this.state.id);
+
+    const url = BASE_URL + "establishments";
+
+    FETCH_OPTIONS.method = "POST";
+    FETCH_OPTIONS.body = JSON.stringify(this.state);
+
+    fetch(url, FETCH_OPTIONS)
+      .then((r) => r.json())
+      .then((json) => console.log("admin" + json));
   };
 
   render() {
