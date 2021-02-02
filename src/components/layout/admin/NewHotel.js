@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import CardDeck from "react-bootstrap/CardDeck";
 
-function NewHotel() {
+export default function NewHotel() {
   const [hotels, setNewHotel] = useState([]);
 
   const [loading, setLoading] = useState(true);
@@ -34,7 +34,7 @@ function NewHotel() {
     fetch(url, FETCH_OPTIONS)
       .then((response) => response.json())
       .then((json) => {
-        setNewHotel(json);
+        console.log(json);
       })
       .catch((error) => console.log(error))
       .finally(() => setLoading(false));
@@ -81,4 +81,3 @@ function NewHotel() {
     </>
   );
 }
-export default NewHotel;

@@ -1,24 +1,46 @@
-import Spinner from "react-bootstrap/Spinner";
 import React, { useState, useEffect } from "react";
 import { BASE_URL, FETCH_OPTIONS } from "../../constants/api";
+import Spinner from "react-bootstrap/Spinner";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import HotelCard from "../hotels/HotelCard";
+import Search from "../home/Search";
 
 function DeleteHotel() {
-  const [setDeletedHotel] = useState([]);
+  const [hotels, setDeletedHotel] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const idDelete = "60143f2a2fb4965bfbc4d392";
-  const urlDelete = BASE_URL + "establishments/" + idDelete;
-  FETCH_OPTIONS.method = "DELETE";
+  const [filteredHotels, setFilteredHotels] = useState([]);
 
   useEffect(() => {
+    const idDelete = "601923fb1f74290c1bf2eb9c";
+    const urlDelete = BASE_URL + "establishments/" + idDelete;
+    FETCH_OPTIONS.method = "DELETE";
     fetch(urlDelete, FETCH_OPTIONS)
       .then((response) => response.json())
       .then((json) => {
         setDeletedHotel(json);
+        setFilteredHotels(json);
       })
       .catch((error) => console.log(error))
       .finally(() => setLoading(false));
-  });
+  }, []);
+
+  const filterHotels = function (e) {
+    const searchValue = e.target.value.toLowerCase();
+
+    const filteredArray = hotels.filter(function (h) {
+      const lowerCaseName = h.name.toLowerCase();
+
+      if (lowerCaseName.includes(searchValue)) {
+        return true;
+      }
+      return false;
+    });
+
+    setFilteredHotels(filteredArray);
+  };
 
   if (loading) {
     return (
@@ -29,6 +51,28 @@ function DeleteHotel() {
     );
   }
 
-  return;
+  return (
+    <Container>
+      <h1 className="main__title">Our Hotels</h1>
+      <Search handleSearch={filterHotels} />
+      <Row className="hotel">
+        {filteredHotels.map((hotel) => {
+          const { id, name, image, price, email } = hotel;
+
+          return (
+            <Col className="col-sm-12 col-md-6 col-lg-4" key={id}>
+              <HotelCard
+                id={id}
+                name={name}
+                image={image}
+                price={price}
+                email={email}
+              />
+            </Col>
+          );
+        })}
+      </Row>
+    </Container>
+  );
 }
 export default DeleteHotel;

@@ -6,7 +6,8 @@ import Col from "react-bootstrap/Col";
 import React, { useState, useEffect } from "react";
 import { BASE_URL, FETCH_OPTIONS } from "../../constants/api";
 import HotelCard from "../hotels/HotelCard";
-//import NewHotel from "../admin/NewHotel";
+import NewHotel from "../admin/NewHotel";
+import DeleteHotel from "../admin/DeleteHotel";
 import Search from "../home/Search";
 
 function Hotels() {
@@ -17,8 +18,22 @@ function Hotels() {
   const [filteredHotels, setFilteredHotels] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  //<a href="/hotelSpecific/601928da1f74296b87f2eba9"><button class="btn btn__card">View Hotel</button></a>
+  //<a href="/hotelSpecific/601928d01f74296f1ff2eba8"><button class="btn btn__card">View Hotel</button></a>
+  //<a href="/hotelSpecific/601928d01f7429a7a4f2eba7"><button class="btn btn__card">View Hotel</button></a>
+  //<a href="/hotelSpecific/601928d01f7429c7bbf2eba6"><button class="btn btn__card">View Hotel</button></a>
+  //<a href="/hotelSpecific/601928d01f742981aef2eba5"><button class="btn btn__card">View Hotel</button></a>
+  //<a href="/hotelSpecific/601928cf1f7429499ef2eba4"><button class="btn btn__card">View Hotel</button></a>
+  //<a href="/hotelSpecific/601928cf1f7429f1f7f2eba3"><button class="btn btn__card">View Hotel</button></a>
+  //<a href="/hotelSpecific/601928cf1f74296f87f2eba2"><button class="btn btn__card">View Hotel</button></a>
+  //<a href="/hotelSpecific/601928cf1f74291e19f2eba1"><button class="btn btn__card">View Hotel</button></a>
+  //<a href="/hotelSpecific/601928cf1f7429108ef2eba0"><button class="btn btn__card">View Hotel</button></a>
+  //<a href="/hotelSpecific/601928cf1f7429da33f2eb9f"><button class="btn btn__card">View Hotel</button></a>
+  //<a href="/hotelSpecific/601928cf1f74290246f2eb9e"><button class="btn btn__card">View Hotel</button></a>
+
   useEffect(() => {
     const url = BASE_URL + "establishments";
+
     fetch(url, FETCH_OPTIONS)
       .then((response) => response.json())
       .then((json) => {
