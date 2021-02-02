@@ -15,7 +15,9 @@ export default function Search({ handleSearch }) {
           aria-describedby="search-addon"
           onChange={(event) => handleSearch(event)}
         />{" "}
-        <SearchIcon />
+        <div className="search__box">
+          <SearchIcon />
+        </div>
       </div>
     </Form>
   );

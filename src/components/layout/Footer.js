@@ -26,7 +26,8 @@ function Footer() {
           <p>Bergen street 1</p>
 
           <p> (+47) 51 66 00 00</p>
-          <p>holidaze@company.com</p>
+
+          <a href="mailto: holidaze@company.com">holidaze@company.com</a>
 
           <p className="name"> Holidaze &copy; 2021</p>
         </Col>
