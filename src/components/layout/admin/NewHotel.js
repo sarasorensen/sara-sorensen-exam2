@@ -1,16 +1,13 @@
 import Spinner from "react-bootstrap/Spinner";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import React, { useState, useEffect } from "react";
 import { BASE_URL, FETCH_OPTIONS } from "../../constants/api";
-import HotelCard from "../hotels/HotelCard";
-//import NewHotel from "../admin/NewHotel";
-import Search from "../home/Search";
+import { Link } from "react-router-dom";
+import Card from "react-bootstrap/Card";
+import CardDeck from "react-bootstrap/CardDeck";
 
 function NewHotel() {
-  const [hotels, setHotels] = useState([]);
-  const [filteredHotels, setFilteredHotels] = useState([]);
+  const [hotels, setNewHotel] = useState([]);
+
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -37,27 +34,11 @@ function NewHotel() {
     fetch(url, FETCH_OPTIONS)
       .then((response) => response.json())
       .then((json) => {
-        setHotels(json);
-        setFilteredHotels(json);
+        setNewHotel(json);
       })
       .catch((error) => console.log(error))
       .finally(() => setLoading(false));
   }, []);
-
-  const filterHotels = function (e) {
-    const searchValue = e.target.value.toLowerCase();
-
-    const filteredArray = hotels.filter(function (h) {
-      const lowerCaseName = h.name.toLowerCase();
-
-      if (lowerCaseName.includes(searchValue)) {
-        return true;
-      }
-      return false;
-    });
-
-    setFilteredHotels(filteredArray);
-  };
 
   if (loading) {
     return (
@@ -69,27 +50,35 @@ function NewHotel() {
   }
 
   return (
-    <Container>
-      <h1 className="main__title">Our Hotels</h1>
-      <Search handleSearch={filterHotels} />
-      <Row className="hotel">
-        {filteredHotels.map((hotel) => {
-          const { id, name, image, price, email } = hotel;
-
-          return (
-            <Col className="col-sm-12 col-md-6 col-lg-4" key={id}>
-              <HotelCard
-                id={id}
-                name={name}
-                image={image}
-                price={price}
-                email={email}
-              />
-            </Col>
-          );
-        })}
-      </Row>
-    </Container>
+    <>
+      <CardDeck>
+        <Card className="hotel__card">
+          <Card.Body>
+            <Card.Img
+              variant="top"
+              className="hotel__img"
+              src={hotels.image}
+              alt={hotels.name}
+            />
+            <ul className="hotel__ul">
+              <li>
+                <Card.Title className="hotel__title">{hotels.name}</Card.Title>{" "}
+              </li>
+              <li>
+                Price: <span className="hotel__price">{hotels.price}$</span>
+              </li>
+              <li>
+                <p>{hotels.email}</p>
+              </li>
+            </ul>
+            <Link to={"hotelSpecific/" + hotels.id}>
+              <button className="btn btn__card">View Hotel</button>
+            </Link>
+          </Card.Body>
+        </Card>
+      </CardDeck>
+      ); }
+    </>
   );
 }
 export default NewHotel;
