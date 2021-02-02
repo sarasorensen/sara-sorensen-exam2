@@ -21,7 +21,6 @@
     padding: 0;
   }
 }
-
 .admin__text {
   text-align: center;
   width: 60%;
@@ -39,6 +38,26 @@
     text-align: left;
     font-size: 1.25rem;
   }
+}
+.admin__hotels {
+  width: 100%;
+  color: $color__grey;
+  background-color: $color__white;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 1em;
+  padding: 1em;
+  & a {
+    @include link__underline;
+  }
+  & h2 {
+    width: 100%;
+  }
+}
+.admin__map {
+  width: 15rem;
 }
 .admin__box {
   width: 100%;
@@ -70,4 +89,8 @@
     margin: 0;
     margin-bottom: 0.5em;
   }
+}
+.btn__messages {
+  float: left;
+  margin-top: 1em;
 }

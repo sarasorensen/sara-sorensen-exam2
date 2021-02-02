@@ -15,6 +15,7 @@ function Hotels() {
   const [hotels, setHotels] = useState([]);
   const [filteredHotels, setFilteredHotels] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   //<a href="/hotelSpecific/601928da1f74296b87f2eba9"><button class="btn btn__card">View Hotel</button></a>
   //<a href="/hotelSpecific/601928d01f74296f1ff2eba8"><button class="btn btn__card">View Hotel</button></a>
@@ -33,10 +34,19 @@ function Hotels() {
     const url = BASE_URL + "establishments";
 
     fetch(url, FETCH_OPTIONS)
-      .then((response) => response.json())
+      .then((response) => {
+        // check if the call was successful
+        if (response.status === 200) {
+          return response.json();
+        } else {
+          // unsuccessful call
+          setError("A server error occured.");
+        }
+      })
       .then((json) => {
         setHotels(json);
         setFilteredHotels(json);
+        setError(null);
       })
       .catch((error) => console.log(error))
       .finally(() => setLoading(false));
@@ -64,6 +74,10 @@ function Hotels() {
         <span className="sr-only">Loading content...</span>
       </div>
     );
+  }
+
+  if (error) {
+    return <div>{error}</div>;
   }
 
   return (

@@ -6,7 +6,7 @@ import Card from "react-bootstrap/Card";
 import CardDeck from "react-bootstrap/CardDeck";
 
 export default function NewHotel() {
-  const [hotels, setNewHotel] = useState([]);
+  const [hotels] = useState([]);
 
   const [loading, setLoading] = useState(true);
 
@@ -25,7 +25,6 @@ export default function NewHotel() {
         "A wonderful hotel surrounded by nature, a nice escape from the busy everyday life.",
       address: "Willow Road 25",
       selfCatering: true,
-      id: 12890138,
     };
 
     FETCH_OPTIONS.method = "POST";

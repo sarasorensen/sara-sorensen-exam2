@@ -10,6 +10,10 @@ export default function SideNav(props) {
       </a>
       <a href="#newHotel">
         <House />
+        All Hotels
+      </a>
+      <a href="#newHotel">
+        <House />
         New Hotel
       </a>
       <a href="#messages">

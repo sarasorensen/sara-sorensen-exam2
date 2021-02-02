@@ -2,25 +2,25 @@ import React, { useState, useEffect } from "react";
 import Spinner from "react-bootstrap/Spinner";
 import { BASE_URL, FETCH_OPTIONS } from "../../constants/api";
 
-export default function Messages() {
-  const url = BASE_URL + "enquiries";
-
+export default function Enquiries() {
   let enquiryInfo = JSON.parse(localStorage.getItem("enquiryInfo"));
 
   const [enquiries, setEnquiries] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    const url = BASE_URL + "enquiries";
     fetch(url, FETCH_OPTIONS)
       .then(function (response) {
         return response.json();
       })
-      .then(function (j) {
-        setEnquiries(j);
+      .then(function (data) {
+        console.log("enquiries" + data);
+        setEnquiries(data);
       })
       .catch((error) => console.log(error))
       .finally(() => setLoading(false));
-  });
+  }, []);
 
   if (loading) {
     return (

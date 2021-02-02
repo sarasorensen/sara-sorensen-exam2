@@ -24,7 +24,6 @@ export default class ContactComponent extends React.Component {
       description: "",
       address: "",
       selfCatering: "",
-      id: "",
       formErrors: {
         hotelName: "",
         email: "",
@@ -105,7 +104,6 @@ export default class ContactComponent extends React.Component {
     form.append("description", this.state.description);
     form.append("address", this.state.address);
     form.append("selfCatering", this.state.selfCatering);
-    form.append("id", this.state.id);
 
     const url = BASE_URL + "establishments";
 
@@ -330,23 +328,6 @@ export default class ContactComponent extends React.Component {
           </Form.Group>
           <Form.Group>
             <Row>
-              <Col className="col-sm-6">
-                <Form.Label htmlFor="id" className="form__label">
-                  Id:
-                </Form.Label>
-                <input
-                  type="text"
-                  name="id"
-                  id="id"
-                  className="form__inline"
-                  placeholder="12679"
-                  required="required"
-                  value={this.state.id}
-                  onChange={this.handleChange}
-                  aria-required="true"
-                />
-              </Col>
-
               <Col className="col-sm-6">
                 <Form.Label
                   htmlFor="selfCatering"

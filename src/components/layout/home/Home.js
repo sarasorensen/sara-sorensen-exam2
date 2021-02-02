@@ -27,7 +27,6 @@ export function Home() {
       .then((json) => {
         setHotels(json);
         setFilteredHotels(json);
-        console.log(json);
       })
       .catch((error) => console.log(error))
       .finally(() => setLoading(false));

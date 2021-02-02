@@ -507,6 +507,7 @@ body {
 
 .icon {
   width: 1.2em;
+  margin-right: 0.5em;
 }
 
 .icon__form {
@@ -821,6 +822,54 @@ body {
   font-size: 1.25rem;
 }
 
+.admin__hotels {
+  width: 100%;
+  color: #293338;
+  background-color: #ffffff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 1em;
+  padding: 1em;
+}
+
+.admin__hotels a {
+  color: #293338;
+  text-decoration: underline;
+  font-family: Arial, Helvetica, sans-serif;
+  transition: 0.3s ease all;
+  -moz-transition: 0.3s ease all;
+  -webkit-transition: 0.3s ease all;
+}
+
+.admin__hotels a:hover {
+  transition: 0.3s ease all;
+  -moz-transition: 0.3s ease all;
+  -webkit-transition: 0.3s ease all;
+  text-decoration: none;
+}
+
+.admin__hotels a:hover:hover {
+  opacity: 0.7;
+}
+
+.admin__hotels h2 {
+  width: 100%;
+}
+
+.admin__map {
+  width: 15rem;
+}
+
 .admin__box {
   width: 100%;
   background-color: #f4f5f4;
@@ -855,6 +904,11 @@ body {
   text-align: center;
   margin: 0;
   margin-bottom: 0.5em;
+}
+
+.btn__messages {
+  float: left;
+  margin-top: 1em;
 }
 
 .enquiry__name {
@@ -1057,9 +1111,9 @@ body {
 }
 
 .hotel__card .hotel__img {
-  min-width: 20vh;
-  min-height: 20vh;
-  max-height: 20vh;
+  min-width: 25vh;
+  min-height: 30vh;
+  max-height: 30vh;
 }
 
 .hotel__card .hotel__title {
