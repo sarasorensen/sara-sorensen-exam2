@@ -36,7 +36,9 @@ export default function Messages() {
     //window.open("mailto" + {item.email});
   };
 
-  if (contactInfo === null) {
+  if (messages === null) {
+    return null;
+  } else if (contactInfo === null) {
     return (
       <div id="messages" className="admin__col">
         <h2 className="admin__h2">Messages from Clients</h2>

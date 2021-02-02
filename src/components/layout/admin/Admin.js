@@ -6,7 +6,6 @@ import AllEnquiries from "./AllEnquiries";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import LoginData from "./LoginData";
-//import { Access } from "../../constants/icons";
 import SideNav from "./SideNav";
 import NewHotelForm from "./NewHotelForm";
 import { BASE_URL, FETCH_OPTIONS } from "../../constants/api";
@@ -17,11 +16,10 @@ export default function Admin() {
   <Heading title="Administrator dashboard" />;
 
   const [hotels, setHotels] = useState([]);
-  //const [setDeletedHotel] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  let formInput = localStorage.getItem("formInput");
+  //let formInput = localStorage.getItem("formInput");
 
   useEffect(() => {
     const url = BASE_URL + "establishments";
@@ -54,31 +52,6 @@ export default function Admin() {
 
   if (error) {
     return <div>{error}</div>;
-  }
-
-  function NewHotel({ fallback }) {
-    if (!formInput || formInput.length === 0) {
-      return fallback;
-    } else {
-      const url = BASE_URL + "establishments";
-      FETCH_OPTIONS.method = "POST";
-      FETCH_OPTIONS.body = JSON.stringify(formInput);
-
-      fetch(url, FETCH_OPTIONS)
-        .then((response) => {
-          if (response.status === 200) {
-            return response.json();
-          } else {
-            setError("A server error occured.");
-          }
-        })
-        .then((json) => {
-          console.log("new " + json);
-          setError(null);
-        })
-        .catch((error) => console.log(error))
-        .finally(() => setLoading(false));
-    }
   }
 
   const removeItem = function (hotel) {

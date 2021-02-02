@@ -17,7 +17,6 @@ import Enquiry from "./admin/Enquiry";
 import Admin from "./admin/Admin";
 import Footer from "./Footer";
 import Success from "../layout/admin/Success";
-import NewHotel from "../layout/admin/NewHotel";
 import Logo from "../../images/logo-y.png";
 import { Person } from "../constants/icons";
 
@@ -63,7 +62,6 @@ const Layout = () => (
         <Route path="/hotelSpecific/:id" component={HotelSpecific} />
         <Route path="/success" component={Success} />
         <Route path="/enquiry/:id" component={Enquiry} />
-        <Route path="/newHotel" component={NewHotel} />
         <Route path="/admin" component={Admin} />
       </Switch>
     </Container>

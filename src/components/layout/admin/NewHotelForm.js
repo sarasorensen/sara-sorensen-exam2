@@ -1,4 +1,5 @@
 import React from "react";
+import { BASE_URL, FETCH_OPTIONS } from "../../constants/api";
 import { Redirect } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
@@ -55,6 +56,7 @@ export default class ContactComponent extends React.Component {
       this.state.lng.length < 1 ? "Minimum 1 character required" : "";
     formErrors.description =
       this.state.description.length < 1 ? "Minimum 1 character required" : "";
+
     formErrors.address =
       this.state.address.length < 1 ? "Minimum 1 character required" : "";
     this.setState({ formErrors });
@@ -106,6 +108,23 @@ export default class ContactComponent extends React.Component {
     };
 
     localStorage.setItem("formInput", JSON.stringify(formInput));
+
+    const url = BASE_URL + "establishments";
+    FETCH_OPTIONS.method = "POST";
+    FETCH_OPTIONS.body = JSON.stringify(formInput);
+
+    fetch(url, FETCH_OPTIONS)
+      .then((response) => {
+        if (response.status === 200) {
+          return response.json();
+        } else {
+          console.log("error");
+        }
+      })
+      .then((json) => {
+        console.log("new" + json);
+      })
+      .catch((error) => console.log(error));
   };
 
   render() {

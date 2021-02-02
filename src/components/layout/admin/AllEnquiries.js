@@ -31,7 +31,9 @@ export default function Enquiries() {
     );
   }
 
-  if (enquiryInfo === null) {
+  if (enquiries === null) {
+    return null;
+  } else if (enquiryInfo === null) {
     return (
       <div id="enquiries" className="admin__col">
         <h2 className="admin__h2">Enquiries from Clients</h2>
