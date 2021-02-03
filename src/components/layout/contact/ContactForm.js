@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
-import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { BASE_URL, headers } from "../../constants/api";
 import Container from "react-bootstrap/Container";
@@ -25,8 +24,6 @@ function Contact() {
   const history = useHistory();
 
   async function onSubmit(data) {
-    console.log("data", data);
-
     const url = BASE_URL + "contacts";
 
     const options = { headers, method: "POST", body: JSON.stringify(data) };
@@ -64,7 +61,6 @@ function Contact() {
               />
               <div className="invalid-feedback">{errors.name?.message}</div>
             </Form.Group>
-
             <Form.Group>
               <Form.Label className="form__label">
                 {" "}
@@ -80,7 +76,6 @@ function Contact() {
               />
               <div className="invalid-feedback">{errors.email?.message}</div>
             </Form.Group>
-
             <Form.Group>
               <Form.Label htmlFor="message" className="form__label">
                 <Message />
@@ -99,8 +94,9 @@ function Contact() {
               />
               <div className="invalid-feedback">{errors.message?.message}</div>
             </Form.Group>
-
-            <Button type="submit">Submit</Button>
+            <button className="btn" type="submit">
+              Submit
+            </button>
           </Form>
         </Col>
       </Row>

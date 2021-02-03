@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
-import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { BASE_URL, headers } from "../../constants/api";
 import Container from "react-bootstrap/Container";
@@ -68,7 +67,6 @@ function Enquiry() {
               />
               <div className="invalid-feedback">{errors.name?.message}</div>
             </Form.Group>
-
             <Form.Group>
               <Form.Label className="form__label">
                 {" "}
@@ -84,7 +82,6 @@ function Enquiry() {
               />
               <div className="invalid-feedback">{errors.email?.message}</div>
             </Form.Group>
-
             <Form.Group>
               <Form.Label htmlFor="checkin" className="form__label">
                 Check In
@@ -117,8 +114,9 @@ function Enquiry() {
               />
               <div className="invalid-feedback">{errors.checkout?.message}</div>
             </Form.Group>
-
-            <Button type="submit">Submit</Button>
+            <button className="btn" type="submit">
+              Submit
+            </button>
           </Form>
         </Col>
       </Row>

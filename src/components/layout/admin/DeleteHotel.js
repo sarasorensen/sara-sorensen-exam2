@@ -13,11 +13,11 @@ function DeleteHotel(props) {
       title: "Confirm deletion",
       buttons: [
         {
-          label: "yes",
+          label: "Delete",
           onClick: () => deleteHotel(),
         },
         {
-          label: "no",
+          label: "Cancel",
         },
       ],
     });

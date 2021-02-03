@@ -8,7 +8,7 @@ function Footer() {
   return (
     <div className="footer">
       <Row>
-        <Col xs={12} md={6} lg={2} className="footer__col">
+        <Col className="footer__col">
           <h2 className="footer__heading">About Us</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -17,7 +17,7 @@ function Footer() {
             aliquip ex ea commodo consequat.
           </p>
         </Col>
-        <Col xs={12} md={6} lg={2} className="footer__col">
+        <Col className="footer__col">
           <a href="/">
             {" "}
             <img src={Logo} className="logo footer__logo" alt="company logo " />
@@ -31,7 +31,7 @@ function Footer() {
 
           <p className="name"> Holidaze &copy; 2021</p>
         </Col>
-        <Col xs={12} md={6} lg={2} className="footer__col">
+        <Col className="footer__col">
           <h2 className="footer__heading">Links</h2>
           <ul className="footer__menu">
             <li>
